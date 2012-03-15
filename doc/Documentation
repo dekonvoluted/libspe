@@ -1,0 +1,96 @@
+libspe has optional eigen extensions that depend on the
+Eigen library (http://eigen.tuxfamily.org/).
+Refer to the Eigen library documentation for usage information.
+
+Usage (libspe):
+
+* Just place the spe directory anywhere in your file system.
+* Start hacking!
+
+The following is a quick example to get you started on libspe.
+We'll read data from an spe file into C++ and write it back out.
+Here's the contents of a sample program (main.cpp):
+
+*******************************************************************************
+* #include <string>                                                           *
+* #include "spe.h"                                                            *
+*                                                                             *
+* #include <vector>                                                           *
+* #include "utils/speutils.h"                                                 *
+*                                                                             *
+* #include <Eigen/Core>                                                       *
+* #include "eigen/speutils-eigen.h"                                           *
+*                                                                             *
+* #include <fstream>                                                          *
+*                                                                             *
+* using namespace std;                                                        *
+* using namespace Eigen;                                                      *
+*                                                                             *
+* int main()                                                                  *
+* {                                                                           *
+*   vector<string> files = lsspe( "./" );                                     *
+*   speFile* imageFile;                                                       *
+*   ofstream outFile;                                                         *
+*                                                                             *
+*   imageFile = new speFile( files[ 0 ] );                                    *
+*                                                                             *
+*   MatrixXf image;                                                           *
+*   image.setZero( imageFile->rows(), imageFile->cols() );                    *
+*                                                                             *
+*   image = readAverage( imageFile );                                         *
+*                                                                             *
+*   outFile.open( "image.dat" );                                              *
+*   outFile << image << endl;                                                 *
+*   outFile.close();                                                          *
+*                                                                             *
+*   delete imageFile;                                                         *
+*                                                                             *
+*   return 0;                                                                 *
+* }                                                                           *
+*                                                                             *
+*******************************************************************************
+
+The above program should read in the first spe file in a directory
+and average all the frames in it and write it to a plaintext file.
+The plaintext dat file can be used with gnuplot to plot the image.
+
+Here's the accompanying CMakeLists.txt file to compile it:
+
+*******************************************************************************
+* cmake_minimum_required(VERSION 2.8)                                         *
+*                                                                             *
+* project(main)                                                               *
+*                                                                             *
+* set(CMAKE_CXX_FLAGS "-g -O2 -Wall")                                         *
+*                                                                             *
+* include_directories(/path/to/spe)                                           *
+* include_directories(/path/to/spe/utils/)                                    *
+* include_directories(/path/to/eigen2)                                        *
+* include_directories(/path/to/spe/eigen/)                                    *
+*                                                                             *
+* add_subdirectory(/path/to/spe ${CMAKE_BINARY_DIR}/spe)                      *
+* add_subdirectory(/path/to/spe/utils ${CMAKE_BINARY_DIR}/spe/utils)          *
+* add_subdirectory(/path/to/spe/eigen ${CMAKE_BINARY_DIR}/spe/eigen)          *
+*                                                                             *
+* add_executable(main main.cpp)                                               *
+*                                                                             *
+* target_link_libraries(main spe)                                             *
+* target_link_libraries(main speutils)                                        *
+* target_link_libraries(main speutils-eigen)                                  *
+*                                                                             *
+*******************************************************************************
+
+This will use cmake to prepare a make file and compile your program.
+Place the CMakeLists.txt file along with your main file.
+Execute the following commands:
+
+mkdir build
+cd build
+cmake ..
+make
+mv main ../
+
+This should compile your code, produce an executable and move it to
+the source directory.
+To run the code, simply type ./main.
+
