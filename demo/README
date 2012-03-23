@@ -14,13 +14,32 @@
 * You should have received a copy of the GNU General Public License
 * along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-NOTE: libspe has optional eigen extensions that depend on the
-Eigen library (http://eigen.tuxfamily.org/).
-Refer to the Eigen library documentation for usage information.
+This is a simple demonstration to get you started.
+We'll read data from an spe file into C++ and write it back out.
+Refer to the contents of the demo directory for more information.
 
-Usage (libspe):
+Files:
 
-TODO: Add documentation
+* demo.cpp
+* CMakeLists.txt
+* image.spe
 
-* Just place the spe directory anywhere in your file system.
-* Include in your source code and start hacking!
+Here are the steps to compile and run the demo:
+
+* Create a build directory and switch into it
+mkdir build
+cd build
+
+* Run cmake and make
+cmake ..
+make
+
+* Move executable back to the original directory and run it there.
+mv demo ../
+cd ..
+./demo
+
+You will get a demonstration of various libspe functions.
+demo will also create a plaintext datafile (image.dat).
+Use gnuplot or similar programs to plot it!
+

@@ -30,4 +30,4 @@ files in a directory, etc.
 The extensions are independent of each other.
 Your code may use both of them, either one of them, or neither of them.
 
-Refer to documentation and sample code in doc/.
+Refer to documentation in doc/ and sample demo code in demo/.
