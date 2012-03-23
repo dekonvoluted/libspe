@@ -17,7 +17,7 @@
 #include <string>
 #include "../spe.h"
 
-#include <eigen2/Eigen/Core>
+#include <Eigen/Core>
 #include "speutils-eigen.h"
 
 #include <fstream>
