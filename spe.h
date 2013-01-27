@@ -173,7 +173,7 @@ class speFile
     WORD starty;                        // top y start value
     WORD endy;                          // bottom y value
     WORD groupy;                        // amount y is binned/grouped in hw
-  } ROIinfoblk[ ROIMAX ];               // ROI starting offsets: 1512, 1524, 1536, 1548, 1560, 1572, 1584, 1596, 1608, 1620
+  } ROIinfoblk[ ROIMAX ];               // ROI info blocks
   char FlatField[ HDRNAMEMAX ];         // Flat field file name
   char background[ HDRNAMEMAX ];        // background sub file name
   char blemish[ HDRNAMEMAX ];           // blemish file name
