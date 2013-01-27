@@ -5,12 +5,12 @@
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // libspe is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -19,6 +19,7 @@
 
 #include <string>
 #include <ostream>
+#include <fstream>
 #include <Eigen/Core>
 
 // Custom data types used in the structure
@@ -220,7 +221,7 @@ class speFile
   short AvGain;                         // avalanche gain value
   short lastvalue;                      // Always the last value in the header
 
-  std::string filePath;                 // Path to the SPE file, empty = file is invalid
+  std::ifstream infile;                 // Path to the SPE file, empty = file is invalid
 
 public:
   speFile( std::string );
