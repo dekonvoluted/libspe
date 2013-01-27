@@ -17,6 +17,10 @@
 #ifndef SPE_H
 #define SPE_H
 
+#include <string>
+#include <ostream>
+#include <Eigen/Core>
+
 // Custom data types used in the structure
 typedef unsigned char BYTE;
 typedef unsigned short WORD;
@@ -36,6 +40,7 @@ class speFile
 // Represents an SPE image
 // Implements Version 2.5 Header (3/23/04)
 {
+  // Data structure
   short ControllerVersion;              // Hardware Version
   short LogicOutput;                    // Definition of Output BNC
   WORD AmpHiCapLowNoise;                // Amp Switching Mode
@@ -214,6 +219,19 @@ class speFile
   short AvGainUsed;                     // avalanche gain was used
   short AvGain;                         // avalanche gain value
   short lastvalue;                      // Always the last value in the header
+
+  std::string filePath;                 // Path to the SPE file, empty = file is invalid
+
+public:
+  speFile( std::string );
+
+  bool setfilePath( const std::string );                            // Returns true if file was found and valid
+
+  void printInfo() const;                                           // Outputs basic information from file header
+  void printMetadata() const;                                       // Outputs detailed information from file header (verbose!)
+  friend std::ostream& operator<<( std::ostream&, const speFile& ); // Print file contents to screen (gnuplot-friendly)
+  Eigen::MatrixXf getImage( unsigned ) const;                       // Gets one frame from image
+  Eigen::MatrixXf getAverage() const;                               // Gets average of all frames from image
 };
 
 #endif
