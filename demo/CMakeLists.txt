@@ -14,23 +14,18 @@
 # You should have received a copy of the GNU General Public License
 # along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required( VERSION 2.8 )
 
-project(demo)
+project( demo )
 
-set(CMAKE_CXX_FLAGS "-g -O2 -Wall")
+set( CMAKE_CXX_FLAGS "-g -O2 -Wall" )
 
-include_directories(..)
-include_directories(../utils)
-include_directories(/usr/include/eigen2)
-include_directories(../eigen)
+include_directories( ${CMAKE_SOURCE_DIR}/.. )
+include_directories( /usr/include/eigen2 )
 
-add_subdirectory(.. ${CMAKE_BINARY_DIR}/spe)
-add_subdirectory(../utils ${CMAKE_BINARY_DIR}/spe/utils)
-add_subdirectory(../eigen ${CMAKE_BINARY_DIR}/spe/eigen)
+link_directories( ${CMAKE_SOURCE_DIR}/.. )
 
-add_executable(demo demo.cpp)
+add_executable( demo demo.cpp )
 
-target_link_libraries(demo spe)
-target_link_libraries(demo speutils)
-target_link_libraries(demo speutils-eigen)
+target_link_libraries( demo spe )
+
