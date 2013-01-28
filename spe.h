@@ -41,7 +41,7 @@ class speFile
 // Represents an SPE image
 // Implements Version 2.5 Header (3/23/04)
 {
-  // Data structure
+  // Data structure of the header
   short ControllerVersion;              // Hardware Version
   short LogicOutput;                    // Definition of Output BNC
   WORD AmpHiCapLowNoise;                // Amp Switching Mode
@@ -138,7 +138,7 @@ class speFile
   char Spare_3[ 16 ];                   //
   short kin_trig_mode;                  // Kinetics Trigger Mode
   char dlabel[ LABELMAX ];              // Data label
-  char Space_4[ 436 ];                  //
+  char Spare_4[ 436 ];                  //
   char PulseFileName[ HDRNAMEMAX ];     // Name of Pulser File with Pulse Widths/Delays (for Z-Slice)
   char AbsorbFileName[ HDRNAMEMAX ];    // Name of Absorbance File (if File Mode)
   DWORD NumExpRepeats;                  // Number of Times experiment repeated
@@ -213,9 +213,9 @@ class speFile
   BYTE PulseBracketUsed;                // pulser bracket pulsing on/off
   BYTE PulseBracketType;                // pulser bracket pulsing type
   double PulseTimeConstFast;            // pulser fast exponential time constant (in usec)
-  double PulseAmplituteFast;            // pulser fast exponential amplitute constant
+  double PulseAmplitudeFast;            // pulser fast exponential amplitude constant
   double PulseTimeConstSlow;            // pulser slow exponential time constant (in usec)
-  double PulseAmplituteSlow;            // pulser slow exponential amplitute constant
+  double PulseAmplitudeSlow;            // pulser slow exponential amplitude constant
   short AnalogGain;                     // analog gain
   short AvGainUsed;                     // avalanche gain was used
   short AvGain;                         // avalanche gain value
@@ -223,15 +223,24 @@ class speFile
 
   std::ifstream infile;                 // Path to the SPE file, empty = file is invalid
 
+  template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET )
+  {
+    if( infile.good() ) {
+      infile.seekg( BYTE_OFFSET );
+      infile.read( reinterpret_cast<char*>( &value ), sizeof( value ) );
+    }
+  }
+
 public:
   speFile( std::string );
+  ~speFile();
 
   bool setfilePath( const std::string );                            // Returns true if file was found and valid
 
   void printInfo() const;                                           // Outputs basic information from file header
   void printMetadata() const;                                       // Outputs detailed information from file header (verbose!)
   friend std::ostream& operator<<( std::ostream&, const speFile& ); // Print file contents to screen (gnuplot-friendly)
-  Eigen::MatrixXf getImage( unsigned ) const;                       // Gets one frame from image
+  Eigen::MatrixXf getFrame( unsigned ) const;                       // Gets one frame from image
   Eigen::MatrixXf getAverage() const;                               // Gets average of all frames from image
 };
 

@@ -139,7 +139,7 @@ metadata.
  708  0x02C4  Spare_3
  724  0x02D4  kin_trig_mode
  726  0x02D6  dlabel
- 742  0x02E6  Space_4
+ 742  0x02E6  Spare_4
 1178  0x049A  PulseFileName
 1298  0x0512  AbsorbFileName
 1418  0x058A  NumExpRepeats
@@ -195,9 +195,9 @@ metadata.
 4058  0x0FDA  PulseBracketUsed
 4059  0x0FDB  PulseBracketType
 4060  0x0FDC  PulseTimeConstFast
-4068  0x0FE4  PulseAmplituteFast
+4068  0x0FE4  PulseAmplitudeFast
 4076  0x0FEC  PulseTimeConstSlow
-4084  0x0FF4  PulseAmplituteSlow
+4084  0x0FF4  PulseAmplitudeSlow
 4092  0x0FFC  AnalogGain
 4094  0x0FFE  AvGainUsed
 4096  0x1000  AvGain
