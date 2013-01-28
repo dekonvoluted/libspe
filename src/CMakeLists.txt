@@ -16,9 +16,9 @@
 
 cmake_minimum_required( VERSION 2.8 )
 
-include_directories( /usr/include/eigen2 ) #FIXME: Search and find Eigen libraries
+include_directories( .. )
 
-add_subdirectory( src )
+set( SPE_SOURCES spe.cpp speutils.cpp )
 
-install( FILES ${CMAKE_BINARY_DIR}/src/libspe.so DESTINATION ${CMAKE_SOURCE_DIR} )
+add_library( spe SHARED ${SPE_SOURCES} )
 
