@@ -22,10 +22,10 @@ set( CMAKE_CXX_FLAGS "-g -O2 -Wall" )
 
 include_directories( ${CMAKE_SOURCE_DIR}/.. )
 include_directories( /usr/include/eigen2 )
-
 link_directories( ${CMAKE_SOURCE_DIR}/.. )
 
 add_executable( demo demo.cpp )
-
 target_link_libraries( demo spe )
+
+install( PROGRAMS ${CMAKE_BINARY_DIR}/demo DESTINATION ${CMAKE_SOURCE_DIR} )
 

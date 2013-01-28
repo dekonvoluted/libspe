@@ -180,15 +180,30 @@ const unsigned short OFFSET_AVGAINUSED            = 0x0FFE;
 const unsigned short OFFSET_AVGAIN                = 0x1000;
 const unsigned short OFFSET_LASTVALUE             = 0x1002;
 
-speFile::speFile( std::string filePath )
+speFile::speFile( const std::string& filePath )
 {
-  if( infile.is_open() ) infile.close();
-  infile.open( filePath.c_str(), std::ios::in | std::ios::binary );
-  if( infile.fail() ) infile.close();
+  setFilePath( filePath );
 }
 
 speFile::~speFile()
 {
   if( infile.is_open() ) infile.close();
+}
+
+bool speFile::setFilePath( const std::string& filePath )
+{
+  if( infile.is_open() ) infile.close();
+  infile.open( filePath.c_str(), std::ios::in | std::ios::binary );
+  if( infile.fail() ) infile.close();
+
+  // Retrieve some basic metadata TODO: Expand to cover all pertinent fields
+  retrieve( xdim, OFFSET_XDIM );
+  retrieve( ydim, OFFSET_YDIM );
+  retrieve( NumFrames, OFFSET_NUMFRAMES );
+}
+
+void speFile::printInfo() const
+{
+  std::cout << xdim << " rows x " << ydim << " cols x " << NumFrames << " frames." << std::endl;
 }
 

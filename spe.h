@@ -232,15 +232,15 @@ class speFile
   }
 
 public:
-  speFile( std::string );
+  speFile( const std::string& );
   ~speFile();
 
-  bool setfilePath( const std::string );                            // Returns true if file was found and valid
+  bool setFilePath( const std::string& );                            // Returns true if file was found and valid
 
   void printInfo() const;                                           // Outputs basic information from file header
   void printMetadata() const;                                       // Outputs detailed information from file header (verbose!)
   friend std::ostream& operator<<( std::ostream&, const speFile& ); // Print file contents to screen (gnuplot-friendly)
-  Eigen::MatrixXf getFrame( unsigned ) const;                       // Gets one frame from image
+  Eigen::MatrixXf getFrame( const unsigned& ) const;                       // Gets one frame from image
   Eigen::MatrixXf getAverage() const;                               // Gets average of all frames from image
 };
 
