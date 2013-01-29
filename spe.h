@@ -82,7 +82,7 @@ class speFile
   short YPrePixels;                     // Pre Pixels in Y direction
   short YPostPixels;                    // Post Pixels in Y direction
   short asynen;                         // asynchron enable flag 0 = off
-  short datatype;                       // experiment datatype -1 = invalid, 0 = float (4 bytes), 1 = long (4 bytes), 2 = short (2 bytes), 3 = unsigned short (2 bytes)
+  short datatype;                       // experiment datatype, 0 = float (4 bytes), 1 = long (4 bytes), 2 = short (2 bytes), 3 = unsigned short (2 bytes)
   short PulserMode;                     // Repetitive/Sequential
   WORD PulserOnChipAccums;              // Num PTG On-Chip Accums
   DWORD PulseRepeatExp;                 // Num Exp Repeats (Pulser SW Accum)

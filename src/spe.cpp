@@ -179,6 +179,7 @@ const unsigned short OFFSET_ANALOGGAIN            = 0x0FFC;
 const unsigned short OFFSET_AVGAINUSED            = 0x0FFE;
 const unsigned short OFFSET_AVGAIN                = 0x1000;
 const unsigned short OFFSET_LASTVALUE             = 0x1002;
+const unsigned short OFFSET_DATA                  = 0x1004;
 
 speFile::speFile( const std::string& filePath )
 {
@@ -196,14 +197,46 @@ bool speFile::setFilePath( const std::string& filePath )
   infile.open( filePath.c_str(), std::ios::in | std::ios::binary );
   if( infile.fail() ) infile.close();
 
+  // Perform tests to make sure the file is a valid SPE file
+
+  // Populate metadata
+  retrieve( ControllerVersion, OFFSET_CONTROLLERVERSION );
+  retrieve( LogicOutput, OFFSET_LOGICOUTPUT );
+  retrieve( AmpHiCapLowNoise, OFFSET_AMPHICAPLOWNOISE );
+
   // Retrieve some basic metadata TODO: Expand to cover all pertinent fields
   retrieve( xdim, OFFSET_XDIM );
+  retrieve( datatype, OFFSET_DATATYPE );
   retrieve( ydim, OFFSET_YDIM );
   retrieve( NumFrames, OFFSET_NUMFRAMES );
 }
 
 void speFile::printInfo() const
 {
-  std::cout << xdim << " rows x " << ydim << " cols x " << NumFrames << " frames." << std::endl;
+  if( !infile.is_open() ) return;
+
+  std::cout << "Summary Information" << std::endl;
+  std::cout << "-------------------" << std::endl;
+  std::cout << "Dimensions: " << xdim << " rows x " << ydim << " cols" << std::endl;
+  std::cout << "Number of frames: " << NumFrames << std::endl;
+  std::cout << std::endl;
+}
+
+void speFile::printMetadata() const
+{
+  if( !infile.is_open() ) return;
+
+  std::cout << "Detailed Information" << std::endl;
+  std::cout << "--------------------" << std::endl;
+
+  std::cout << "ControllerVersion (Hardware version): " << ControllerVersion << std::endl;
+  std::cout << "LogicOutput (Definition of Output BNC): " << LogicOutput << std::endl;
+  std::cout << "AmpHiCapLowNoise (Amp switching mode): " << AmpHiCapLowNoise << std::endl;
+
+  std::cout << "xdim (actual # of pixels on x axis): " << xdim << std::endl;
+  std::cout << "datatype (experiment datatype): " << datatype << std::endl;
+  std::cout << "ydim (y dimension of raw data): " << ydim << std::endl;
+  std::cout << "NumFrames (number of frames in file): " << NumFrames << std::endl;
+  std::cout << std::endl;
 }
 

@@ -23,6 +23,7 @@ int main()
   speFile* image = new speFile( "image.spe" );
 
   image->printInfo();
+  image->printMetadata();
 
   delete image;
 
