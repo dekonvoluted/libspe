@@ -29,7 +29,7 @@ const unsigned short OFFSET_VCHIPYDIM             = 0x0010;
 const unsigned short OFFSET_YDIMDET               = 0x0012;
 const unsigned short OFFSET_DATE                  = 0x0014;
 const unsigned short OFFSET_VIRTUALCHIPFLAG       = 0x001E;
-const unsigned short OFFSET_SPARE_1               = 0x0020;
+//const unsigned short OFFSET_SPARE_1               = 0x0020;
 const unsigned short OFFSET_NOSCAN                = 0x0022;
 const unsigned short OFFSET_DETTEMPERATURE        = 0x0024;
 const unsigned short OFFSET_DETTYPE               = 0x0028;
@@ -109,14 +109,14 @@ const unsigned short OFFSET_LNOSCAN               = 0x0298;
 const unsigned short OFFSET_LAVGEXP               = 0x029C;
 const unsigned short OFFSET_READOUTTIME           = 0x02A0;
 const unsigned short OFFSET_TRIGGEREDMODEFLAG     = 0x02A4;
-const unsigned short OFFSET_SPARE_2               = 0x02A6;
+//const unsigned short OFFSET_SPARE_2               = 0x02A6;
 const unsigned short OFFSET_SW_VERSION            = 0x02B0;
 const unsigned short OFFSET_TYPE                  = 0x02C0;
 const unsigned short OFFSET_FLATFIELDAPPLIED      = 0x02C2;
-const unsigned short OFFSET_SPARE_3               = 0x02C4;
+//const unsigned short OFFSET_SPARE_3               = 0x02C4;
 const unsigned short OFFSET_KIN_TRIG_MODE         = 0x02D4;
 const unsigned short OFFSET_DLABEL                = 0x02D6;
-const unsigned short OFFSET_SPARE_4               = 0x02E6;
+//const unsigned short OFFSET_SPARE_4               = 0x02E6;
 const unsigned short OFFSET_PULSEFILENAME         = 0x049A;
 const unsigned short OFFSET_ABSORBFILENAME        = 0x0512;
 const unsigned short OFFSET_NUMEXPREPEATS         = 0x058A;
@@ -140,7 +140,7 @@ const unsigned short OFFSET_WINDOWSIZE            = 0x05CA;
 const unsigned short OFFSET_CLKSPD                = 0x05CC;
 const unsigned short OFFSET_INTERFACE_TYPE        = 0x05CE;
 const unsigned short OFFSET_NUMROISINEXPERIMENT   = 0x05D0;
-const unsigned short OFFSET_SPARE_5               = 0x05D2;
+//const unsigned short OFFSET_SPARE_5               = 0x05D2;
 const unsigned short OFFSET_CONTROLLERNUM         = 0x05E2;
 const unsigned short OFFSET_SWMADE                = 0x05E4;
 const unsigned short OFFSET_NUMROI                = 0x05E6;
@@ -163,7 +163,7 @@ const unsigned short OFFSET_WINVIEW_ID            = 0x0BB4;
 const unsigned short OFFSET_XCALIBRATION          = 0x0BB8;
 const unsigned short OFFSET_YCALIBRATION          = 0x0DA1;
 const unsigned short OFFSET_ISTRING               = 0x0F8A;
-const unsigned short OFFSET_SPARE_6               = 0x0FB2;
+//const unsigned short OFFSET_SPARE_6               = 0x0FB2;
 const unsigned short OFFSET_SPECTYPE              = 0x0FCB;
 const unsigned short OFFSET_SPECMODEL             = 0x0FCC;
 const unsigned short OFFSET_PULSEBURSTUSED        = 0x0FCD;
@@ -203,12 +203,152 @@ bool speFile::setFilePath( const std::string& filePath )
   retrieve( ControllerVersion, OFFSET_CONTROLLERVERSION );
   retrieve( LogicOutput, OFFSET_LOGICOUTPUT );
   retrieve( AmpHiCapLowNoise, OFFSET_AMPHICAPLOWNOISE );
-
-  // Retrieve some basic metadata TODO: Expand to cover all pertinent fields
+  retrieve( xDimDet, OFFSET_XDIMDET );
+  retrieve( mode, OFFSET_MODE );
+  retrieve( exp_sec, OFFSET_EXP_SEC );
+  retrieve( VChipXdim, OFFSET_VCHIPXDIM );
+  retrieve( VChipYdim, OFFSET_VCHIPYDIM );
+  retrieve( yDimDet, OFFSET_YDIMDET );
+  retrieve( date, OFFSET_DATE );
+  retrieve( VirtualChipFlag, OFFSET_VIRTUALCHIPFLAG );
+  retrieve( noscan, OFFSET_NOSCAN );
+  retrieve( DetTemperature, OFFSET_DETTEMPERATURE );
+  retrieve( DetType, OFFSET_DETTYPE );
   retrieve( xdim, OFFSET_XDIM );
+  retrieve( stdiode, OFFSET_STDIODE );
+  retrieve( DelayTime, OFFSET_DELAYTIME );
+  retrieve( ShutterControl, OFFSET_SHUTTERCONTROL );
+  retrieve( AbsorbLive, OFFSET_ABSORBLIVE );
+  retrieve( AbsorbMode, OFFSET_ABSORBMODE );
+  retrieve( CanDoVirtualChipFlag, OFFSET_CANDOVIRTUALCHIPFLAG );
+  retrieve( ThresholdMinLive, OFFSET_THRESHOLDMINLIVE );
+  retrieve( ThresholdMinVal, OFFSET_THRESHOLDMINVAL );
+  retrieve( ThresholdMaxLive, OFFSET_THRESHOLDMAXLIVE );
+  retrieve( ThresholdMaxVal, OFFSET_THRESHOLDMAXVAL );
+  retrieve( SpecAutoSpectroMode, OFFSET_SPECAUTOSPECTROMODE );
+  retrieve( SpecCenterWlNm, OFFSET_SPECCENTERWLNM );
+  retrieve( SpecGlueFlag, OFFSET_SPECGLUEFLAG );
+  retrieve( SpecGlueStartWlNm, OFFSET_SPECGLUESTARTWLNM );
+  retrieve( SpecGlueEndWlNm, OFFSET_SPECGLUEENDWLNM );
+  retrieve( SpecGlueMinOvrlpNm, OFFSET_SPECGLUEMINOVRLPNM );
+  retrieve( SpecGlueFinalResNm, OFFSET_SPECGLUEFINALRESNM );
+  retrieve( PulserType, OFFSET_PULSERTYPE );
+  retrieve( CustomChipFlag, OFFSET_CUSTOMCHIPFLAG );
+  retrieve( XPrePixels, OFFSET_XPREPIXELS );
+  retrieve( XPostPixels, OFFSET_XPOSTPIXELS );
+  retrieve( YPrePixels, OFFSET_YPREPIXELS );
+  retrieve( YPostPixels, OFFSET_YPOSTPIXELS );
+  retrieve( asynen, OFFSET_ASYNEN );
   retrieve( datatype, OFFSET_DATATYPE );
+  retrieve( PulserMode, OFFSET_PULSERMODE );
+  retrieve( PulserOnChipAccums, OFFSET_PULSERONCHIPACCUMS );
+  retrieve( PulseRepeatExp, OFFSET_PULSEREPEATEXP );
+  retrieve( PulseRepWidth, OFFSET_PULSEREPWIDTH );
+  retrieve( PulseRepDelay, OFFSET_PULSEREPDELAY );
+  retrieve( PulseSeqStartWidth, OFFSET_PULSESEQSTARTWIDTH );
+  retrieve( PulseSeqEndWidth, OFFSET_PULSESEQENDWIDTH );
+  retrieve( PulseSeqStartDelay, OFFSET_PULSESEQSTARTDELAY );
+  retrieve( PulseSeqEndDelay, OFFSET_PULSESEQENDDELAY );
+  retrieve( PulseSeqIncMode, OFFSET_PULSESEQINCMODE );
+  retrieve( PImaxUsed, OFFSET_PIMAXUSED );
+  retrieve( PImaxMode, OFFSET_PIMAXMODE );
+  retrieve( PImaxGain, OFFSET_PIMAXGAIN );
+  retrieve( BackGrndApplied, OFFSET_BACKGRNDAPPLIED );
+  retrieve( PImax2nsBrdUsed, OFFSET_PIMAX2NSBRDUSED );
+  retrieve( minblk, OFFSET_MINBLK );
+  retrieve( numminblk, OFFSET_NUMMINBLK );
+  retrieve( SpecMirrorLocation, OFFSET_SPECMIRRORLOCATION );
+  retrieve( SpecSlitLocation, OFFSET_SPECSLITLOCATION );
+  retrieve( CustomTimingFlag, OFFSET_CUSTOMTIMINGFLAG );
+  retrieve( ExperimentTimeLocal, OFFSET_EXPERIMENTTIMELOCAL );
+  retrieve( ExperimentTimeUTC, OFFSET_EXPERIMENTTIMEUTC );
+  retrieve( ExposUnits, OFFSET_EXPOSUNITS );
+  retrieve( ADCoffset, OFFSET_ADCOFFSET );
+  retrieve( ADCrate, OFFSET_ADCRATE );
+  retrieve( ADCtype, OFFSET_ADCTYPE );
+  retrieve( ADCresolution, OFFSET_ADCRESOLUTION );
+  retrieve( ADCbitAdjust, OFFSET_ADCBITADJUST );
+  retrieve( Comments[ 0 ], OFFSET_COMMENTS );
+  retrieve( Comments[ 1 ], OFFSET_COMMENTS + COMMENTMAX * sizeof( char ) );
+  retrieve( Comments[ 2 ], OFFSET_COMMENTS + 2 * COMMENTMAX * sizeof( char ) );
+  retrieve( Comments[ 3 ], OFFSET_COMMENTS + 3 * COMMENTMAX * sizeof( char ) );
+  retrieve( Comments[ 4 ], OFFSET_COMMENTS + 4 * COMMENTMAX * sizeof( char ) );
+  retrieve( geometric, OFFSET_GEOMETRIC );
+  retrieve( xlabel, OFFSET_XLABEL );
+  retrieve( cleans, OFFSET_CLEANS );
+  retrieve( NumSkpPerCln, OFFSET_NUMSKPPERCLN );
+  retrieve( SpecMirrorPos, OFFSET_SPECMIRRORPOS );
+  retrieve( SpecSlitPos, OFFSET_SPECSLITPOS );
+  retrieve( AutoCleansActive, OFFSET_AUTOCLEANSACTIVE );
+  retrieve( UseContCleansInst, OFFSET_USECONTCLEANSINST );
+  retrieve( AbsorbStripNum, OFFSET_ABSORBSTRIPNUM );
+  retrieve( SpecSlitPosUnits, OFFSET_SPECSLITPOSUNITS );
+  retrieve( SpecGrooves, OFFSET_SPECGROOVES );
+  retrieve( srccmp, OFFSET_SRCCMP );
   retrieve( ydim, OFFSET_YDIM );
+  retrieve( scramble, OFFSET_SCRAMBLE );
+  retrieve( ContinuousCleansFlag, OFFSET_CONTINUOUSCLEANSFLAG );
+  retrieve( ExternalTriggerFlag, OFFSET_EXTERNALTRIGGERFLAG );
+  retrieve( lnoscan, OFFSET_LNOSCAN );
+  retrieve( lavgexp, OFFSET_LAVGEXP );
+  retrieve( ReadOutTime, OFFSET_READOUTTIME );
+  retrieve( TriggeredModeFlag, OFFSET_TRIGGEREDMODEFLAG );
+  retrieve( sw_version, OFFSET_SW_VERSION );
+  retrieve( type, OFFSET_TYPE );
+  retrieve( flatFieldApplied, OFFSET_FLATFIELDAPPLIED );
+  retrieve( kin_trig_mode, OFFSET_KIN_TRIG_MODE );
+  retrieve( dlabel, OFFSET_DLABEL );
+  retrieve( PulseFileName, OFFSET_PULSEFILENAME );
+  retrieve( AbsorbFileName, OFFSET_ABSORBFILENAME );
+  retrieve( NumExpRepeats, OFFSET_NUMEXPREPEATS );
+  retrieve( NumExpAccums, OFFSET_NUMEXPACCUMS );
+  retrieve( YT_Flag, OFFSET_YT_FLAG );
+  retrieve( clkspd_us, OFFSET_CLKSPD_US );
+  retrieve( HWaccumFlag, OFFSET_HWACCUMFLAG );
+  retrieve( StoreSync, OFFSET_STORESYNC );
+  retrieve( BlemishApplied, OFFSET_BLEMISHAPPLIED );
+  retrieve( CosmicApplied, OFFSET_COSMICAPPLIED );
+  retrieve( CosmicType, OFFSET_COSMICTYPE );
+  retrieve( CosmicThreshold, OFFSET_COSMICTHRESHOLD );
   retrieve( NumFrames, OFFSET_NUMFRAMES );
+  retrieve( MaxIntensity, OFFSET_MAXINTENSITY );
+  retrieve( MinIntensity, OFFSET_MININTENSITY );
+  retrieve( ylabel, OFFSET_YLABEL );
+  retrieve( ShutterType, OFFSET_SHUTTERTYPE );
+  retrieve( shutterComp, OFFSET_SHUTTERCOMP );
+  retrieve( readoutMode, OFFSET_READOUTMODE );
+  retrieve( WindowSize, OFFSET_WINDOWSIZE );
+  retrieve( clkspd, OFFSET_CLKSPD );
+  retrieve( interface_type, OFFSET_INTERFACE_TYPE );
+  retrieve( NumROIsInExperiment, OFFSET_NUMROISINEXPERIMENT );
+  retrieve( controllerNum, OFFSET_CONTROLLERNUM );
+  retrieve( SWmade, OFFSET_SWMADE );
+  retrieve( NumROI, OFFSET_NUMROI );
+// TODO: Implement reading regions of interest
+//for( int i = 0; i < ( ( NumROI == 0 )? 1 : ( NumROI > ROIMAX )? ROIMAX : NumROI ); i++ )
+  retrieve( FlatField, OFFSET_FLATFIELD );
+  retrieve( background, OFFSET_BACKGROUND );
+  retrieve( blemish, OFFSET_BLEMISH );
+  retrieve( file_header_ver, OFFSET_FILE_HEADER_VER );
+  retrieve( YT_info, OFFSET_YT_INFO );
+  retrieve( WinView_id, OFFSET_WINVIEW_ID );
+// TODO: Implement reading calibration
+  retrieve( Istring, OFFSET_ISTRING );
+  retrieve( SpecType, OFFSET_SPECTYPE );
+  retrieve( SpecModel, OFFSET_SPECMODEL );
+  retrieve( PulseBurstUsed, OFFSET_PULSEBURSTUSED );
+  retrieve( PulseBurstCount, OFFSET_PULSEBURSTCOUNT );
+  retrieve( PulseBurstPeriod, OFFSET_PULSEBURSTPERIOD );
+  retrieve( PulseBracketUsed, OFFSET_PULSEBRACKETUSED );
+  retrieve( PulseBracketType, OFFSET_PULSEBRACKETTYPE );
+  retrieve( PulseTimeConstFast, OFFSET_PULSETIMECONSTFAST );
+  retrieve( PulseAmplitudeFast, OFFSET_PULSEAMPLITUDEFAST );
+  retrieve( PulseTimeConstSlow, OFFSET_PULSETIMECONSTSLOW );
+  retrieve( PulseAmplitudeSlow, OFFSET_PULSEAMPLITUDESLOW );
+  retrieve( AnalogGain, OFFSET_ANALOGGAIN );
+  retrieve( AvGainUsed, OFFSET_AVGAINUSED );
+  retrieve( AvGain, OFFSET_AVGAIN );
+  retrieve( lastvalue, OFFSET_LASTVALUE );
 }
 
 void speFile::printInfo() const
@@ -232,11 +372,188 @@ void speFile::printMetadata() const
   std::cout << "ControllerVersion (Hardware version): " << ControllerVersion << std::endl;
   std::cout << "LogicOutput (Definition of Output BNC): " << LogicOutput << std::endl;
   std::cout << "AmpHiCapLowNoise (Amp switching mode): " << AmpHiCapLowNoise << std::endl;
-
+  std::cout << "xDimDet (Detector x dimension of chip): " << xDimDet << std::endl;
+  std::cout << "mode (timing mode): " << mode << std::endl;
+  std::cout << "exp_sec (alternative exposure, in sec): " << exp_sec << std::endl;
+  std::cout << "VChipXdim (Virtual Chip X dim): " << VChipXdim << std::endl;
+  std::cout << "VChipYdim (Virtual Chip Y dim): " << VChipYdim << std::endl;
+  std::cout << "yDimDet (Detector y dimension of chip): " << yDimDet << std::endl;
+  std::cout << "date (date): " << date << std::endl;
+  std::cout << "VirtualChipFlag (On/Off): " << VirtualChipFlag << std::endl;
+  std::cout << "noscan (Old number of scans, should be -1): " << noscan << std::endl;
+  std::cout << "DetTemperature (Detector Temperature Set): " << DetTemperature << std::endl;
+  std::cout << "DetType (CCD/DiodeArray type): " << DetType << std::endl;
   std::cout << "xdim (actual # of pixels on x axis): " << xdim << std::endl;
+  std::cout << "stdiode (trigger diode): " << stdiode << std::endl;
+  std::cout << "DelayTime (Used with Async Mode): " << DelayTime << std::endl;
+  std::cout << "ShutterControl (Normal, Disabled Open, Disabled Closed): " << ShutterControl << std::endl;
+  std::cout << "AbsorbLive (On/Off): " << AbsorbLive << std::endl;
+  std::cout << "AbsorbMode (Reference Strip or File): " << AbsorbMode << std::endl;
+  std::cout << "CanDoVirtualChipFlag (T/F Cont/Chip able to do Virtual Chip): " << CanDoVirtualChipFlag << std::endl;
+  std::cout << "ThresholdMinLive (On/Off): " << ThresholdMinLive << std::endl;
+  std::cout << "ThresholdMinVal (Threshold Minimum Value): " << ThresholdMinVal << std::endl;
+  std::cout << "ThresholdMaxLive (On/Off): " << ThresholdMaxLive << std::endl;
+  std::cout << "ThresholdMaxVal (Threshold Maximum Value): " << ThresholdMaxVal << std::endl;
+  std::cout << "SpecAutoSpectroMode (T/F Spectrograph Used): " << SpecAutoSpectroMode << std::endl;
+  std::cout << "SpecCenterWlNm (Center Wavelength in nm): "  << SpecCenterWlNm << std::endl;
+  std::cout << "SpecGlueFlag (T/F File is Glued): " << SpecGlueFlag << std::endl;
+  std::cout << "SpecGlueStartWlNm (Starting Wavelength in nm): " << SpecGlueStartWlNm << std::endl;
+  std::cout << "SpecGlueEndWlNm (Ending Wavelength in nm): " << SpecGlueEndWlNm << std::endl;
+  std::cout << "SpecGlueMinOvrlpNm (Minimum Overlap in nm): " << SpecGlueMinOvrlpNm << std::endl;
+  std::cout << "SpecGlueFinalResNm (Final Resolution in nm): " << SpecGlueFinalResNm << std::endl;
+  std::cout << "PulserType (0 = None, 1 = PG200, 2 = PTG, 3 = DG535): " << PulserType << std::endl;
+  std::cout << "CustomChipFlag (T/F Custom Chip Used): " << CustomChipFlag << std::endl;
+  std::cout << "XPrePixels (Pre Pixels in X direction): " << XPrePixels << std::endl;
+  std::cout << "XPostPixels (Post Pixels in X direction): " << XPostPixels << std::endl;
+  std::cout << "YPrePixels (Pre Pixels in Y direction): " << YPrePixels << std::endl;
+  std::cout << "YPostPixels (Post Pixels in Y direction): " << YPostPixels << std::endl;
+  std::cout << "asynen (asynchron enable flag 0 = off): " << asynen << std::endl;
   std::cout << "datatype (experiment datatype): " << datatype << std::endl;
+  std::cout << "PulserMode (Repetitive/Sequential): " << PulserMode << std::endl;
+  std::cout << "PulserOnChipAccums (Num PTG On-Chip Accums): " << PulserOnChipAccums << std::endl;
+  std::cout << "PulseRepeatExp (Num Exp Repeats (Pulser SW Accum)): " << PulseRepeatExp << std::endl;
+  std::cout << "PulseRepWidth (Width Value for Repetitive pulse (usec)): " << PulseRepWidth << std::endl;
+  std::cout << "PulseRepDelay (Width Value for Repetitive pulse (usec)): " << PulseRepDelay << std::endl;
+  std::cout << "PulseSeqStartWidth (Start Width for Sequential pulse (usec)): " << PulseSeqStartWidth << std::endl;
+  std::cout << "PulseSeqEndWidth (End Width for Sequential pulse (usec)): " << PulseSeqEndWidth << std::endl;
+  std::cout << "PulseSeqStartDelay (Start Delay for Sequential pulse (usec)): " << PulseSeqStartDelay << std::endl;
+  std::cout << "PulseSeqEndDelay (End Delay for Sequential pulse (usec)): " << PulseSeqEndDelay << std::endl;
+  std::cout << "PulseSeqIncMode (Increments: 1 = Fixed, 2 = Exponential): " << PulseSeqIncMode << std::endl;
+  std::cout << "PImaxUsed (PI-Max type controller flag): " << PImaxUsed << std::endl;
+  std::cout << "PImaxMode (PI-Max mode): " << PImaxMode << std::endl;
+  std::cout << "PImaxGain (PI-Max Gain): "<< PImaxGain << std::endl;
+  std::cout << "BackGrndApplied (1 if background subtraction done): " << BackGrndApplied << std::endl;
+  std::cout << "PImax2nsBrdUsed (T/F PI-Max 2 ns Board Used): " << PImax2nsBrdUsed << std::endl;
+  std::cout << "minblk (min. # of strips per skips): " << minblk << std::endl;
+  std::cout << "numminblk (# of min-blocks before geo skps): " << numminblk << std::endl;
+  std::cout << "SpecMirrorLocation (Spectro Mirror Location, 0 = Not Present): " << SpecMirrorLocation[ 0 ] << ", " << SpecMirrorLocation[ 1 ] << std::endl;
+  std::cout << "SpecSlitLocation (Spectro Slit Location, 0 = Not Present): " << SpecSlitLocation[ 0 ] << ", " << SpecSlitLocation[ 1 ] << ", " << SpecSlitLocation[ 2 ] << ", " << SpecSlitLocation[ 3 ] << std::endl;
+  std::cout << "CustomTimingFlag (T/F Custom Timing Used): " << CustomTimingFlag << std::endl;
+  std::cout << "ExperimentTimeLocal (Experiment Local Time as hhmmss): " << ExperimentTimeLocal << std::endl;
+  std::cout << "ExperimentTimeUTC (Experiment UTC Time as hhmmss): " << ExperimentTimeUTC << std::endl;
+  std::cout << "ExposUnits (User Units for Exposure): " << ExposUnits << std::endl;
+  std::cout << "ADCoffset (ADC offset): " << ADCoffset << std::endl;
+  std::cout << "ADCrate (ADC rate): " << ADCrate << std::endl;
+  std::cout << "ADCtype (ADC type): " << ADCtype << std::endl;
+  std::cout << "ADCresolution (ADC resolution): " << ADCresolution << std::endl;
+  std::cout << "ADCbitAdjust (ADC bit adjust): " << ADCbitAdjust << std::endl;
+  std::cout << "Comments[ 0 ] (File Comments): " << Comments[ 0 ] << std::endl;
+  std::cout << "Comments[ 1 ] (File Comments): " << Comments[ 1 ] << std::endl;
+  std::cout << "Comments[ 2 ] (File Comments): " << Comments[ 2 ] << std::endl;
+  std::cout << "Comments[ 3 ] (File Comments): " << Comments[ 3 ] << std::endl;
+  std::cout << "Comments[ 4 ] (File Comments): " << Comments[ 4 ] << std::endl;
+  std::cout << "geometric (geometric ops: 0x01 = rotate, 0x02 = reverse, 0x04 = flip): " << geometric << std::endl;
+  std::cout << "xlabel (intensity display string): " << xlabel << std::endl;
+  std::cout << "cleans (cleans): " << cleans << std::endl;
+  std::cout << "NumSkpPerCln (number of skips per clean): " << NumSkpPerCln << std::endl;
+  std::cout << "SpecMirrorPos (Spectrograph Mirror Positions): " << SpecMirrorPos[ 0 ] << ", " << SpecMirrorPos[ 1 ] << std::endl;
+  std::cout << "SpecSlitPos (Spectrograph Slit Positions): " << SpecSlitPos[ 0 ] << ", " << SpecSlitPos[ 1 ] << ", " << SpecSlitPos[ 2 ] << ", " << SpecSlitPos[ 3 ] << std::endl;
+  std::cout << "AutoCleansActive (T/F): " << AutoCleansActive << std::endl;
+  std::cout << "UseContCleansInst (T/F): " << UseContCleansInst << std::endl;
+  std::cout << "AbsorbStripNum (Absorbance Strip Number): " << AbsorbStripNum << std::endl;
+  std::cout << "SpecSlitPosUnits (Spectrograph Slit Position Units): " << SpecSlitPosUnits << std::endl;
+  std::cout << "SpecGrooves (Spectrograph Grating Grooves): " << SpecGrooves << std::endl;
+  std::cout << "srccmp (number of source comp. diodes): " << srccmp << std::endl;
   std::cout << "ydim (y dimension of raw data): " << ydim << std::endl;
+  std::cout << "scramble (0 = scrambled, 1 = unscrambled): " << scramble << std::endl;
+  std::cout << "ContinuousCleansFlag (T/F Continuous Cleans Timing Option): " << ContinuousCleansFlag << std::endl;
+  std::cout << "ExternalTriggerFlag (T/F External Trigger Timing Option): " << ExternalTriggerFlag << std::endl;
+  std::cout << "lnoscan (Number of scans (Early WinX)): " << lnoscan << std::endl;
+  std::cout << "lavgexp (Number of Accumulations): " << lavgexp << std::endl;
+  std::cout << "ReadOutTime (Experiment readout time): " << ReadOutTime << std::endl;
+  std::cout << "TriggeredModeFlag (T/F Triggered Timing Option): " << TriggeredModeFlag << std::endl;
+  std::cout << "sw_version (Version of SW creating this file): " << sw_version << std::endl;
+  std::cout << "type (1 = new120 (Type II), 2 = old120 (Type I), 3 = ST130, 4 = ST121, 5 = ST138, 6 = DC131 (PentaMax), 7 = ST133 (MicroMax/SpectroMax), 8 = ST135 (GPIB), 9 = VICCD, 10 = ST116 (GPIB), 11 = OMA3 (GPIB), 12 = OMA4): " << type << std::endl;
+  std::cout << "flatFieldApplied (1 if flat field was applied): " << flatFieldApplied << std::endl;
+  std::cout << "kin_trig_mode (Kinetics Trigger Mode): " << kin_trig_mode << std::endl;
+  std::cout << "dlabel (Data label): " << dlabel << std::endl;
+  std::cout << "PulseFileName (Name of Pulser File with Pulse Widths/Delays (for Z-Slice)): " << PulseFileName << std::endl;
+  std::cout << "AbsorbFileName (Name of Absorbance File (if File Mode)): " << AbsorbFileName << std::endl;
+  std::cout << "NumExpRepeats (Number of Times experiment repeated): " << NumExpRepeats << std::endl;
+  std::cout << "NumExpAccums (Number of Times experiment accumulated): " << NumExpAccums << std::endl;
+  std::cout << "YT_Flag (Set to 1 if this file contains YT data): " << YT_Flag << std::endl;
+  std::cout << "clkspd_us (Vert Clock Speed in usec): " << clkspd_us << std::endl;
+  std::cout << "HWaccumFlag (set to 1 if accum done by Hardware): " << HWaccumFlag << std::endl;
+  std::cout << "StoreSync (set to 1 if store sync used): " << StoreSync << std::endl;
+  std::cout << "BlemishApplied (set to 1 if blemish removal applied): " << BlemishApplied << std::endl;
+  std::cout << "CosmicApplied (set to 1 if cosmic ray removal applied): " << CosmicApplied << std::endl;
+  std::cout << "CosmicType (if cosmic ray applied, this is type): " << CosmicType << std::endl;
+  std::cout << "CosmicThreshold (Threshold of cosmic ray removal): " << CosmicThreshold << std::endl;
   std::cout << "NumFrames (number of frames in file): " << NumFrames << std::endl;
+  std::cout << "MaxIntensity (max intensity of data (future)): " << MaxIntensity << std::endl;
+  std::cout << "MinIntensity (min intensity of data (future)): " << MinIntensity << std::endl;
+  std::cout << "ylabel (y axis label): " << ylabel << std::endl;
+  std::cout << "ShutterType (shutter type): " << ShutterType << std::endl;
+  std::cout << "shutterComp (shutter compensation time): " << shutterComp << std::endl;
+  std::cout << "readoutMode (readout mode, full, kinetics, etc): " << readoutMode << std::endl;
+  std::cout << "WindowSize (window size for kinetics only): " << WindowSize << std::endl;
+  std::cout << "clkspd (clock speed for kinetics & frame transfer): " << clkspd << std::endl;
+  std::cout << "interface_type (computer interface (isa-taxi, pci, eisa, etc)): "  << interface_type << std::endl;
+  std::cout << "NumROIsInExperiment (May be more than the 10 allowed in this header (if 0, assume 1)): " << NumROIsInExperiment << std::endl;
+  std::cout << "controllerNum (if multiple controller system will have controller data came from, this is a future item): " << controllerNum << std::endl;
+  std::cout << "SWmade (Which software package created this file): " << SWmade << std::endl;
+  std::cout << "NumROI (number of ROIs used, if 0 assume 1): " << NumROI << std::endl;
+
+/* TODO: Need to implement reading regions of interest
+  struct ROI
+  {
+    WORD startx;                        // left x start value
+    WORD endx;                          // right x value
+    WORD groupx;                        // amount x is binned/grouped in hw
+    WORD starty;                        // top y start value
+    WORD endy;                          // bottom y value
+    WORD groupy;                        // amount y is binned/grouped in hw
+  } ROIinfoblk[ ROIMAX ];               // ROI info blocks
+*/
+
+  std::cout << "FlatField (Flat field file name): " << FlatField << std::endl;
+  std::cout << "background (background sub file name): " << background << std::endl;
+  std::cout << "blemish (blemish file name): " << blemish << std::endl;
+  std::cout << "file_header_ver (version of this file header): " << file_header_ver << std::endl;
+  std::cout << "YT_info (Reserved for YT information): " << YT_info << std::endl;
+  std::cout << "WinView_id (0x01234567L if file created by WinX): " << WinView_id << std::endl;
+
+/* TODO: Need to implement reading calibration
+  struct calibration
+  {
+    double offset;                      // offset for absolute data scaling
+    double factor;                      // factor for absolute data scaling
+    char current_unit;                  // selected scaling unit
+    char reserved1;                     // reserved
+    char string[ 40 ];                  // special string for scaling
+    char reserved2[ 40 ];               // reserved
+    char calib_valid;                   // flag if calibration is valid
+    char input_unit;                    // current inputunits for "calib_value"
+    char polynom_unit;                  // linear unit and used in "polynom_coeff"
+    char polynom_order;                 // order of calibration polynom
+    char calib_count;                   // valid calibration data pairs
+    double pixel_position[ 10 ];        // pixel pos of calibration data
+    double calib_value[ 10 ];           // calibration value at above pos
+    double polynom_coeff[ 6 ];          // polynom coefficients
+    double laser_position;              // laser wavenumber for relative WN
+    char reserved3;                     // reserved
+    BYTE new_calib_flag;                // If set to 200, valid label below
+    char calib_label[ 81 ];             // Calibration label (null term'd)
+    char expansion[ 87 ];               // Calibration Expansion area
+  } xcalibration, ycalibration;         // x and y axis calibration
+*/
+
+  std::cout << "Istring (special intensity scaling string): " << Istring << std::endl;
+  std::cout << "SpecType (spectrometer type (acton, spex, etc)): " << SpecType << std::endl;
+  std::cout << "SpecModel (spectrometer model (type dependent)): " << SpecModel << std::endl;
+  std::cout << "PulseBurstUsed (pulser burst mode on/off): " << PulseBurstUsed << std::endl;
+  std::cout << "PulseBurstCount (pulser triggers per burst): " << PulseBurstCount << std::endl;
+  std::cout << "PulseBurstPeriod (pulser burst period (in usec)): " << PulseBurstPeriod << std::endl;
+  std::cout << "PulseBracketUsed (pulser bracket pulsing on/off): " << PulseBracketUsed << std::endl;
+  std::cout << "PulseBracketType (pulser bracket pulsing type): " << PulseBracketType << std::endl;
+  std::cout << "PulseTimeConstFast (pulser fast exponential time constant (in usec)): " << PulseTimeConstFast << std::endl;
+  std::cout << "PulseAmplitudeFast (pulser fast exponential amplitude constant): " << PulseAmplitudeFast << std::endl;
+  std::cout << "PulseTimeConstSlow (pulser slow exponential time constant (in usec): " << PulseTimeConstSlow << std::endl;
+  std::cout << "PulseAmplitudeSlow (pulser slow exponential amplitude constant): " << PulseAmplitudeSlow << std::endl;
+  std::cout << "AnalogGain (analog gain): " << AnalogGain << std::endl;
+  std::cout << "AvGainUsed (avalanche gain was used): " << AvGainUsed << std::endl;
+  std::cout << "AvGain (avalanche gain value): " << AvGain << std::endl;
+  std::cout << "lastvalue (Always the last value in the header): " << lastvalue << std::endl;
   std::cout << std::endl;
 }
 

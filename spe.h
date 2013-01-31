@@ -53,7 +53,7 @@ class speFile
   WORD yDimDet;                         // y dimension of CCD or detector
   char date[ DATEMAX ];                 // date
   short VirtualChipFlag;                // On/Off
-  char Spare_1[ 2 ];                    //
+  //char Spare_1[ 2 ];                    //
   short noscan;                         // Old number of scans - should always be -1
   float DetTemperature;                 // Detector Temperature Set
   short DetType;                        // CCD/DiodeArray type
@@ -132,13 +132,14 @@ class speFile
   long lavgexp;                         // Number of Accumulations
   float ReadOutTime;                    // Experiment readout time
   short TriggeredModeFlag;              // T/F Triggered Timing Option
-  char Spare_2[ 10 ];                   //
-  char sw_version[ FILEVERMAX ];        // Version of SW creating this file 1 = new120 (Type II), 2 = old120 (Type I), 3 = ST130, 4 = ST121, 5 = ST138, 6 = DC131 (PentaMax), 7 = ST133 (MicroMax/SpectroMax), 8 = ST135 (GPIB), 9 = VICCD, 10 = ST116 (GPIB), 11 = OMA3 (GPIB), 12 = OMA4
+  //char Spare_2[ 10 ];                   //
+  char sw_version[ FILEVERMAX ];        // Version of SW creating this file
+  short type;                           // 1 = new120 (Type II), 2 = old120 (Type I), 3 = ST130, 4 = ST121, 5 = ST138, 6 = DC131 (PentaMax), 7 = ST133 (MicroMax/SpectroMax), 8 = ST135 (GPIB), 9 = VICCD, 10 = ST116 (GPIB), 11 = OMA3 (GPIB), 12 = OMA4
   short flatFieldApplied;               // 1 if flat field was applied
-  char Spare_3[ 16 ];                   //
+  //char Spare_3[ 16 ];                   //
   short kin_trig_mode;                  // Kinetics Trigger Mode
   char dlabel[ LABELMAX ];              // Data label
-  char Spare_4[ 436 ];                  //
+  //char Spare_4[ 436 ];                  //
   char PulseFileName[ HDRNAMEMAX ];     // Name of Pulser File with Pulse Widths/Delays (for Z-Slice)
   char AbsorbFileName[ HDRNAMEMAX ];    // Name of Absorbance File (if File Mode)
   DWORD NumExpRepeats;                  // Number of Times experiment repeated
@@ -162,7 +163,7 @@ class speFile
   WORD clkspd;                          // clock speed for kinetics & frame transfer
   WORD interface_type;                  // computer interface (isa-taxi, pci, eisa, etc)
   short NumROIsInExperiment;            // May be more than the 10 allowed in this header (if 0, assume 1)
-  char Spare_5[ 16 ];                   //
+  //char Spare_5[ 16 ];                   //
   WORD controllerNum;                   // if multiple controller system will have controller data came from, this is a future item
   WORD SWmade;                          // Which software package created this file
   short NumROI;                         // number of ROIs used, if 0 assume 1
@@ -204,7 +205,7 @@ class speFile
     char expansion[ 87 ];               // Calibration Expansion area
   } xcalibration, ycalibration;         // x and y axis calibration
   char Istring[ 40 ];                   // special intensity scaling string
-  char Spare_6[ 25 ];                   //
+  //char Spare_6[ 25 ];                   //
   BYTE SpecType;                        // spectrometer type (acton, spex, etc)
   BYTE SpecModel;                       // spectrometer model (type dependent)
   BYTE PulseBurstUsed;                  // pulser burst mode on/off
