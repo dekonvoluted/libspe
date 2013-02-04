@@ -224,10 +224,10 @@ class speFile
 
   std::ifstream infile;                 // Path to the SPE file, empty = file is invalid
 
-  template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET )
+  template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET = -0x0001 )
   {
     if( infile.good() ) {
-      infile.seekg( BYTE_OFFSET );
+      if( BYTE_OFFSET != -0x0001 ) infile.seekg( BYTE_OFFSET );
       infile.read( reinterpret_cast<char*>( &value ), sizeof( value ) );
     }
   }

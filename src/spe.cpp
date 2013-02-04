@@ -332,7 +332,44 @@ bool speFile::setFilePath( const std::string& filePath )
   retrieve( file_header_ver, OFFSET_FILE_HEADER_VER );
   retrieve( YT_info, OFFSET_YT_INFO );
   retrieve( WinView_id, OFFSET_WINVIEW_ID );
-// TODO: Implement reading calibration
+  retrieve( xcalibration.offset, OFFSET_XCALIBRATION );
+  retrieve( xcalibration.factor );
+  retrieve( xcalibration.current_unit );
+  retrieve( xcalibration.reserved1 );
+  retrieve( xcalibration.string );
+  retrieve( xcalibration.reserved2 );
+  retrieve( xcalibration.calib_valid );
+  retrieve( xcalibration.input_unit );
+  retrieve( xcalibration.polynom_unit );
+  retrieve( xcalibration.polynom_order );
+  retrieve( xcalibration.calib_count );
+  retrieve( xcalibration.pixel_position );
+  retrieve( xcalibration.calib_value );
+  retrieve( xcalibration.polynom_coeff );
+  retrieve( xcalibration.laser_position );
+  retrieve( xcalibration.reserved3 );
+  retrieve( xcalibration.new_calib_flag );
+  retrieve( xcalibration.calib_label );
+  retrieve( xcalibration.expansion );
+  retrieve( ycalibration.offset, OFFSET_YCALIBRATION );
+  retrieve( ycalibration.factor );
+  retrieve( ycalibration.current_unit );
+  retrieve( ycalibration.reserved1 );
+  retrieve( ycalibration.string );
+  retrieve( ycalibration.reserved2 );
+  retrieve( ycalibration.calib_valid );
+  retrieve( ycalibration.input_unit );
+  retrieve( ycalibration.polynom_unit );
+  retrieve( ycalibration.polynom_order );
+  retrieve( ycalibration.calib_count );
+  retrieve( ycalibration.pixel_position );
+  retrieve( ycalibration.calib_value );
+  retrieve( ycalibration.polynom_coeff );
+  retrieve( ycalibration.laser_position );
+  retrieve( ycalibration.reserved3 );
+  retrieve( ycalibration.new_calib_flag );
+  retrieve( ycalibration.calib_label );
+  retrieve( ycalibration.expansion );
   retrieve( Istring, OFFSET_ISTRING );
   retrieve( SpecType, OFFSET_SPECTYPE );
   retrieve( SpecModel, OFFSET_SPECMODEL );
@@ -512,32 +549,44 @@ void speFile::printMetadata() const
   std::cout << "file_header_ver (version of this file header): " << file_header_ver << std::endl;
   std::cout << "YT_info (Reserved for YT information): " << YT_info << std::endl;
   std::cout << "WinView_id (0x01234567L if file created by WinX): " << WinView_id << std::endl;
-
-/* TODO: Need to implement reading calibration
-  struct calibration
-  {
-    double offset;                      // offset for absolute data scaling
-    double factor;                      // factor for absolute data scaling
-    char current_unit;                  // selected scaling unit
-    char reserved1;                     // reserved
-    char string[ 40 ];                  // special string for scaling
-    char reserved2[ 40 ];               // reserved
-    char calib_valid;                   // flag if calibration is valid
-    char input_unit;                    // current inputunits for "calib_value"
-    char polynom_unit;                  // linear unit and used in "polynom_coeff"
-    char polynom_order;                 // order of calibration polynom
-    char calib_count;                   // valid calibration data pairs
-    double pixel_position[ 10 ];        // pixel pos of calibration data
-    double calib_value[ 10 ];           // calibration value at above pos
-    double polynom_coeff[ 6 ];          // polynom coefficients
-    double laser_position;              // laser wavenumber for relative WN
-    char reserved3;                     // reserved
-    BYTE new_calib_flag;                // If set to 200, valid label below
-    char calib_label[ 81 ];             // Calibration label (null term'd)
-    char expansion[ 87 ];               // Calibration Expansion area
-  } xcalibration, ycalibration;         // x and y axis calibration
-*/
-
+  std::cout << "xcalibration.offset (offset for absolute data scaling): " << xcalibration.offset << std::endl;
+  std::cout << "xcalibration.factor (factor for absolute data scaling): " << xcalibration.factor << std::endl;
+  std::cout << "xcalibration.current_unit (selected scaling unit): " << xcalibration.current_unit << std::endl;
+  std::cout << "xcalibration.reserved1 (reserved): " << xcalibration.reserved1 << std::endl;
+  std::cout << "xcalibration.string (special string for scaling): " << xcalibration.string << std::endl;
+  std::cout << "xcalibration.reserved2 (reserved): " << xcalibration.reserved2 << std::endl;
+  std::cout << "xcalibration.calib_valid (flag if calibration is valid): " << xcalibration.calib_valid << std::endl;
+  std::cout << "xcalibration.input_unit (current input units for \"calib_value\"): " << xcalibration.input_unit << std::endl;
+  std::cout << "xcalibration.polynom_unit (linear unit and used in \"polynom_coeff\"): " << xcalibration.polynom_unit << std::endl;
+  std::cout << "xcalibration.polynom_order (order of calibration polynom): " << xcalibration.polynom_order << std::endl;
+  std::cout << "xcalibration.calib_count (valid calibration data pairs): " << xcalibration.calib_count << std::endl;
+  std::cout << "xcalibration.pixel_position (pixel pos of calibration data): " << xcalibration.pixel_position[ 0 ] << ", " << xcalibration.pixel_position[ 1 ] << ", " << xcalibration.pixel_position[ 2 ] << ", " << xcalibration.pixel_position[ 3 ] << ", " << xcalibration.pixel_position[ 4 ] << ", " << xcalibration.pixel_position[ 5 ] << ", " << xcalibration.pixel_position[ 6 ] << ", " << xcalibration.pixel_position[ 7 ] << ", " << xcalibration.pixel_position[ 8 ] << ", " << xcalibration.pixel_position[ 9 ] << std::endl;
+  std::cout << "xcalibration.calib_value (calibration value at above pos): " << xcalibration.calib_value[ 0 ] << ", " << xcalibration.calib_value[ 1 ] << ", " << xcalibration.calib_value[ 2 ] << ", " << xcalibration.calib_value[ 3 ] << ", " << xcalibration.calib_value[ 4 ] << ", " << xcalibration.calib_value[ 5 ] << ", " << xcalibration.calib_value[ 6 ] << ", " << xcalibration.calib_value[ 7 ] << ", " << xcalibration.calib_value[ 8 ] << ", " << xcalibration.calib_value[ 9 ] << std::endl;
+  std::cout << "xcalibration.polynom_coeff (polynom coefficients): " << xcalibration.polynom_coeff[ 0 ] << ", " << xcalibration.polynom_coeff[ 1 ] << ", " << xcalibration.polynom_coeff[ 2 ] << ", " << xcalibration.polynom_coeff[ 3 ] << ", " << xcalibration.polynom_coeff[ 4 ] << ", " << xcalibration.polynom_coeff[ 5 ] << std::endl;
+  std::cout << "xcalibration.laser_position (laser wavenumber for relative WN): " << xcalibration.laser_position << std::endl;
+  std::cout << "xcalibration.reserved3 (reserved): " << xcalibration.reserved3 << std::endl;
+  std::cout << "xcalibration.new_calib_flag (If set to 200, valid label below): " << xcalibration.new_calib_flag << std::endl;
+  std::cout << "xcalibration.calib_label (calibration label): " << xcalibration.calib_label << std::endl;
+  std::cout << "xcalibration.expansion (Calibration Expansion area): " << xcalibration.expansion << std::endl;
+  std::cout << "ycalibration.offset (offset for absolute data scaling): " << ycalibration.offset << std::endl;
+  std::cout << "ycalibration.factor (factor for absolute data scaling): " << ycalibration.factor << std::endl;
+  std::cout << "ycalibration.current_unit (selected scaling unit): " << ycalibration.current_unit << std::endl;
+  std::cout << "ycalibration.reserved1 (reserved): " << ycalibration.reserved1 << std::endl;
+  std::cout << "ycalibration.string (special string for scaling): " << ycalibration.string << std::endl;
+  std::cout << "ycalibration.reserved2 (reserved): " << ycalibration.reserved2 << std::endl;
+  std::cout << "ycalibration.calib_valid (flag if calibration is valid): " << ycalibration.calib_valid << std::endl;
+  std::cout << "ycalibration.input_unit (current input units for \"calib_value\"): " << ycalibration.input_unit << std::endl;
+  std::cout << "ycalibration.polynom_unit (linear unit and used in \"polynom_coeff\"): " << ycalibration.polynom_unit << std::endl;
+  std::cout << "ycalibration.polynom_order (order of calibration polynom): " << ycalibration.polynom_order << std::endl;
+  std::cout << "ycalibration.calib_count (valid calibration data pairs): " << ycalibration.calib_count << std::endl;
+  std::cout << "ycalibration.pixel_position (pixel pos of calibration data): " << ycalibration.pixel_position[ 0 ] << ", " << ycalibration.pixel_position[ 1 ] << ", " << ycalibration.pixel_position[ 2 ] << ", " << ycalibration.pixel_position[ 3 ] << ", " << ycalibration.pixel_position[ 4 ] << ", " << ycalibration.pixel_position[ 5 ] << ", " << ycalibration.pixel_position[ 6 ] << ", " << ycalibration.pixel_position[ 7 ] << ", " << ycalibration.pixel_position[ 8 ] << ", " << ycalibration.pixel_position[ 9 ] << std::endl;
+  std::cout << "ycalibration.calib_value (calibration value at above pos): " << ycalibration.calib_value[ 0 ] << ", " << ycalibration.calib_value[ 1 ] << ", " << ycalibration.calib_value[ 2 ] << ", " << ycalibration.calib_value[ 3 ] << ", " << ycalibration.calib_value[ 4 ] << ", " << ycalibration.calib_value[ 5 ] << ", " << ycalibration.calib_value[ 6 ] << ", " << ycalibration.calib_value[ 7 ] << ", " << ycalibration.calib_value[ 8 ] << ", " << ycalibration.calib_value[ 9 ] << std::endl;
+  std::cout << "ycalibration.polynom_coeff (polynom coefficients): " << ycalibration.polynom_coeff[ 0 ] << ", " << ycalibration.polynom_coeff[ 1 ] << ", " << ycalibration.polynom_coeff[ 2 ] << ", " << ycalibration.polynom_coeff[ 3 ] << ", " << ycalibration.polynom_coeff[ 4 ] << ", " << ycalibration.polynom_coeff[ 5 ] << std::endl;
+  std::cout << "ycalibration.laser_position (laser wavenumber for relative WN): " << ycalibration.laser_position << std::endl;
+  std::cout << "ycalibration.reserved3 (reserved): " << ycalibration.reserved3 << std::endl;
+  std::cout << "ycalibration.new_calib_flag (If set to 200, valid label below): " << ycalibration.new_calib_flag << std::endl;
+  std::cout << "ycalibration.calib_label (calibration label): " << ycalibration.calib_label << std::endl;
+  std::cout << "ycalibration.expansion (Calibration Expansion area): " << ycalibration.expansion << std::endl;
   std::cout << "Istring (special intensity scaling string): " << Istring << std::endl;
   std::cout << "SpecType (spectrometer type (acton, spex, etc)): " << SpecType << std::endl;
   std::cout << "SpecModel (spectrometer model (type dependent)): " << SpecModel << std::endl;
