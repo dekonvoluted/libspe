@@ -18,7 +18,7 @@ cmake_minimum_required( VERSION 2.8 )
 
 project( demo )
 
-set( CMAKE_CXX_FLAGS "-g -O2 -Wall" )
+set( CMAKE_CXX_FLAGS "-g -O2 -Wall -std=c++11" )
 
 include_directories( ${CMAKE_SOURCE_DIR}/.. )
 include_directories( /usr/include/eigen2 )

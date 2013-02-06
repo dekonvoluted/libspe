@@ -444,11 +444,16 @@ bool speFile::setFilePath( const std::string& filePath )
   retrieve( AvGainUsed, OFFSET_AVGAINUSED );
   retrieve( AvGain, OFFSET_AVGAIN );
   retrieve( lastvalue, OFFSET_LASTVALUE );
+
+  return ( ( infile.fail() )? false : true );
 }
 
 void speFile::printInfo() const
 {
-  if( !infile.is_open() ) return;
+  if( !infile.is_open() ) {
+    std::cout << "Invalid SPE file" << std::endl;
+    return;
+  }
 
   std::cout << "Summary Information" << std::endl;
   std::cout << "-------------------" << std::endl;
@@ -459,7 +464,10 @@ void speFile::printInfo() const
 
 void speFile::printMetadata() const
 {
-  if( !infile.is_open() ) return;
+  if( !infile.is_open() ) {
+    std::cout << "Invalid SPE file" << std::endl;
+    return;
+  }
 
   std::cout << "Detailed Information" << std::endl;
   std::cout << "--------------------" << std::endl;

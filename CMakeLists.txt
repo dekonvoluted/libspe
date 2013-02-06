@@ -16,6 +16,8 @@
 
 cmake_minimum_required( VERSION 2.8 )
 
+set( CMAKE_CXX_FLAGS "-g -O2 -Wall -std=c++11" )
+
 include_directories( /usr/include/eigen2 ) #FIXME: Search and find Eigen libraries
 
 add_subdirectory( src )

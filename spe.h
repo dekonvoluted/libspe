@@ -17,15 +17,11 @@
 #ifndef SPE_H
 #define SPE_H
 
+#include <cstdint>
 #include <string>
 #include <ostream>
 #include <fstream>
 #include <Eigen/Core>
-
-// Custom data types used in the structure
-typedef unsigned char BYTE;
-typedef unsigned short WORD;
-typedef unsigned long DWORD;
 
 // Definition of array sizes
 const int HDRNAMEMAX  = 120;  // Max char str length for file name
@@ -42,146 +38,146 @@ class speFile
 // Implements Version 2.5 Header (3/23/04)
 {
   // Data structure of the header
-  short ControllerVersion;              // Hardware Version
-  short LogicOutput;                    // Definition of Output BNC
-  WORD AmpHiCapLowNoise;                // Amp Switching Mode
-  WORD xDimDet;                         // Detector x dimension of chip
-  short mode;                           // timing mode
+  int16_t ControllerVersion;              // Hardware Version
+  int16_t LogicOutput;                    // Definition of Output BNC
+  uint16_t AmpHiCapLowNoise;                // Amp Switching Mode
+  uint16_t xDimDet;                         // Detector x dimension of chip
+  int16_t mode;                           // timing mode
   float exp_sec;                        // alternative exposure, in sec
-  short VChipXdim;                      // Virtual Chip X dim
-  short VChipYdim;                      // Virtual Chip Y dim
-  WORD yDimDet;                         // y dimension of CCD or detector
+  int16_t VChipXdim;                      // Virtual Chip X dim
+  int16_t VChipYdim;                      // Virtual Chip Y dim
+  uint16_t yDimDet;                         // y dimension of CCD or detector
   char date[ DATEMAX ];                 // date
-  short VirtualChipFlag;                // On/Off
+  int16_t VirtualChipFlag;                // On/Off
   //char Spare_1[ 2 ];                    //
-  short noscan;                         // Old number of scans - should always be -1
+  int16_t noscan;                         // Old number of scans - should always be -1
   float DetTemperature;                 // Detector Temperature Set
-  short DetType;                        // CCD/DiodeArray type
-  WORD xdim;                            // actual # of pixels on x axis
-  short stdiode;                        // trigger diode
+  int16_t DetType;                        // CCD/DiodeArray type
+  uint16_t xdim;                            // actual # of pixels on x axis
+  int16_t stdiode;                        // trigger diode
   float DelayTime;                      // Used with Async Mode
-  WORD ShutterControl;                  // Normal, Disabled Open, Disabled Closed
-  short AbsorbLive;                     // On/Off
-  WORD AbsorbMode;                      // Reference Strip or File
-  short CanDoVirtualChipFlag;           // T/F Cont/Chip able to do Virtual Chip
-  short ThresholdMinLive;               // On/Off
+  uint16_t ShutterControl;                  // Normal, Disabled Open, Disabled Closed
+  int16_t AbsorbLive;                     // On/Off
+  uint16_t AbsorbMode;                      // Reference Strip or File
+  int16_t CanDoVirtualChipFlag;           // T/F Cont/Chip able to do Virtual Chip
+  int16_t ThresholdMinLive;               // On/Off
   float ThresholdMinVal;                // Threshold Minimum Value
-  short ThresholdMaxLive;               // On/Off
+  int16_t ThresholdMaxLive;               // On/Off
   float ThresholdMaxVal;                // Threshold Maximum Value
-  short SpecAutoSpectroMode;            // T/F Spectrograph Used
+  int16_t SpecAutoSpectroMode;            // T/F Spectrograph Used
   float SpecCenterWlNm;                 // Center Wavelength in nm
-  short SpecGlueFlag;                   // T/F File is Glued
+  int16_t SpecGlueFlag;                   // T/F File is Glued
   float SpecGlueStartWlNm;              // Starting Wavelength in nm
   float SpecGlueEndWlNm;                // Ending Wavelength in nm
   float SpecGlueMinOvrlpNm;             // Minimum Overlap in nm
   float SpecGlueFinalResNm;             // Final Resolution in nm
-  short PulserType;                     // 0 = None, 1 = PG200, 2 = PTG, 3 = DG535
-  short CustomChipFlag;                 // T/F Custom Chip Used
-  short XPrePixels;                     // Pre Pixels in X direction
-  short XPostPixels;                    // Post Pixels in X direction
-  short YPrePixels;                     // Pre Pixels in Y direction
-  short YPostPixels;                    // Post Pixels in Y direction
-  short asynen;                         // asynchron enable flag 0 = off
-  short datatype;                       // experiment datatype, 0 = float (4 bytes), 1 = long (4 bytes), 2 = short (2 bytes), 3 = unsigned short (2 bytes)
-  short PulserMode;                     // Repetitive/Sequential
-  WORD PulserOnChipAccums;              // Num PTG On-Chip Accums
-  DWORD PulseRepeatExp;                 // Num Exp Repeats (Pulser SW Accum)
+  int16_t PulserType;                     // 0 = None, 1 = PG200, 2 = PTG, 3 = DG535
+  int16_t CustomChipFlag;                 // T/F Custom Chip Used
+  int16_t XPrePixels;                     // Pre Pixels in X direction
+  int16_t XPostPixels;                    // Post Pixels in X direction
+  int16_t YPrePixels;                     // Pre Pixels in Y direction
+  int16_t YPostPixels;                    // Post Pixels in Y direction
+  int16_t asynen;                         // asynchron enable flag 0 = off
+  int16_t datatype;                       // experiment datatype, 0 = float (4 bytes), 1 = int32_t (4 bytes), 2 = int16_t (2 bytes), 3 = uint16_t (2 bytes)
+  int16_t PulserMode;                     // Repetitive/Sequential
+  uint16_t PulserOnChipAccums;              // Num PTG On-Chip Accums
+  uint32_t PulseRepeatExp;                 // Num Exp Repeats (Pulser SW Accum)
   float PulseRepWidth;                  // Width Value for Repetitive pulse (usec)
   float PulseRepDelay;                  // Width Value for Repetitive pulse (usec)
   float PulseSeqStartWidth;             // Start Width for Sequential pulse (usec)
   float PulseSeqEndWidth;               // End Width for Sequential pulse (usec)
   float PulseSeqStartDelay;             // Start Delay for Sequential pulse (usec)
   float PulseSeqEndDelay;               // End Delay for Sequential pulse (usec)
-  short PulseSeqIncMode;                // Increments: 1 = Fixed, 2 = Exponential
-  short PImaxUsed;                      // PI-Max type controller flag
-  short PImaxMode;                      // PI-Max mode
-  short PImaxGain;                      // PI-Max Gain
-  short BackGrndApplied;                // 1 if background subtraction done
-  short PImax2nsBrdUsed;                // T/F PI-Max 2 ns Board Used
-  WORD minblk;                          // min. # of strips per skips
-  WORD numminblk;                       // # of min-blocks before geo skps
-  short SpecMirrorLocation[ 2 ];        // Spectro Mirror Location, 0 = Not Present
-  short SpecSlitLocation[ 4 ];          // Spectro Slit Location, 0 = Not Present
-  short CustomTimingFlag;               // T/F Custom Timing Used
+  int16_t PulseSeqIncMode;                // Increments: 1 = Fixed, 2 = Exponential
+  int16_t PImaxUsed;                      // PI-Max type controller flag
+  int16_t PImaxMode;                      // PI-Max mode
+  int16_t PImaxGain;                      // PI-Max Gain
+  int16_t BackGrndApplied;                // 1 if background subtraction done
+  int16_t PImax2nsBrdUsed;                // T/F PI-Max 2 ns Board Used
+  uint16_t minblk;                          // min. # of strips per skips
+  uint16_t numminblk;                       // # of min-blocks before geo skps
+  int16_t SpecMirrorLocation[ 2 ];        // Spectro Mirror Location, 0 = Not Present
+  int16_t SpecSlitLocation[ 4 ];          // Spectro Slit Location, 0 = Not Present
+  int16_t CustomTimingFlag;               // T/F Custom Timing Used
   char ExperimentTimeLocal[ TIMEMAX ];  // Experiment Local Time as hhmmss\0
   char ExperimentTimeUTC[ TIMEMAX ];    // Experiment UTC Time as hhmmss\0
-  short ExposUnits;                     // User Units for Exposure
-  WORD ADCoffset;                       // ADC offset
-  WORD ADCrate;                         // ADC rate
-  WORD ADCtype;                         // ADC type
-  WORD ADCresolution;                   // ADC resolution
-  WORD ADCbitAdjust;                    // ADC bit adjust
+  int16_t ExposUnits;                     // User Units for Exposure
+  uint16_t ADCoffset;                       // ADC offset
+  uint16_t ADCrate;                         // ADC rate
+  uint16_t ADCtype;                         // ADC type
+  uint16_t ADCresolution;                   // ADC resolution
+  uint16_t ADCbitAdjust;                    // ADC bit adjust
   char Comments[ 5 ] [ COMMENTMAX ];    // File Comments
-  WORD geometric;                       // geometric ops: 0x01 = rotate, 0x02 = reverse, 0x04 = flip
+  uint16_t geometric;                       // geometric ops: 0x01 = rotate, 0x02 = reverse, 0x04 = flip
   char xlabel[ LABELMAX ];              // intensity display string
-  WORD cleans;                          // cleans
-  WORD NumSkpPerCln;                    // number of skips per clean
-  short SpecMirrorPos[ 2 ];             // Spectrograph Mirror Positions
+  uint16_t cleans;                          // cleans
+  uint16_t NumSkpPerCln;                    // number of skips per clean
+  int16_t SpecMirrorPos[ 2 ];             // Spectrograph Mirror Positions
   float SpecSlitPos[ 4 ];               // Spectrograph Slit Positions
-  short AutoCleansActive;               // T/F
-  short UseContCleansInst;              // T/F
-  short AbsorbStripNum;                 // Absorbance Strip Number
-  short SpecSlitPosUnits;               // Spectrograph Slit Position Units
+  int16_t AutoCleansActive;               // T/F
+  int16_t UseContCleansInst;              // T/F
+  int16_t AbsorbStripNum;                 // Absorbance Strip Number
+  int16_t SpecSlitPosUnits;               // Spectrograph Slit Position Units
   float SpecGrooves;                    // Spectrograph Grating Grooves
-  short srccmp;                         // number of source comp. diodes
-  WORD ydim;                            // y dimension of raw data
-  short scramble;                       // 0 = scrambled, 1 = unscrambled
-  short ContinuousCleansFlag;           // T/F Continuous Cleans Timing Option
-  short ExternalTriggerFlag;            // T/F External Trigger Timing Option
-  long lnoscan;                         // Number of scans (Early WinX)
-  long lavgexp;                         // Number of Accumulations
+  int16_t srccmp;                         // number of source comp. diodes
+  uint16_t ydim;                            // y dimension of raw data
+  int16_t scramble;                       // 0 = scrambled, 1 = unscrambled
+  int16_t ContinuousCleansFlag;           // T/F Continuous Cleans Timing Option
+  int16_t ExternalTriggerFlag;            // T/F External Trigger Timing Option
+  int32_t lnoscan;                         // Number of scans (Early WinX)
+  int32_t lavgexp;                         // Number of Accumulations
   float ReadOutTime;                    // Experiment readout time
-  short TriggeredModeFlag;              // T/F Triggered Timing Option
+  int16_t TriggeredModeFlag;              // T/F Triggered Timing Option
   //char Spare_2[ 10 ];                   //
   char sw_version[ FILEVERMAX ];        // Version of SW creating this file
-  short type;                           // 1 = new120 (Type II), 2 = old120 (Type I), 3 = ST130, 4 = ST121, 5 = ST138, 6 = DC131 (PentaMax), 7 = ST133 (MicroMax/SpectroMax), 8 = ST135 (GPIB), 9 = VICCD, 10 = ST116 (GPIB), 11 = OMA3 (GPIB), 12 = OMA4
-  short flatFieldApplied;               // 1 if flat field was applied
+  int16_t type;                           // 1 = new120 (Type II), 2 = old120 (Type I), 3 = ST130, 4 = ST121, 5 = ST138, 6 = DC131 (PentaMax), 7 = ST133 (MicroMax/SpectroMax), 8 = ST135 (GPIB), 9 = VICCD, 10 = ST116 (GPIB), 11 = OMA3 (GPIB), 12 = OMA4
+  int16_t flatFieldApplied;               // 1 if flat field was applied
   //char Spare_3[ 16 ];                   //
-  short kin_trig_mode;                  // Kinetics Trigger Mode
+  int16_t kin_trig_mode;                  // Kinetics Trigger Mode
   char dlabel[ LABELMAX ];              // Data label
   //char Spare_4[ 436 ];                  //
   char PulseFileName[ HDRNAMEMAX ];     // Name of Pulser File with Pulse Widths/Delays (for Z-Slice)
   char AbsorbFileName[ HDRNAMEMAX ];    // Name of Absorbance File (if File Mode)
-  DWORD NumExpRepeats;                  // Number of Times experiment repeated
-  DWORD NumExpAccums;                   // Number of Times experiment accumulated
-  short YT_Flag;                        // Set to 1 if this file contains YT data
+  uint32_t NumExpRepeats;                  // Number of Times experiment repeated
+  uint32_t NumExpAccums;                   // Number of Times experiment accumulated
+  int16_t YT_Flag;                        // Set to 1 if this file contains YT data
   float clkspd_us;                      // Vert Clock Speed in usec
-  short HWaccumFlag;                    // set to 1 if accum done by Hardware
-  short StoreSync;                      // set to 1 if store sync used
-  short BlemishApplied;                 // set to 1 if blemish removal applied
-  short CosmicApplied;                  // set to 1 if cosmic ray removal applied
-  short CosmicType;                     // if cosmic ray applied, this is type
+  int16_t HWaccumFlag;                    // set to 1 if accum done by Hardware
+  int16_t StoreSync;                      // set to 1 if store sync used
+  int16_t BlemishApplied;                 // set to 1 if blemish removal applied
+  int16_t CosmicApplied;                  // set to 1 if cosmic ray removal applied
+  int16_t CosmicType;                     // if cosmic ray applied, this is type
   float CosmicThreshold;                // Threshold of cosmic ray removal
-  long NumFrames;                       // number of frames in file
+  int32_t NumFrames;                       // number of frames in file
   float MaxIntensity;                   // max intensity of data (future)
   float MinIntensity;                   // min intensity of data (future)
   char ylabel[ LABELMAX ];              // y axis label
-  WORD ShutterType;                     // shutter type
+  uint16_t ShutterType;                     // shutter type
   float shutterComp;                    // shutter compensation time
-  WORD readoutMode;                     // readout mode, full, kinetics, etc
-  WORD WindowSize;                      // window size for kinetics only
-  WORD clkspd;                          // clock speed for kinetics & frame transfer
-  WORD interface_type;                  // computer interface (isa-taxi, pci, eisa, etc)
-  short NumROIsInExperiment;            // May be more than the 10 allowed in this header (if 0, assume 1)
+  uint16_t readoutMode;                     // readout mode, full, kinetics, etc
+  uint16_t WindowSize;                      // window size for kinetics only
+  uint16_t clkspd;                          // clock speed for kinetics & frame transfer
+  uint16_t interface_type;                  // computer interface (isa-taxi, pci, eisa, etc)
+  int16_t NumROIsInExperiment;            // May be more than the 10 allowed in this header (if 0, assume 1)
   //char Spare_5[ 16 ];                   //
-  WORD controllerNum;                   // if multiple controller system will have controller data came from, this is a future item
-  WORD SWmade;                          // Which software package created this file
-  short NumROI;                         // number of ROIs used, if 0 assume 1
+  uint16_t controllerNum;                   // if multiple controller system will have controller data came from, this is a future item
+  uint16_t SWmade;                          // Which software package created this file
+  int16_t NumROI;                         // number of ROIs used, if 0 assume 1
   struct ROI
   {
-    WORD startx;                        // left x start value
-    WORD endx;                          // right x value
-    WORD groupx;                        // amount x is binned/grouped in hw
-    WORD starty;                        // top y start value
-    WORD endy;                          // bottom y value
-    WORD groupy;                        // amount y is binned/grouped in hw
+    uint16_t startx;                        // left x start value
+    uint16_t endx;                          // right x value
+    uint16_t groupx;                        // amount x is binned/grouped in hw
+    uint16_t starty;                        // top y start value
+    uint16_t endy;                          // bottom y value
+    uint16_t groupy;                        // amount y is binned/grouped in hw
   } ROIinfoblk[ ROIMAX ];               // ROI info blocks
   char FlatField[ HDRNAMEMAX ];         // Flat field file name
   char background[ HDRNAMEMAX ];        // background sub file name
   char blemish[ HDRNAMEMAX ];           // blemish file name
   float file_header_ver;                // version of this file header
   char YT_info[ 1000 ];                 // Reserved for YT information
-  long WinView_id;                      // 0x01234567L if file created by WinX
+  int32_t WinView_id;                      // 0x01234567L if file created by WinX
   struct calibration
   {
     double offset;                      // offset for absolute data scaling
@@ -200,36 +196,34 @@ class speFile
     double polynom_coeff[ 6 ];          // polynom coefficients
     double laser_position;              // laser wavenumber for relative WN
     char reserved3;                     // reserved
-    BYTE new_calib_flag;                // If set to 200, valid label below
+    unsigned char new_calib_flag;                // If set to 200, valid label below
     char calib_label[ 81 ];             // Calibration label (null term'd)
     char expansion[ 87 ];               // Calibration Expansion area
   } xcalibration, ycalibration;         // x and y axis calibration
   char Istring[ 40 ];                   // special intensity scaling string
   //char Spare_6[ 25 ];                   //
-  BYTE SpecType;                        // spectrometer type (acton, spex, etc)
-  BYTE SpecModel;                       // spectrometer model (type dependent)
-  BYTE PulseBurstUsed;                  // pulser burst mode on/off
-  DWORD PulseBurstCount;                // pulser triggers per burst
+  unsigned char SpecType;                        // spectrometer type (acton, spex, etc)
+  unsigned char SpecModel;                       // spectrometer model (type dependent)
+  unsigned char PulseBurstUsed;                  // pulser burst mode on/off
+  uint32_t PulseBurstCount;                // pulser triggers per burst
   double PulseBurstPeriod;              // pulser burst period (in usec)
-  BYTE PulseBracketUsed;                // pulser bracket pulsing on/off
-  BYTE PulseBracketType;                // pulser bracket pulsing type
+  unsigned char PulseBracketUsed;                // pulser bracket pulsing on/off
+  unsigned char PulseBracketType;                // pulser bracket pulsing type
   double PulseTimeConstFast;            // pulser fast exponential time constant (in usec)
   double PulseAmplitudeFast;            // pulser fast exponential amplitude constant
   double PulseTimeConstSlow;            // pulser slow exponential time constant (in usec)
   double PulseAmplitudeSlow;            // pulser slow exponential amplitude constant
-  short AnalogGain;                     // analog gain
-  short AvGainUsed;                     // avalanche gain was used
-  short AvGain;                         // avalanche gain value
-  short lastvalue;                      // Always the last value in the header
+  int16_t AnalogGain;                     // analog gain
+  int16_t AvGainUsed;                     // avalanche gain was used
+  int16_t AvGain;                         // avalanche gain value
+  int16_t lastvalue;                      // Always the last value in the header
 
   std::ifstream infile;                 // Path to the SPE file, empty = file is invalid
 
   template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET = -0x0001 )
   {
-    if( infile.good() ) {
-      if( BYTE_OFFSET != -0x0001 ) infile.seekg( BYTE_OFFSET );
-      infile.read( reinterpret_cast<char*>( &value ), sizeof( value ) );
-    }
+    if( BYTE_OFFSET != -0x0001 ) infile.seekg( BYTE_OFFSET );
+    if( infile.good() ) infile.read( reinterpret_cast<char*>( &value ), sizeof( value ) );
   }
 
 public:
