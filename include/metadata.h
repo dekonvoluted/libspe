@@ -32,8 +32,8 @@ class Metadata
     void read( std::ifstream& );
     void reset();
 
-    unsigned rows() const;
-    unsigned columns() const;
+    unsigned short rows() const;
+    unsigned short columns() const;
     long frames() const;
 
     private:

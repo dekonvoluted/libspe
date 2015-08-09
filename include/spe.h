@@ -32,9 +32,10 @@ class File
     ~File();
 
     void read( const std::string& );
-    unsigned rows();
-    unsigned columns();
-    unsigned frames();
+
+    unsigned short rows() const;
+    unsigned short columns() const;
+    long frames() const;
 
     Metadata metadata;
 

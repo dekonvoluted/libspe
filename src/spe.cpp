@@ -39,17 +39,17 @@ void File::read( const std::string& filePath )
     metadata.read( file );
 }
 
-unsigned File::rows()
+unsigned short File::rows() const
 {
     return metadata.rows();
 }
 
-unsigned File::columns()
+unsigned short File::columns() const
 {
     return metadata.columns();
 }
 
-unsigned File::frames()
+long File::frames() const
 {
     return metadata.frames();
 }

@@ -44,12 +44,12 @@ void Metadata::reset()
     NumFrames = 0;
 }
 
-unsigned Metadata::rows() const
+unsigned short Metadata::rows() const
 {
     return ydim;
 }
 
-unsigned Metadata::columns() const
+unsigned short Metadata::columns() const
 {
     return xdim;
 }
