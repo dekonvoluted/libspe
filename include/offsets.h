@@ -17,8 +17,11 @@
 #ifndef SPE_OFFSETS_H
 #define SPE_OFFSETS_H
 
+#include <cstddef>
+
 const unsigned short OFFSET_XDIM = 0x002A;
 const unsigned short OFFSET_YDIM = 0x0290;
+const std::size_t OFFSET_DATATYPE = 0x006C;
 const unsigned short OFFSET_NUMFRAMES = 0x05A6;
 const unsigned short OFFSET_DATA = 0x1004;
 

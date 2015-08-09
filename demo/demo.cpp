@@ -25,6 +25,8 @@ int main()
     SPE::File image( "image.spe" );
 
     std::cout << "Image: " << image.rows() << " rows x " << image.columns() << " cols x " << image.frames() << " frames." << std::endl;
+    std::cout << "Data: " << image.type() << std::endl;
+    std::cout << "Pixel( row: 0, col: 0, frame: 0 ): " << image.getPixel( 0, 0, 0 ) << std::endl;
 
     return 0;
 }

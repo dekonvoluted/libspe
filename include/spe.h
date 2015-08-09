@@ -31,9 +31,11 @@ class File
     ~File();
 
     void read( const std::string& );
+    float getPixel( const unsigned short, const unsigned short, const long = 0 );
 
     unsigned short rows() const;
     unsigned short columns() const;
+    std::string type() const;
     long frames() const;
 
     Metadata metadata;

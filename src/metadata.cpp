@@ -27,6 +27,7 @@ void Metadata::read( std::ifstream& file )
 
     retrieve( xdim, OFFSET_XDIM );
     retrieve( ydim, OFFSET_YDIM );
+    retrieve( datatype, OFFSET_DATATYPE );
     retrieve( NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -36,7 +37,13 @@ void Metadata::reset()
 
     xdim = 0;
     ydim = 0;
+    datatype = 0;
     NumFrames = 0;
+}
+
+unsigned short Metadata::columns() const
+{
+    return xdim;
 }
 
 unsigned short Metadata::rows() const
@@ -44,9 +51,9 @@ unsigned short Metadata::rows() const
     return ydim;
 }
 
-unsigned short Metadata::columns() const
+int Metadata::type() const
 {
-    return xdim;
+    return datatype;
 }
 
 long Metadata::frames() const

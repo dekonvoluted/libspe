@@ -31,13 +31,15 @@ class Metadata : public Data
     void read( std::ifstream& );
     void reset();
 
-    unsigned short rows() const;
     unsigned short columns() const;
+    unsigned short rows() const;
+    int type() const;
     long frames() const;
 
     private:
     uint16_t xdim;
     uint16_t ydim;
+    int16_t datatype;
     int32_t NumFrames;
 };
 }
