@@ -1,5 +1,5 @@
 # This file is part of libspe, a C++ library to interface with spe files.
-# Copyright (c) 2012 Karthik Periagaram <karthik.periagaram@gmail.com>
+# Copyright (c) 2012,2013,2014,2015 Karthik Periagaram <dekonvoluted@gmail.com>
 #
 # libspe is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,13 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required( VERSION 2.8 )
+project( libspe )
 
+cmake_minimum_required( VERSION 3.3 )
 set( CMAKE_CXX_FLAGS "-g -O2 -Wall -std=c++11" )
 
 include_directories( /usr/include/eigen2 ) #FIXME: Search and find Eigen libraries
 
-add_subdirectory( src )
+include_directories( ${PROJECT_SOURCE_DIR}/include )
+add_subdirectory( ${PROJECT_SOURCE_DIR}/src )
 
-install( FILES ${CMAKE_BINARY_DIR}/src/libspe.so DESTINATION ${CMAKE_SOURCE_DIR} )
+install( FILES ${PROJECT_BINARY_DIR}/src/libspe.so DESTINATION ${PROJECT_SOURCE_DIR} )
 

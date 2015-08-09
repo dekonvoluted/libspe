@@ -14,44 +14,34 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <vector>
+#ifndef SPE_FILE_H
+#define SPE_FILE_H
 
-#include "spe.h"
+#include <string>
+#include <fstream>
+
 #include "metadata.h"
 
 namespace SPE {
 
-File::File( const std::string& filePath )
+class File
 {
-    read( filePath );
+    public:
+    File() = default;
+    File( const std::string& );
+    ~File();
+
+    void read( const std::string& );
+    unsigned rows();
+    unsigned columns();
+    unsigned frames();
+
+    Metadata metadata;
+
+    private:
+    std::ifstream file;
+};
 }
 
-File::~File()
-{
-    if(  file.is_open() ) file.close();
-}
-
-void File::read( const std::string& filePath )
-{
-    if ( file.is_open() ) file.close();
-
-    file.open( filePath.c_str(), std::ios::in | std::ios::binary );
-    metadata.read( file );
-}
-
-unsigned File::rows()
-{
-    return metadata.rows();
-}
-
-unsigned File::columns()
-{
-    return metadata.columns();
-}
-
-unsigned File::frames()
-{
-    return metadata.frames();
-}
-}
+#endif
 

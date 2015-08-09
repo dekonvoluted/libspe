@@ -14,44 +14,49 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <vector>
+#include <string>
 
-#include "spe.h"
 #include "metadata.h"
+#include "offsets.h"
 
 namespace SPE {
 
-File::File( const std::string& filePath )
+Metadata::Metadata() : header( OFFSET_DATA, 0 )
+{}
+
+void Metadata::read( std::ifstream& file )
 {
-    read( filePath );
+    reset();
+    file.seekg( 0 );
+    file.read( header.data(), OFFSET_DATA );
+
+    retrieve( xdim, OFFSET_XDIM );
+    retrieve( ydim, OFFSET_YDIM );
+    retrieve( NumFrames, OFFSET_NUMFRAMES );
 }
 
-File::~File()
+void Metadata::reset()
 {
-    if(  file.is_open() ) file.close();
+    header.clear();
+
+    xdim = 0;
+    ydim = 0;
+    NumFrames = 0;
 }
 
-void File::read( const std::string& filePath )
+unsigned Metadata::rows() const
 {
-    if ( file.is_open() ) file.close();
-
-    file.open( filePath.c_str(), std::ios::in | std::ios::binary );
-    metadata.read( file );
+    return ydim;
 }
 
-unsigned File::rows()
+unsigned Metadata::columns() const
 {
-    return metadata.rows();
+    return xdim;
 }
 
-unsigned File::columns()
+long Metadata::frames() const
 {
-    return metadata.columns();
-}
-
-unsigned File::frames()
-{
-    return metadata.frames();
+    return NumFrames;
 }
 }
 

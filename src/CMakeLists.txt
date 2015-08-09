@@ -1,5 +1,5 @@
 # This file is part of libspe, a C++ library to interface with spe files.
-# Copyright (c) 2012 Karthik Periagaram <karthik.periagaram@gmail.com>
+# Copyright (c) 2012,2013,2014,2015 Karthik Periagaram <dekonvoluted@gmail.com>
 #
 # libspe is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,11 +14,11 @@
 # You should have received a copy of the GNU General Public License
 # along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required( VERSION 2.8 )
+cmake_minimum_required( VERSION 3.3 )
 
-include_directories( .. )
+include_directories( ${PROJECT_SOURCE_DIR}/include )
 
-set( SPE_SOURCES spe.cpp speutils.cpp )
+set( SPE_SOURCES spe.cpp metadata.cpp )
 
 add_library( spe SHARED ${SPE_SOURCES} )
 

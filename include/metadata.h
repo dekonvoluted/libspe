@@ -14,44 +14,42 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <vector>
+#ifndef SPE_METADATA_H
+#define SPE_METADATA_H
 
-#include "spe.h"
-#include "metadata.h"
+#include <vector>
+#include <fstream>
+#include <string>
+#include <sstream>
 
 namespace SPE {
-
-File::File( const std::string& filePath )
+class Metadata
 {
-    read( filePath );
+    public:
+    Metadata();
+    ~Metadata() = default;
+
+    void read( std::ifstream& );
+    void reset();
+
+    unsigned rows() const;
+    unsigned columns() const;
+    long frames() const;
+
+    private:
+    std::vector<char> header;
+
+    template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET )
+    {
+        std::string slice( header.begin() + BYTE_OFFSET, header.begin() + BYTE_OFFSET + sizeof( value ) );
+        std::stringstream( slice ).read( reinterpret_cast<char*>( &value ), sizeof( value ) );
+    }
+
+    uint16_t xdim;
+    uint16_t ydim;
+    int32_t NumFrames;
+};
 }
 
-File::~File()
-{
-    if(  file.is_open() ) file.close();
-}
-
-void File::read( const std::string& filePath )
-{
-    if ( file.is_open() ) file.close();
-
-    file.open( filePath.c_str(), std::ios::in | std::ios::binary );
-    metadata.read( file );
-}
-
-unsigned File::rows()
-{
-    return metadata.rows();
-}
-
-unsigned File::columns()
-{
-    return metadata.columns();
-}
-
-unsigned File::frames()
-{
-    return metadata.frames();
-}
-}
+#endif
 

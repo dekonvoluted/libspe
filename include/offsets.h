@@ -1,5 +1,5 @@
 // This file is part of libspe, a C++ library to interface with spe files.
-// Copyright (c) 2012 Karthik Periagaram <karthik.periagaram@gmail.com>
+// Copyright (c) 2012,2013,2014,2015 Karthik Periagaram <dekonvoluted@gmail.com>
 //
 // libspe is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,18 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-// Utilities to work with spe files
-// Needs <vector>
-// Needs <string>
-// Needs "spe.h"
+#ifndef SPE_OFFSETS_H
+#define SPE_OFFSETS_H
 
-#ifndef SPEUTILS_H
-#define SPEUTILS_H
-
-#include <vector>
-#include <string>
-
-std::vector<std::string> lsspe( std::string ); // List spe files in a directory
+const unsigned short OFFSET_XDIM = 0x002A;
+const unsigned short OFFSET_YDIM = 0x0290;
+const unsigned short OFFSET_NUMFRAMES = 0x05A6;
+const unsigned short OFFSET_DATA = 0x1004;
 
 #endif
 
