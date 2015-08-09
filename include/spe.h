@@ -23,7 +23,6 @@
 #include "metadata.h"
 
 namespace SPE {
-
 class File
 {
     public:

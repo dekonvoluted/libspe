@@ -20,7 +20,6 @@
 #include "offsets.h"
 
 namespace SPE {
-
 Metadata::Metadata() : header( OFFSET_DATA, 0 )
 {}
 

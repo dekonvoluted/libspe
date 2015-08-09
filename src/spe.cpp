@@ -20,7 +20,6 @@
 #include "metadata.h"
 
 namespace SPE {
-
 File::File( const std::string& filePath )
 {
     read( filePath );
