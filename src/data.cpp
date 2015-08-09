@@ -17,7 +17,7 @@
 #include "data.h"
 
 namespace SPE {
-Data::Data( const size_t fileOffset, const size_t dataLength ) : FILE_OFFSET( fileOffset ), DATA_LENGTH( dataLength ), stream( dataLength, 0 )
+Data::Data( const std::size_t fileOffset, const std::size_t dataLength ) : FILE_OFFSET( fileOffset ), DATA_LENGTH( dataLength ), stream( dataLength, 0 )
 {}
 
 void Data::read( std::ifstream& file )
