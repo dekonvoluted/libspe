@@ -14,44 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "metadata.h"
-#include "offsets.h"
+#include "data.h"
 
 namespace SPE {
-Metadata::Metadata() : Data( 0, OFFSET_DATA )
+Data::Data( const size_t fileOffset, const size_t dataLength ) : FILE_OFFSET( fileOffset ), DATA_LENGTH( dataLength ), stream( dataLength, 0 )
 {}
 
-void Metadata::read( std::ifstream& file )
+void Data::read( std::ifstream& file )
 {
-    Data::read( file );
-
-    retrieve( xdim, OFFSET_XDIM );
-    retrieve( ydim, OFFSET_YDIM );
-    retrieve( NumFrames, OFFSET_NUMFRAMES );
+    reset();
+    file.seekg( FILE_OFFSET );
+    file.read( stream.data(), DATA_LENGTH );
 }
 
-void Metadata::reset()
+void Data::reset()
 {
-    Data::reset();
-
-    xdim = 0;
-    ydim = 0;
-    NumFrames = 0;
-}
-
-unsigned short Metadata::rows() const
-{
-    return ydim;
-}
-
-unsigned short Metadata::columns() const
-{
-    return xdim;
-}
-
-long Metadata::frames() const
-{
-    return NumFrames;
+    stream.clear();
 }
 }
 

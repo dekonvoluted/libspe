@@ -14,44 +14,37 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "metadata.h"
-#include "offsets.h"
+#ifndef SPE_DATA_H
+#define SPE_DATA_H
+
+#include <vector>
+#include <fstream>
+#include <string>
+#include <sstream>
 
 namespace SPE {
-Metadata::Metadata() : Data( 0, OFFSET_DATA )
-{}
-
-void Metadata::read( std::ifstream& file )
+class Data
 {
-    Data::read( file );
+    public:
+    Data( const size_t, const size_t );
+    ~Data() = default;
 
-    retrieve( xdim, OFFSET_XDIM );
-    retrieve( ydim, OFFSET_YDIM );
-    retrieve( NumFrames, OFFSET_NUMFRAMES );
+    virtual void read( std::ifstream& );
+    virtual void reset();
+
+    private:
+    const size_t FILE_OFFSET;
+    const size_t DATA_LENGTH;
+    std::vector<char> stream;
+
+    protected:
+    template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET )
+    {
+        const std::string slice( stream.begin() + BYTE_OFFSET, stream.begin() + BYTE_OFFSET + sizeof( value ) );
+        std::stringstream( slice ).read( reinterpret_cast<char*>( &value ), sizeof( value ) );
+    }
+};
 }
 
-void Metadata::reset()
-{
-    Data::reset();
-
-    xdim = 0;
-    ydim = 0;
-    NumFrames = 0;
-}
-
-unsigned short Metadata::rows() const
-{
-    return ydim;
-}
-
-unsigned short Metadata::columns() const
-{
-    return xdim;
-}
-
-long Metadata::frames() const
-{
-    return NumFrames;
-}
-}
+#endif
 

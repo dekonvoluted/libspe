@@ -17,13 +17,12 @@
 #ifndef SPE_METADATA_H
 #define SPE_METADATA_H
 
-#include <vector>
 #include <fstream>
-#include <string>
-#include <sstream>
+
+#include "data.h"
 
 namespace SPE {
-class Metadata
+class Metadata : public Data
 {
     public:
     Metadata();
@@ -37,14 +36,6 @@ class Metadata
     long frames() const;
 
     private:
-    std::vector<char> header;
-
-    template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET )
-    {
-        std::string slice( header.begin() + BYTE_OFFSET, header.begin() + BYTE_OFFSET + sizeof( value ) );
-        std::stringstream( slice ).read( reinterpret_cast<char*>( &value ), sizeof( value ) );
-    }
-
     uint16_t xdim;
     uint16_t ydim;
     int32_t NumFrames;

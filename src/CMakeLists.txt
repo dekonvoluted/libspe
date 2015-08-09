@@ -18,7 +18,7 @@ cmake_minimum_required( VERSION 3.3 )
 
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 
-set( SPE_SOURCES spe.cpp metadata.cpp )
+set( SPE_SOURCES spe.cpp data.cpp metadata.cpp )
 
 add_library( spe SHARED ${SPE_SOURCES} )
 
