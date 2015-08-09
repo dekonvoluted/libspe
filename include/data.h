@@ -17,6 +17,7 @@
 #ifndef SPE_DATA_H
 #define SPE_DATA_H
 
+#include <cstddef>
 #include <vector>
 #include <fstream>
 #include <string>
@@ -26,23 +27,22 @@ namespace SPE {
 class Data
 {
     public:
-    Data( const size_t, const size_t );
+    Data( const std::size_t, const std::size_t );
     ~Data() = default;
 
     virtual void read( std::ifstream& );
     virtual void reset();
 
-    private:
-    const size_t FILE_OFFSET;
-    const size_t DATA_LENGTH;
-    std::vector<char> stream;
-
-    protected:
-    template<class T> void retrieve( T& value, const unsigned short BYTE_OFFSET )
+    template<class T> void retrieve( T& value, const std::size_t BYTE_OFFSET = 0 )
     {
         const std::string slice( stream.begin() + BYTE_OFFSET, stream.begin() + BYTE_OFFSET + sizeof( value ) );
         std::stringstream( slice ).read( reinterpret_cast<char*>( &value ), sizeof( value ) );
     }
+
+    private:
+    const std::size_t FILE_OFFSET;
+    const std::size_t DATA_LENGTH;
+    std::vector<char> stream;
 };
 }
 
