@@ -40,25 +40,5 @@ void Metadata::reset()
     datatype = 0;
     NumFrames = 0;
 }
-
-unsigned short Metadata::columns() const
-{
-    return xdim;
-}
-
-unsigned short Metadata::rows() const
-{
-    return ydim;
-}
-
-int Metadata::type() const
-{
-    return datatype;
-}
-
-long Metadata::frames() const
-{
-    return NumFrames;
-}
 }
 

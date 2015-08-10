@@ -35,7 +35,6 @@ class File
 
     unsigned short rows() const;
     unsigned short columns() const;
-    std::string type() const;
     long frames() const;
 
     Metadata metadata;

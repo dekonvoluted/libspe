@@ -43,11 +43,11 @@ void File::read( const std::string& filePath )
 
 float File::getPixel( const unsigned short row, const unsigned short col, const long frame )
 {
-    switch( metadata.type() ) {
+    switch( metadata.datatype ) {
         case 0:
             {
                 float pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.columns() * metadata.rows() * frame ) + ( metadata.columns() * row ) + col ) );
+                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
                 pixelData.retrieve( pixel );
@@ -56,7 +56,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
         case 1:
             {
                 int32_t pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.columns() * metadata.rows() * frame ) + ( metadata.columns() * row ) + col ) );
+                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
                 pixelData.retrieve( pixel );
@@ -66,7 +66,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
         case 2:
             {
                 int16_t pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.columns() * metadata.rows() * frame ) + ( metadata.columns() * row ) + col ) );
+                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
                 pixelData.retrieve( pixel );
@@ -75,48 +75,29 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
         case 3:
             {
                 uint16_t pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.columns() * metadata.rows() * frame ) + ( metadata.columns() * row ) + col ) );
+                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
                 pixelData.retrieve( pixel );
                 return pixel;
             }
     }
+    return -1.0f;
 }
 
 unsigned short File::rows() const
 {
-    return metadata.rows();
+    return metadata.ydim;
 }
 
 unsigned short File::columns() const
 {
-    return metadata.columns();
-}
-
-std::string File::type() const
-{
-    std::string datatype;
-    switch( metadata.type() ) {
-        case 0:
-            datatype = "float (4 bytes)";
-            break;
-        case 1:
-            datatype = "long (4 bytes)";
-            break;
-        case 2:
-            datatype = "short (2 bytes)";
-            break;
-        case 3:
-            datatype = "unsigned short (2 bytes)";
-            break;
-    }
-    return datatype;
+    return metadata.xdim;
 }
 
 long File::frames() const
 {
-    return metadata.frames();
+    return metadata.NumFrames;
 }
 }
 

@@ -22,7 +22,7 @@
 #include "data.h"
 
 namespace SPE {
-class Metadata : public Data
+struct Metadata : public Data
 {
     public:
     Metadata();
@@ -31,12 +31,6 @@ class Metadata : public Data
     void read( std::ifstream& );
     void reset();
 
-    unsigned short columns() const;
-    unsigned short rows() const;
-    int type() const;
-    long frames() const;
-
-    private:
     uint16_t xdim;
     uint16_t ydim;
     int16_t datatype;
