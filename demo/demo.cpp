@@ -14,20 +14,58 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
+#include <vector>
+#include <string>
 #include <iostream>
+#include <dirent.h>
+#include <fnmatch.h>
 
 #include "spe.h"
 
 using namespace std;
 
+int filter( const struct dirent* );
+std::vector<std::string> findSPEFiles( const std::string& );
+
 int main()
 {
-    SPE::File image( "image.spe" );
+    // Find all SPE files in the current directory
+    auto filePaths = findSPEFiles( "./" );
 
-    std::cout << "Image: " << image.rows() << " rows x " << image.columns() << " cols x " << image.frames() << " frames." << std::endl;
-    std::cout << "Data: " << image.type() << std::endl;
-    std::cout << "Pixel( row: 0, col: 0, frame: 0 ): " << image.getPixel( 0, 0, 0 ) << std::endl;
+    for ( auto& filePath : filePaths ) {
+        // Write out metadata from file
+        SPE::File image( filePath );
+
+        std::cout << "Image: " << filePath << std::endl;
+        std::cout << "Size: " << image.rows() << " rows x " << image.columns() << " cols x " << image.frames() << " frames." << std::endl;
+        std::cout << "Pixel( row: 0, col: 0, frame: 0 ): " << image.getPixel( 0, 0, 0 ) << std::endl;
+        std::cout << std::endl;
+    }
 
     return 0;
+}
+
+// Find files in a given directory
+std::vector<std::string> findSPEFiles( const std::string& directory )
+{
+    std::vector<std::string> filePaths;
+
+    // Return empty vector if directory is invalid
+    if ( not opendir( directory.c_str() ) ) return filePaths;
+
+    // Find all filtered files in directory
+    struct dirent** files;
+    auto numFiles = scandir( directory.c_str(), &files, filter, alphasort );
+
+    for ( auto count = 0; count < numFiles; ++count )
+        filePaths.push_back( files[ count ]->d_name );
+
+    return filePaths;
+}
+
+// Filter files with extension (case-insensitive)
+int filter( const struct dirent* file )
+{
+    return not fnmatch( "*.spe", file->d_name, FNM_CASEFOLD );
 }
 
