@@ -19,6 +19,7 @@
 #include <iostream>
 #include <dirent.h>
 #include <fnmatch.h>
+#include <fstream>
 
 #include "spe.h"
 
@@ -33,18 +34,29 @@ int main()
     auto filePaths = findSPEFiles( "./" );
 
     for ( auto& filePath : filePaths ) {
-        // Write out metadata from file
+        // Create an SPE::File instance
         SPE::File image( filePath );
 
+        // Print out the size of the image
         std::cout << "Image: " << filePath << std::endl;
         std::cout << "Size: " << image.rows() << " rows x " << image.columns() << " cols x " << image.frames() << " frames." << std::endl;
+
+        // Print out the first pixel
         std::cout << "Pixel( row: 0, col: 0, frame: 0 ): " << image.getPixel( 0, 0, 0 ) << std::endl;
 
+        // Print out the top left corner of the first frame
         auto frame0 = image.getFrame( 0 );
         std::cout << "Frame 0: " << frame0( 0, 0 ) << " " << frame0( 0, 1 ) << " " << frame0( 0, 2 ) << "..." << std::endl;
         std::cout << "         " << frame0( 1, 0 ) << " " << frame0( 1, 1 ) << " " << frame0( 1, 2 ) << "..." << std::endl;
         std::cout << "         " << frame0( 2, 0 ) << " " << frame0( 2, 1 ) << " " << frame0( 2, 2 ) << "..." << std::endl;
         std::cout << std::endl;
+
+        // Output the average of all frames to a data file
+        ofstream outFile;
+        auto outFileName = filePath.replace( filePath.end() - 3, filePath.end(), "dat" );
+        outFile.open( outFileName.c_str() );
+        outFile << image.getAverageFrame() << std::endl;
+        outFile.close();
     }
 
     return 0;
