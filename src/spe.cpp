@@ -80,7 +80,9 @@ Eigen::ArrayXXf File::getAverageFrame()
         averageFrame += getFrame( frame );
     }
 
-    return averageFrame / metadata.NumFrames;
+    averageFrame /= metadata.NumFrames;
+
+    return averageFrame;
 }
 
 unsigned short File::rows() const
