@@ -85,6 +85,84 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
     return -1.0f;
 }
 
+Eigen::ArrayXXf File::getFrame( const long frame )
+{
+    Eigen::ArrayXXf frameArray( metadata.ydim, metadata.xdim );
+    const std::size_t frameDim = metadata.xdim * metadata.ydim;
+
+    switch( metadata.datatype ) {
+        case 0:
+            {
+                std::vector<float> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( float );
+                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
+                Data frameData( offset, frameSize );
+                frameData.read( file );
+                frameData.retrieve( *pixels.data(), 0, frameSize );
+
+                auto count = 0;
+                for ( auto row = 0; row < metadata.ydim; ++row ) {
+                    for ( auto col = 0; col < metadata.xdim; ++col ) {
+                        frameArray( row, col ) = pixels.at( count++ );
+                    }
+                }
+            }
+            break;
+        case 1:
+            {
+                std::vector<int32_t> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( int32_t );
+                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
+                Data frameData( offset, frameSize );
+                frameData.read( file );
+                frameData.retrieve( *pixels.data(), 0, frameSize );
+
+                auto count = 0;
+                for ( auto row = 0; row < metadata.ydim; ++row ) {
+                    for ( auto col = 0; col < metadata.xdim; ++col ) {
+                        frameArray( row, col ) = pixels.at( count++ );
+                    }
+                }
+            }
+            break;
+        case 2:
+            {
+                std::vector<int16_t> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( int16_t );
+                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
+                Data frameData( offset, frameSize );
+                frameData.read( file );
+                frameData.retrieve( *pixels.data(), 0, frameSize );
+
+                auto count = 0;
+                for ( auto row = 0; row < metadata.ydim; ++row ) {
+                    for ( auto col = 0; col < metadata.xdim; ++col ) {
+                        frameArray( row, col ) = pixels.at( count++ );
+                    }
+                }
+            }
+            break;
+        case 3:
+            {
+                std::vector<uint16_t> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( uint16_t );
+                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
+                Data frameData( offset, frameSize );
+                frameData.read( file );
+                frameData.retrieve( *pixels.data(), 0, frameSize );
+
+                auto count = 0;
+                for ( auto row = 0; row < metadata.ydim; ++row ) {
+                    for ( auto col = 0; col < metadata.xdim; ++col ) {
+                        frameArray( row, col ) = pixels.at( count++ );
+                    }
+                }
+            }
+            break;
+    }
+    return frameArray;
+}
+
 unsigned short File::rows() const
 {
     return metadata.ydim;

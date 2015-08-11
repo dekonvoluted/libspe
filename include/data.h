@@ -33,10 +33,12 @@ class Data
     virtual void read( std::ifstream& );
     virtual void reset();
 
-    template<class T> void retrieve( T& value, const std::size_t BYTE_OFFSET = 0 )
+    template<class T> void retrieve( T& value, const std::size_t BYTE_OFFSET = 0, std::size_t DATA_LENGTH = 0 )
     {
-        const std::string slice( stream.begin() + BYTE_OFFSET, stream.begin() + BYTE_OFFSET + sizeof( value ) );
-        std::stringstream( slice ).read( reinterpret_cast<char*>( &value ), sizeof( value ) );
+        if ( DATA_LENGTH == 0 ) DATA_LENGTH = sizeof( value );
+
+        const std::string slice( stream.begin() + BYTE_OFFSET, stream.begin() + BYTE_OFFSET + DATA_LENGTH );
+        std::stringstream( slice ).read( reinterpret_cast<char*>( &value ), DATA_LENGTH );
     }
 
     private:
