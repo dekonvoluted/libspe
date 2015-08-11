@@ -21,7 +21,7 @@ set( CMAKE_CXX_FLAGS "-g -O2 -Wall -std=c++11" )
 set( CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake )
 
 find_package( Eigen3 REQUIRED )
-include_directories( EIGEN3_INCLUDE_DIR )
+include_directories( ${EIGEN3_INCLUDE_DIR} )
 
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 add_subdirectory( ${PROJECT_SOURCE_DIR}/src )
