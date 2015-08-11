@@ -22,6 +22,7 @@
 #include <Eigen/Core>
 
 #include "metadata.h"
+#include "offsets.h"
 
 namespace SPE {
 class File
@@ -44,6 +45,38 @@ class File
 
     private:
     std::ifstream file;
+
+    template<class T> float getPixelValue( const unsigned short row, const unsigned short col, const long frame )
+    {
+        T pixel;
+        const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
+        Data pixelData( offset, sizeof( pixel ) );
+        pixelData.read( file );
+        pixelData.retrieve( pixel );
+        return pixel;
+    }
+
+    template<class T> Eigen::ArrayXXf getFrameArray( const long frame )
+    {
+        Eigen::ArrayXXf frameArray( metadata.ydim, metadata.xdim );
+        const std::size_t frameDim = metadata.xdim * metadata.ydim;
+        const std::size_t frameSize = frameDim * sizeof( T );
+        const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
+
+        std::vector<T> pixels( frameDim, 0 );
+        Data frameData( offset, frameSize );
+        frameData.read( file );
+        frameData.retrieve( *pixels.data(), 0, frameSize );
+
+        auto count = 0;
+        for ( auto row = 0; row < metadata.ydim; ++row ) {
+            for ( auto col = 0; col < metadata.xdim; ++col ) {
+                frameArray( row, col ) = pixels.at( count++ );
+            }
+        }
+
+        return frameArray;
+    }
 };
 }
 

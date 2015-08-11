@@ -20,7 +20,6 @@
 #include "spe.h"
 #include "data.h"
 #include "metadata.h"
-#include "offsets.h"
 
 namespace SPE {
 File::File( const std::string& filePath )
@@ -43,124 +42,34 @@ void File::read( const std::string& filePath )
 
 float File::getPixel( const unsigned short row, const unsigned short col, const long frame )
 {
-    switch( metadata.datatype ) {
+    switch ( metadata.datatype ) {
         case 0:
-            {
-                float pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
-                Data pixelData( offset, sizeof( pixel ) );
-                pixelData.read( file );
-                pixelData.retrieve( pixel );
-                return pixel;
-            }
+            return getPixelValue<float>( row, col, frame );
         case 1:
-            {
-                std::int32_t pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
-                Data pixelData( offset, sizeof( pixel ) );
-                pixelData.read( file );
-                pixelData.retrieve( pixel );
-                return pixel;
-            }
-            break;
+            return getPixelValue<std::int32_t>( row, col, frame );
         case 2:
-            {
-                std::int16_t pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
-                Data pixelData( offset, sizeof( pixel ) );
-                pixelData.read( file );
-                pixelData.retrieve( pixel );
-                return pixel;
-            }
+            return getPixelValue<std::int16_t>( row, col, frame );
         case 3:
-            {
-                std::uint16_t pixel;
-                const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
-                Data pixelData( offset, sizeof( pixel ) );
-                pixelData.read( file );
-                pixelData.retrieve( pixel );
-                return pixel;
-            }
+            return getPixelValue<std::uint16_t>( row, col, frame );
+        default:
+            return 0.0;
     }
-    return -1.0f;
 }
 
 Eigen::ArrayXXf File::getFrame( const long frame )
 {
-    Eigen::ArrayXXf frameArray( metadata.ydim, metadata.xdim );
-    const std::size_t frameDim = metadata.xdim * metadata.ydim;
-
-    switch( metadata.datatype ) {
+    switch ( metadata.datatype ) {
         case 0:
-            {
-                std::vector<float> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( float );
-                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
-                Data frameData( offset, frameSize );
-                frameData.read( file );
-                frameData.retrieve( *pixels.data(), 0, frameSize );
-
-                auto count = 0;
-                for ( auto row = 0; row < metadata.ydim; ++row ) {
-                    for ( auto col = 0; col < metadata.xdim; ++col ) {
-                        frameArray( row, col ) = pixels.at( count++ );
-                    }
-                }
-            }
-            break;
+            return getFrameArray<float>( frame );
         case 1:
-            {
-                std::vector<std::int32_t> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( std::int32_t );
-                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
-                Data frameData( offset, frameSize );
-                frameData.read( file );
-                frameData.retrieve( *pixels.data(), 0, frameSize );
-
-                auto count = 0;
-                for ( auto row = 0; row < metadata.ydim; ++row ) {
-                    for ( auto col = 0; col < metadata.xdim; ++col ) {
-                        frameArray( row, col ) = pixels.at( count++ );
-                    }
-                }
-            }
-            break;
+            return getFrameArray<std::int32_t>( frame );
         case 2:
-            {
-                std::vector<std::int16_t> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( std::int16_t );
-                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
-                Data frameData( offset, frameSize );
-                frameData.read( file );
-                frameData.retrieve( *pixels.data(), 0, frameSize );
-
-                auto count = 0;
-                for ( auto row = 0; row < metadata.ydim; ++row ) {
-                    for ( auto col = 0; col < metadata.xdim; ++col ) {
-                        frameArray( row, col ) = pixels.at( count++ );
-                    }
-                }
-            }
-            break;
+            return getFrameArray<std::int16_t>( frame );
         case 3:
-            {
-                std::vector<std::uint16_t> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( std::uint16_t );
-                const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
-                Data frameData( offset, frameSize );
-                frameData.read( file );
-                frameData.retrieve( *pixels.data(), 0, frameSize );
-
-                auto count = 0;
-                for ( auto row = 0; row < metadata.ydim; ++row ) {
-                    for ( auto col = 0; col < metadata.xdim; ++col ) {
-                        frameArray( row, col ) = pixels.at( count++ );
-                    }
-                }
-            }
-            break;
+            return getFrameArray<std::uint16_t>( frame );
+        default:
+            return Eigen::ArrayXXf( metadata.ydim, metadata.xdim );
     }
-    return frameArray;
 }
 
 Eigen::ArrayXXf File::getAverageFrame()
