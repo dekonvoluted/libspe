@@ -55,7 +55,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
             }
         case 1:
             {
-                int32_t pixel;
+                std::int32_t pixel;
                 const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
@@ -65,7 +65,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
             break;
         case 2:
             {
-                int16_t pixel;
+                std::int16_t pixel;
                 const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
@@ -74,7 +74,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
             }
         case 3:
             {
-                uint16_t pixel;
+                std::uint16_t pixel;
                 const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
                 Data pixelData( offset, sizeof( pixel ) );
                 pixelData.read( file );
@@ -110,8 +110,8 @@ Eigen::ArrayXXf File::getFrame( const long frame )
             break;
         case 1:
             {
-                std::vector<int32_t> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( int32_t );
+                std::vector<std::int32_t> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( std::int32_t );
                 const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
                 Data frameData( offset, frameSize );
                 frameData.read( file );
@@ -127,8 +127,8 @@ Eigen::ArrayXXf File::getFrame( const long frame )
             break;
         case 2:
             {
-                std::vector<int16_t> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( int16_t );
+                std::vector<std::int16_t> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( std::int16_t );
                 const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
                 Data frameData( offset, frameSize );
                 frameData.read( file );
@@ -144,8 +144,8 @@ Eigen::ArrayXXf File::getFrame( const long frame )
             break;
         case 3:
             {
-                std::vector<uint16_t> pixels( frameDim, 0 );
-                const std::size_t frameSize = frameDim * sizeof( uint16_t );
+                std::vector<std::uint16_t> pixels( frameDim, 0 );
+                const std::size_t frameSize = frameDim * sizeof( std::uint16_t );
                 const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
                 Data frameData( offset, frameSize );
                 frameData.read( file );

@@ -18,6 +18,7 @@
 #define SPE_METADATA_H
 
 #include <fstream>
+#include <cstdint>
 
 #include "data.h"
 
@@ -31,10 +32,10 @@ struct Metadata : public Data
     void read( std::ifstream& );
     void reset();
 
-    uint16_t xdim;
-    uint16_t ydim;
-    int16_t datatype;
-    int32_t NumFrames;
+    std::uint16_t xdim;
+    std::uint16_t ydim;
+    std::int16_t datatype;
+    std::int32_t NumFrames;
 };
 }
 
