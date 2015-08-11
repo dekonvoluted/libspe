@@ -34,6 +34,7 @@ class File
     void read( const std::string& );
     float getPixel( const unsigned short, const unsigned short, const long = 0 );
     Eigen::ArrayXXf getFrame( const long = 0 );
+    Eigen::ArrayXXf getAverageFrame();
 
     unsigned short rows() const;
     unsigned short columns() const;

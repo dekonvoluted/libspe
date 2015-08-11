@@ -163,6 +163,17 @@ Eigen::ArrayXXf File::getFrame( const long frame )
     return frameArray;
 }
 
+Eigen::ArrayXXf File::getAverageFrame()
+{
+    Eigen::ArrayXXf averageFrame( metadata.ydim, metadata.xdim );
+
+    for ( auto frame = 0; frame < metadata.NumFrames; ++frame ) {
+        averageFrame += getFrame( frame );
+    }
+
+    return averageFrame / metadata.NumFrames;
+}
+
 unsigned short File::rows() const
 {
     return metadata.ydim;
