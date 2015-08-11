@@ -39,6 +39,11 @@ int main()
         std::cout << "Image: " << filePath << std::endl;
         std::cout << "Size: " << image.rows() << " rows x " << image.columns() << " cols x " << image.frames() << " frames." << std::endl;
         std::cout << "Pixel( row: 0, col: 0, frame: 0 ): " << image.getPixel( 0, 0, 0 ) << std::endl;
+
+        auto frame0 = image.getFrame( 0 );
+        std::cout << "Frame 0: " << frame0( 0, 0 ) << " " << frame0( 0, 1 ) << " " << frame0( 0, 2 ) << "..." << std::endl;
+        std::cout << "         " << frame0( 1, 0 ) << " " << frame0( 1, 1 ) << " " << frame0( 1, 2 ) << "..." << std::endl;
+        std::cout << "         " << frame0( 2, 0 ) << " " << frame0( 2, 1 ) << " " << frame0( 2, 2 ) << "..." << std::endl;
         std::cout << std::endl;
     }
 
