@@ -30,12 +30,14 @@ struct Metadata : public Data
     ~Metadata() = default;
 
     void read( std::ifstream& );
-    void reset();
 
     std::uint16_t xdim;
     std::uint16_t ydim;
     std::int16_t datatype;
     std::int32_t NumFrames;
+
+    private:
+    virtual void reset();
 };
 }
 

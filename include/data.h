@@ -31,7 +31,6 @@ class Data
     ~Data() = default;
 
     virtual void read( std::ifstream& );
-    virtual void reset();
 
     template<class T> void retrieve( T& value, const std::size_t BYTE_OFFSET = 0, std::size_t DATA_LENGTH = 0 )
     {
@@ -45,6 +44,9 @@ class Data
     const std::size_t FILE_OFFSET;
     const std::size_t DATA_LENGTH;
     std::vector<char> stream;
+
+    protected:
+    virtual void reset();
 };
 }
 
