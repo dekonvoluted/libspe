@@ -23,17 +23,50 @@
 #include "data.h"
 
 namespace SPE {
-struct Metadata : public Data
+/*! \brief The metadata associated with the SPE file
+ *
+ * This struct contains all the metadata present in the header of the SPE file.
+ * The implementation is compatible with SPE version 2.5 headers.
+ */
+    struct Metadata : public Data
 {
     public:
+    /*! \brief Create an empty metadata instance
+     *
+     * An empty instance of metadata is created.
+     * All fields of metadata default to zero (when applicable).
+     */
     Metadata();
     ~Metadata() = default;
 
+    /*! \brief Read metadata from an opened SPE file
+     *
+     * This method extracts the binary metadata from an open SPE file.
+     * The extracted bytes are stored internally for further processing.
+     */
     void read( std::ifstream& );
 
+    /*! \brief The number of columns in the image
+     */
     std::uint16_t xdim;
+
+    /*! \brief The number of rows in the image
+     */
     std::uint16_t ydim;
+
+    /*! \brief The datatype of intensity of each pixel in the image
+     *
+     * This is the internal representation of the intensity of each pixel in the image.
+     * The possible values are:
+     * - 0 = floating point, 4 bytes per pixel
+     * - 1 = long integer, 4 bytes per pixel
+     * - 2 = short integer, 2 bytes per pixel
+     * - 3 = unsigned short integer, 2 bytes per pixel
+     */
     std::int16_t datatype;
+
+    /*! \brief The number of frames present in the SPE file
+     */
     std::int32_t NumFrames;
 
     private:
