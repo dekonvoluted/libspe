@@ -25,22 +25,85 @@
 #include "offsets.h"
 
 namespace SPE {
+/*! \brief An SPE file
+ *
+ * This class contains all the methods needed to read and extract data and metadata from an SPE image file.
+ * SPE files usually have an extension .SPE or .spe and contain one or more frames of data.
+ * The data could be an image (multiple rows, multiple columns) or a spectrum (single row, multiple columns).
+ *
+ * This release of libspe supports SPE version 2.5 headers.
+ */
 class File
 {
     public:
+    /*! \brief Create an empty instance of SPE file
+     *
+     * The path to an SPE file can be provided later using the SPE::File::read() method.
+     */
     File() = default;
+
+    /*! \brief Create an instance of SPE file
+     *
+     * The provided path is used to open an SPE file and read in the header containing metadata about the file.
+     * Image data, in the form of frames can be extracted when needed.
+     */
     File( const std::string& );
     ~File();
 
+    /*! \brief Open an SPE file for reading
+     *
+     * This method opens an SPE file and extracts metadata from the header.
+     * The file is kept open for subsequent methods to retrieve image data.
+     * If this instance of SPE::File was initialized with another file path, the earlier metadata and file handle are replaced.
+     */
     void read( const std::string& );
+
+    /*! \brief Get intensity at specified location
+     *
+     * This is a simple method to demonstrate how a single pixel can be retrieved from any frame.
+     * The frame number is optional and defaults to the first frame (0) if not provided explicitly.
+     */
     float getPixel( const unsigned short, const unsigned short, const long = 0 );
+
+    /*! \brief Get one frame of data
+     *
+     * Fetches the specified frame from the file in the form of an Eigen::ArrayXXf of floating point values.
+     * While the internal representation of the data in the SPE file could be integers or floating point values, the output will always be floating point values.
+     * If the optional frame number is not provided, it defaults to 0 and fetches the first frame.
+     */
     Eigen::ArrayXXf getFrame( const long = 0 );
+
+    /*! \brief Get the average of all frames in the image
+     *
+     * This method calculates the mean intensity of all the pixels forming the image.
+     * The average of all the frames of data is returned.
+     */
     Eigen::ArrayXXf getAverageFrame();
 
+    /*! \brief Number of rows in the image
+     *
+     * This is a convenient way to access the number of rows in the image.
+     */
     unsigned short rows() const;
+
+    /*! \brief Number of columns in the image
+     *
+     * This is a convenient way to access the number of columns in the image.
+     */
     unsigned short columns() const;
+
+    /*! \brief Number of frames in the image
+     *
+     * This is a convenient way to access the number of frames in the image.
+     */
     long frames() const;
 
+    /*! \brief Metadata associated with the image
+     *
+     * This instance contains all the available metadata in the header of the SPE file.
+     * Note that this access to each of the metadata fields comes with write privileges.
+     * Modifying the values will have no effect on the file itself.
+     */
     Metadata metadata;
 
     private:
