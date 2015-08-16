@@ -11,7 +11,7 @@ PROJECT_NUMBER = "1.0-development"
 SOURCE_BROWSER = YES
 
 # Set input directories
-INPUT = include/ src/  README.md
+INPUT = include/ src/ README.md
 
 # Use README file as main page
 USE_MDFILE_AS_MAINPAGE = README.md
