@@ -51,6 +51,9 @@ int main()
         std::cout << "         " << frame0( 2, 0 ) << " " << frame0( 2, 1 ) << " " << frame0( 2, 2 ) << "..." << std::endl;
         std::cout << std::endl;
 
+        std::cout << "Detailed metadata: " << std::endl;
+        std::cout << image.metadata << std::endl;
+
         // Output the average of all frames to a data file
         ofstream outFile;
         auto outFileName = filePath.replace( filePath.end() - 3, filePath.end(), "dat" );
