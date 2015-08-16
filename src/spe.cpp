@@ -16,6 +16,8 @@
 
 #include <vector>
 #include <cstddef>
+#include <sys/stat.h>
+#include <stdexcept>
 
 #include "spe.h"
 #include "data.h"
@@ -27,6 +29,10 @@ namespace SPE {
  */
 File::File( const std::string& filePath )
 {
+    // Verify that the given file path exists
+    struct stat buffer;
+    if ( stat( filePath.c_str(), &buffer ) ) throw std::runtime_error( "File " + filePath + " does not exist." );
+
     read( filePath );
 }
 
