@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with libspe.  If not, see <http://www.gnu.org/licenses/>.
 
+#include <iomanip>
+
 #include "metadata.h"
 #include "offsets.h"
 
@@ -80,5 +82,23 @@ void Metadata::reset()
     m_datatype = 0;
     m_NumFrames = 0;
 }
+}
+
+/*!
+ * \param out An output stream
+ * \param metadata An instance of SPE metadata
+ */
+std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
+{
+    const int MAXWIDTH = 20;
+    out << std::setw( MAXWIDTH ) << "# Field" << '\t' << "value" << '\n';
+    out << std::setw( MAXWIDTH ) << "# -----" << '\t' << "-----" << '\n' << '\n';
+
+    out << std::setw( MAXWIDTH ) << "xdim" << '\t' << metadata.xdim() << '\n';
+    out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
+    out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
+    out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
+
+    return out;
 }
 

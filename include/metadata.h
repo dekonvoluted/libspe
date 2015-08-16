@@ -19,6 +19,7 @@
 
 #include <fstream>
 #include <cstdint>
+#include <iostream>
 
 #include "data.h"
 
@@ -90,6 +91,12 @@ namespace SPE {
     virtual void reset();
 };
 }
+
+/*! \brief Output all available metadata
+ *
+ * This method prints out all available metadata fields to an output stream.
+ */
+std::ostream& operator<< ( std::ostream&, const SPE::Metadata& );
 
 #endif
 
