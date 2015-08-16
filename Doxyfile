@@ -1,0 +1,25 @@
+# Configuration file for generating documentation using doxygen
+# Simply run "doxygen Doxyfile" in a terminal to generate it
+
+# Name of the project
+PROJECT_NAME = "libSPE"
+
+# Version number
+PROJECT_NUMBER = "1.0-development"
+
+# Recurse into subdirectories
+RECURSIVE = YES
+
+# Hide undocumented classes and members
+HIDE_UNDOC_MEMBERS = YES
+HIDE_UNDOC_CLASSES = YES
+
+# HTML documentation
+GENERATE_HTML = YES
+
+# LaTeX documentation
+GENERATE_LATEX = NO
+
+# No verbose output
+QUIET = YES
+
