@@ -22,6 +22,7 @@
 namespace SPE {
 Metadata::Metadata() : Data( 0, OFFSET_DATA ),
     m_ControllerVersion( 0 ),
+    m_LogicOutput( 0 ),
     m_xdim( 0 ),
     m_ydim( 0 ),
     m_datatype( 0 ),
@@ -37,6 +38,7 @@ void Metadata::read( std::ifstream& file )
     Data::read( file );
 
     retrieve( m_ControllerVersion, OFFSET_CONTROLLERVERSION );
+    retrieve( m_LogicOutput, OFFSET_LOGICOUTPUT );
     retrieve( m_xdim, OFFSET_XDIM );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
@@ -80,6 +82,7 @@ void Metadata::reset()
     Data::reset();
 
     m_ControllerVersion = 0;
+    m_LogicOutput = 0;
     m_xdim = 0;
     m_ydim = 0;
     m_datatype = 0;
@@ -98,6 +101,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "# -----" << '\t' << "-----" << '\n' << '\n';
 
     out << std::setw( MAXWIDTH ) << "ControllerVersion" << '\t' << metadata.m_ControllerVersion << '\n';
+    out << std::setw( MAXWIDTH ) << "LogicOutput" << '\t' << metadata.m_LogicOutput << '\n';
     out << std::setw( MAXWIDTH ) << "xdim" << '\t' << metadata.xdim() << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';

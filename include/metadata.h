@@ -51,6 +51,10 @@ namespace SPE {
      */
     std::int16_t m_ControllerVersion;
 
+    /*! \brief Definition of Output BNC
+     */
+    std::int16_t m_LogicOutput;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
