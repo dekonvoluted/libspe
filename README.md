@@ -47,3 +47,11 @@ A sample demo is included in demo/.
 NOTE: libspe depends on the Eigen library (http://eigen.tuxfamily.org/).
 Refer to the Eigen library documentation for usage information.
 
+# Documentation
+
+The source code is thoroughly documented with doxygen comments.
+Build documentation using the provided configuration file.
+
+    doxygen Doxyfile
+    xdg-open html/index.html
+
