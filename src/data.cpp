@@ -17,9 +17,17 @@
 #include "data.h"
 
 namespace SPE {
+/*!
+ * \param fileOffset The number of bytes from the start of the file where the data begins
+ * \param dataLength The number of bytes of data to read into the stream
+ */
 Data::Data( const std::size_t fileOffset, const std::size_t dataLength ) : FILE_OFFSET( fileOffset ), DATA_LENGTH( dataLength ), stream( dataLength, 0 )
 {}
 
+/*!
+ * \param file The file stream to read data from
+ * \return void
+ */
 void Data::read( std::ifstream& file )
 {
     reset();
