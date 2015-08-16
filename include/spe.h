@@ -84,19 +84,19 @@ class File
      *
      * This is a convenient way to access the number of rows in the image.
      */
-    unsigned short rows() const;
+    std::size_t rows() const;
 
     /*! \brief Number of columns in the image
      *
      * This is a convenient way to access the number of columns in the image.
      */
-    unsigned short columns() const;
+    std::size_t columns() const;
 
     /*! \brief Number of frames in the image
      *
      * This is a convenient way to access the number of frames in the image.
      */
-    long frames() const;
+    std::size_t frames() const;
 
     /*! \brief Metadata associated with the image
      *

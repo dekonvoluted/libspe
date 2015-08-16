@@ -107,7 +107,7 @@ Eigen::ArrayXXf File::getAverageFrame()
 /*!
  * \return The number of rows in one frame of the image
  */
-unsigned short File::rows() const
+std::size_t File::rows() const
 {
     return metadata.ydim;
 }
@@ -115,7 +115,7 @@ unsigned short File::rows() const
 /*!
  * \return The number of columns in one frame of the image
  */
-unsigned short File::columns() const
+std::size_t File::columns() const
 {
     return metadata.xdim;
 }
@@ -123,7 +123,7 @@ unsigned short File::columns() const
 /*!
  * \return The number of frames of the image
  */
-long File::frames() const
+std::size_t File::frames() const
 {
     return metadata.NumFrames;
 }
