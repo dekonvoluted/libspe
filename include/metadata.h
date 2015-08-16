@@ -55,6 +55,10 @@ namespace SPE {
      */
     std::int16_t m_LogicOutput;
 
+    /*! \brief Amp Switching Mode
+     */
+    std::uint16_t m_AmpHiCapLowNoise;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
