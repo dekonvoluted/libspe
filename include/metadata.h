@@ -47,12 +47,18 @@ namespace SPE {
     void read( std::ifstream& );
 
     /*! \brief The number of columns in the image
+     *
+     * This is an important value and any changes made to it can break things.
+     * Hence, it is being exposed through a read-only interface.
      */
-    std::uint16_t xdim;
+    std::uint16_t xdim() const;
 
     /*! \brief The number of rows in the image
+     *
+     * This is an important value and any changes made to it can break things.
+     * Hence, it is being exposed through a read-only interface.
      */
-    std::uint16_t ydim;
+    std::uint16_t ydim() const;
 
     /*! \brief The datatype of intensity of each pixel in the image
      *
@@ -62,14 +68,25 @@ namespace SPE {
      * - 1 = long integer, 4 bytes per pixel
      * - 2 = short integer, 2 bytes per pixel
      * - 3 = unsigned short integer, 2 bytes per pixel
+     *
+     * This is an important value and any changes made to it can break things.
+     * Hence, it is being exposed through a read-only interface.
      */
-    std::int16_t datatype;
+    std::int16_t datatype() const;
 
     /*! \brief The number of frames present in the SPE file
+     *
+     * This is an important value and any changes made to it can break things.
+     * Hence, it is being exposed through a read-only interface.
      */
-    std::int32_t NumFrames;
+    std::int32_t NumFrames() const;
 
     private:
+    std::uint16_t m_xdim;
+    std::uint16_t m_ydim;
+    std::int16_t m_datatype;
+    std::int32_t m_NumFrames;
+
     virtual void reset();
 };
 }

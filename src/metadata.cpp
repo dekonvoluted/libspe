@@ -18,7 +18,7 @@
 #include "offsets.h"
 
 namespace SPE {
-Metadata::Metadata() : Data( 0, OFFSET_DATA )
+Metadata::Metadata() : Data( 0, OFFSET_DATA ), m_xdim( 0 ), m_ydim( 0 ), m_datatype( 0 ), m_NumFrames( 0 )
 {}
 
 /*!
@@ -29,20 +29,52 @@ void Metadata::read( std::ifstream& file )
 {
     Data::read( file );
 
-    retrieve( xdim, OFFSET_XDIM );
-    retrieve( ydim, OFFSET_YDIM );
-    retrieve( datatype, OFFSET_DATATYPE );
-    retrieve( NumFrames, OFFSET_NUMFRAMES );
+    retrieve( m_xdim, OFFSET_XDIM );
+    retrieve( m_ydim, OFFSET_YDIM );
+    retrieve( m_datatype, OFFSET_DATATYPE );
+    retrieve( m_NumFrames, OFFSET_NUMFRAMES );
+}
+
+/*!
+ * \return The number of rows in the image
+ */
+std::uint16_t Metadata::xdim() const
+{
+    return m_xdim;
+}
+
+/*!
+ * \return The number of columns in the image
+ */
+std::uint16_t Metadata::ydim() const
+{
+    return m_ydim;
+}
+
+/*!
+ * \return The datatype used to store pixel intensity in the image
+ */
+std::int16_t Metadata::datatype() const
+{
+    return m_datatype;
+}
+
+/*!
+ * \return The number of frames in the image
+ */
+std::int32_t Metadata::NumFrames() const
+{
+    return m_NumFrames;
 }
 
 void Metadata::reset()
 {
     Data::reset();
 
-    xdim = 0;
-    ydim = 0;
-    datatype = 0;
-    NumFrames = 0;
+    m_xdim = 0;
+    m_ydim = 0;
+    m_datatype = 0;
+    m_NumFrames = 0;
 }
 }
 
