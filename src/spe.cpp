@@ -54,7 +54,7 @@ void File::read( const std::string& filePath )
  */
 float File::getPixel( const unsigned short row, const unsigned short col, const long frame )
 {
-    switch ( metadata.datatype ) {
+    switch ( metadata.datatype() ) {
         case 0:
             return getPixelValue<float>( row, col, frame );
         case 1:
@@ -74,7 +74,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
  */
 Eigen::ArrayXXf File::getFrame( const long frame )
 {
-    switch ( metadata.datatype ) {
+    switch ( metadata.datatype() ) {
         case 0:
             return getFrameArray<float>( frame );
         case 1:
@@ -84,7 +84,7 @@ Eigen::ArrayXXf File::getFrame( const long frame )
         case 3:
             return getFrameArray<std::uint16_t>( frame );
         default:
-            return Eigen::ArrayXXf( metadata.ydim, metadata.xdim );
+            return Eigen::ArrayXXf( metadata.ydim(), metadata.xdim() );
     }
 }
 
@@ -93,13 +93,13 @@ Eigen::ArrayXXf File::getFrame( const long frame )
  */
 Eigen::ArrayXXf File::getAverageFrame()
 {
-    Eigen::ArrayXXf averageFrame( metadata.ydim, metadata.xdim );
+    Eigen::ArrayXXf averageFrame( metadata.ydim(), metadata.xdim() );
 
-    for ( auto frame = 0; frame < metadata.NumFrames; ++frame ) {
+    for ( auto frame = 0; frame < metadata.NumFrames(); ++frame ) {
         averageFrame += getFrame( frame );
     }
 
-    averageFrame /= metadata.NumFrames;
+    averageFrame /= metadata.NumFrames();
 
     return averageFrame;
 }
@@ -109,7 +109,7 @@ Eigen::ArrayXXf File::getAverageFrame()
  */
 std::size_t File::rows() const
 {
-    return metadata.ydim;
+    return metadata.ydim();
 }
 
 /*!
@@ -117,7 +117,7 @@ std::size_t File::rows() const
  */
 std::size_t File::columns() const
 {
-    return metadata.xdim;
+    return metadata.xdim();
 }
 
 /*!
@@ -125,7 +125,7 @@ std::size_t File::columns() const
  */
 std::size_t File::frames() const
 {
-    return metadata.NumFrames;
+    return metadata.NumFrames();
 }
 }
 
