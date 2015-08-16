@@ -47,6 +47,10 @@ namespace SPE {
      */
     void read( std::ifstream& );
 
+    /*! \brief Hardware Version
+     */
+    std::int16_t m_ControllerVersion;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
