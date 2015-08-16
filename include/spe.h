@@ -42,7 +42,7 @@ class File
      */
     File() = default;
 
-    /*! \brief Create an instance of SPE file
+    /*! \brief Create an instance of SPE file located at a given path
      *
      * The provided path is used to open an SPE file and read in the header containing metadata about the file.
      * Image data, in the form of frames can be extracted when needed.
@@ -58,7 +58,7 @@ class File
      */
     void read( const std::string& );
 
-    /*! \brief Get intensity at specified location
+    /*! \brief Get intensity of a specified pixel
      *
      * This is a simple method to demonstrate how a single pixel can be retrieved from any frame.
      * The frame number is optional and defaults to the first frame (0) if not provided explicitly.
@@ -80,25 +80,25 @@ class File
      */
     Eigen::ArrayXXf getAverageFrame();
 
-    /*! \brief Number of rows in the image
+    /*! \brief Get the number of rows in the image
      *
      * This is a convenient way to access the number of rows in the image.
      */
     std::size_t rows() const;
 
-    /*! \brief Number of columns in the image
+    /*! \brief Get the number of columns in the image
      *
      * This is a convenient way to access the number of columns in the image.
      */
     std::size_t columns() const;
 
-    /*! \brief Number of frames in the image
+    /*! \brief Get the number of frames in the image
      *
      * This is a convenient way to access the number of frames in the image.
      */
     std::size_t frames() const;
 
-    /*! \brief Metadata associated with the image
+    /*! \brief Directly access metadata obtained from the header
      *
      * This instance contains all the available metadata in the header of the SPE file.
      * Note that this access to each of the metadata fields comes with write privileges.
