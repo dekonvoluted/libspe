@@ -23,7 +23,7 @@
 #include "data.h"
 
 namespace SPE {
-/*! \brief The metadata associated with the SPE file
+/*! \brief Binary data present in an SPE file header
  *
  * This struct contains all the metadata present in the header of the SPE file.
  * The implementation is compatible with SPE version 2.5 headers.
