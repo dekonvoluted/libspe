@@ -24,7 +24,7 @@
 #include <sstream>
 
 namespace SPE {
-/*! \ brief Binary data present in an SPE file
+/*! \brief Binary data present in an SPE file
  *
  * This parent class provides methods to read and extract information from binary data present in an SPE file.
  */
