@@ -21,15 +21,15 @@
 
 // Offsets and description from SPE 2.5 specification
 
-const std::size_t OFFSET_XDIM       = 0x002A; // actual # of pixels on x axis
-const std::size_t OFFSET_YDIM       = 0x0290; // y dimension of raw data
-const std::size_t OFFSET_DATATYPE   = 0x006C; // experiment datatype
-                                              // 0 = float (4 bytes)
-                                              // 1 = long (4 bytes)
-                                              // 2 = short (2 bytes)
-                                              // 3 = unsigned short (2 bytes)
-const std::size_t OFFSET_NUMFRAMES  = 0x05A6; // number of frames in file
-const std::size_t OFFSET_DATA       = 0x1004; // Start of Data
+const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
+const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
+                                                            // 0 = float (4 bytes)
+                                                            // 1 = long (4 bytes)
+                                                            // 2 = short (2 bytes)
+                                                            // 3 = unsigned short (2 bytes)
+const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
+const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
+const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
 

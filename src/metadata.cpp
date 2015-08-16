@@ -18,7 +18,11 @@
 #include "offsets.h"
 
 namespace SPE {
-Metadata::Metadata() : Data( 0, OFFSET_DATA ), m_xdim( 0 ), m_ydim( 0 ), m_datatype( 0 ), m_NumFrames( 0 )
+Metadata::Metadata() : Data( 0, OFFSET_DATA ),
+    m_xdim( 0 ),
+    m_ydim( 0 ),
+    m_datatype( 0 ),
+    m_NumFrames( 0 )
 {}
 
 /*!
