@@ -22,6 +22,9 @@
 #include "metadata.h"
 
 namespace SPE {
+/*!
+ * \param filePath The path to the SPE file
+ */
 File::File( const std::string& filePath )
 {
     read( filePath );
@@ -32,6 +35,9 @@ File::~File()
     if(  file.is_open() ) file.close();
 }
 
+/*!
+ * \param filePath The path to the SPE file
+ */
 void File::read( const std::string& filePath )
 {
     if ( file.is_open() ) file.close();
@@ -40,6 +46,12 @@ void File::read( const std::string& filePath )
     metadata.read( file );
 }
 
+/*!
+ * \param row The index of the row of the image, starts at 0
+ * \param col The index of the column of the image, starts at 0
+ * \param frame The index of the frame of the image, starts at 0
+ * \return The intensity of the pixel
+ */
 float File::getPixel( const unsigned short row, const unsigned short col, const long frame )
 {
     switch ( metadata.datatype ) {
@@ -56,6 +68,10 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
     }
 }
 
+/*!
+ * \param frame The index of the frame of the image, starts at 0
+ * \return An array of pixel intensities forming one frame of the image
+ */
 Eigen::ArrayXXf File::getFrame( const long frame )
 {
     switch ( metadata.datatype ) {
@@ -72,6 +88,9 @@ Eigen::ArrayXXf File::getFrame( const long frame )
     }
 }
 
+/*!
+ * \return An array of pixel intensities forming the average of all frames in the SPE file
+ */
 Eigen::ArrayXXf File::getAverageFrame()
 {
     Eigen::ArrayXXf averageFrame( metadata.ydim, metadata.xdim );
@@ -85,16 +104,25 @@ Eigen::ArrayXXf File::getAverageFrame()
     return averageFrame;
 }
 
+/*!
+ * \return The number of rows in one frame of the image
+ */
 unsigned short File::rows() const
 {
     return metadata.ydim;
 }
 
+/*!
+ * \return The number of columns in one frame of the image
+ */
 unsigned short File::columns() const
 {
     return metadata.xdim;
 }
 
+/*!
+ * \return The number of frames of the image
+ */
 long File::frames() const
 {
     return metadata.NumFrames;
