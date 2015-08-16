@@ -32,15 +32,15 @@ The Eigen library (http://eigen/tuxfamily.org/) is used to store the image data 
 
 1. Build the shared library.
 
-       mkdir build/
-       cd build/
-       cmake ..
-       make install
-       cd ../
+        mkdir build/
+        cd build/
+        cmake ..
+        make install
+        cd ../
 
 2. Include the `spe.h` header in your source code and link to the shared library file `libspe.so`.
 
-       g++ -lspe ...
+        g++ -lspe ...
 
 A sample demo is included in demo/.
 

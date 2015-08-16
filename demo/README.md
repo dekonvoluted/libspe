@@ -32,16 +32,16 @@ Here are the steps to compile and run the demo:
 
 2. Create a build directory and switch into it
 
-       mkdir build
-       cd build/
+        mkdir build
+        cd build/
 
 3. Run cmake and make
 
-       cmake ..
-       make install
+        cmake ..
+        make install
 
 4. Go back to the demo/ directory and run demo
 
-       cd ..
-       ./demo
+        cd ..
+        ./demo
 
