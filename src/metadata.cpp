@@ -21,6 +21,10 @@ namespace SPE {
 Metadata::Metadata() : Data( 0, OFFSET_DATA )
 {}
 
+/*!
+ * \param file The file stream to read data from
+ * \return void
+ */
 void Metadata::read( std::ifstream& file )
 {
     Data::read( file );
