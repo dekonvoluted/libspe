@@ -98,11 +98,11 @@ class File
      */
     std::size_t frames() const;
 
-    /*! \brief Directly access metadata obtained from the header
+    /*! \brief Access metadata obtained from the header
      *
-     * This instance contains all the available metadata in the header of the SPE file.
-     * Note that this access to each of the metadata fields comes with write privileges.
-     * Modifying the values will have no effect on the file itself.
+     * This metadata instance provides direct access to available metadata in the header of the SPE file.
+     * Some important values are protected and only available for reading.
+     * Modifications to metadata only affect this internal representation and will not alter the SPE file itself in any way.
      */
     Metadata metadata;
 
