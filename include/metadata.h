@@ -59,6 +59,10 @@ namespace SPE {
      */
     std::uint16_t m_AmpHiCapLowNoise;
 
+    /*! \brief Detector x dimension of chip
+     */
+    std::uint16_t m_xDimDet;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.

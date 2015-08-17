@@ -24,6 +24,7 @@
 const std::size_t OFFSET_CONTROLLERVERSION      = 0x0000;   // Hardware Version
 const std::size_t OFFSET_LOGICOUTPUT            = 0x0002;   // Definition of Output BNC
 const std::size_t OFFSET_AMPHICAPLOWNOISE       = 0x0004;   // Amp Switching Mode
+const std::size_t OFFSET_XDIMDET                = 0x0006;   // Detector x dimension of chip
 const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
