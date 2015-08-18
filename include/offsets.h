@@ -29,6 +29,7 @@ const std::size_t OFFSET_MODE                   = 0x0008;   // timing mode
 const std::size_t OFFSET_EXP_SEC                = 0x000A;   // alternative exposure, in sec
 const std::size_t OFFSET_VCHIPXDIM              = 0x000E;   // Virtual Chip X dim
 const std::size_t OFFSET_VCHIPYDIM              = 0x0010;   // Virtual Chip Y dim
+const std::size_t OFFSET_YDIMDET                = 0x0012;   // y dimension of CCD or detector
 const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)

@@ -79,6 +79,10 @@ namespace SPE {
      */
     std::int16_t m_VChipYdim;
 
+    /*! \brief y dimension of CCD of detector
+     */
+    std::uint16_t m_yDimDet;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
