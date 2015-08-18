@@ -71,6 +71,14 @@ namespace SPE {
      */
     float m_exp_sec;
 
+    /*! \brief Virtual Chip X dim
+     */
+    std::int16_t m_VChipXdim;
+
+    /*! \brief Virtual Chip Y dim
+     */
+    std::int16_t m_VChipYdim;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
