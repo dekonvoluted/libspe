@@ -31,15 +31,15 @@ void Metadata::read( std::ifstream& file )
 {
     Data::read( file );
 
-    retrieve( m_ControllerVersion, OFFSET_CONTROLLERVERSION );
-    retrieve( m_LogicOutput, OFFSET_LOGICOUTPUT );
-    retrieve( m_AmpHiCapLowNoise, OFFSET_AMPHICAPLOWNOISE );
-    retrieve( m_xDimDet, OFFSET_XDIMDET );
-    retrieve( m_mode, OFFSET_MODE );
-    retrieve( m_exp_sec, OFFSET_EXP_SEC );
-    retrieve( m_VChipXdim, OFFSET_VCHIPXDIM );
-    retrieve( m_VChipYdim, OFFSET_VCHIPYDIM );
-    retrieve( m_yDimDet, OFFSET_YDIMDET );
+    retrieve( ControllerVersion, OFFSET_CONTROLLERVERSION );
+    retrieve( LogicOutput, OFFSET_LOGICOUTPUT );
+    retrieve( AmpHiCapLowNoise, OFFSET_AMPHICAPLOWNOISE );
+    retrieve( xDimDet, OFFSET_XDIMDET );
+    retrieve( mode, OFFSET_MODE );
+    retrieve( exp_sec, OFFSET_EXP_SEC );
+    retrieve( VChipXdim, OFFSET_VCHIPXDIM );
+    retrieve( VChipYdim, OFFSET_VCHIPYDIM );
+    retrieve( yDimDet, OFFSET_YDIMDET );
     retrieve( m_xdim, OFFSET_XDIM );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
@@ -82,15 +82,15 @@ void Metadata::reset()
 {
     Data::reset();
 
-    m_ControllerVersion = 0;
-    m_LogicOutput = 0;
-    m_AmpHiCapLowNoise = 0;
-    m_xDimDet = 0;
-    m_mode = 0;
-    m_exp_sec = 0.0;
-    m_VChipXdim = 0;
-    m_VChipYdim = 0;
-    m_yDimDet = 0;
+    ControllerVersion = 0;
+    LogicOutput = 0;
+    AmpHiCapLowNoise = 0;
+    xDimDet = 0;
+    mode = 0;
+    exp_sec = 0.0;
+    VChipXdim = 0;
+    VChipYdim = 0;
+    yDimDet = 0;
     m_xdim = 0;
     m_ydim = 0;
     m_datatype = 0;
@@ -108,15 +108,15 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "# Field" << '\t' << "value" << '\n';
     out << std::setw( MAXWIDTH ) << "# -----" << '\t' << "-----" << '\n' << '\n';
 
-    out << std::setw( MAXWIDTH ) << "ControllerVersion" << '\t' << metadata.m_ControllerVersion << '\n';
-    out << std::setw( MAXWIDTH ) << "LogicOutput" << '\t' << metadata.m_LogicOutput << '\n';
-    out << std::setw( MAXWIDTH ) << "AmpHiCapLowNoise" << '\t' << metadata.m_AmpHiCapLowNoise << '\n';
-    out << std::setw( MAXWIDTH ) << "xDimDet" << '\t' << metadata.m_xDimDet << '\n';
-    out << std::setw( MAXWIDTH ) << "mode" << '\t' << metadata.m_mode << '\n';
-    out << std::setw( MAXWIDTH ) << "exp_sec" << '\t' << metadata.m_exp_sec << '\n';
-    out << std::setw( MAXWIDTH ) << "VChipXdim" << '\t' << metadata.m_VChipXdim << '\n';
-    out << std::setw( MAXWIDTH ) << "VChipYdim" << '\t' << metadata.m_VChipYdim << '\n';
-    out << std::setw( MAXWIDTH ) << "yDimDet" << '\t' << metadata.m_yDimDet << '\n';
+    out << std::setw( MAXWIDTH ) << "ControllerVersion" << '\t' << metadata.ControllerVersion << '\n';
+    out << std::setw( MAXWIDTH ) << "LogicOutput" << '\t' << metadata.LogicOutput << '\n';
+    out << std::setw( MAXWIDTH ) << "AmpHiCapLowNoise" << '\t' << metadata.AmpHiCapLowNoise << '\n';
+    out << std::setw( MAXWIDTH ) << "xDimDet" << '\t' << metadata.xDimDet << '\n';
+    out << std::setw( MAXWIDTH ) << "mode" << '\t' << metadata.mode << '\n';
+    out << std::setw( MAXWIDTH ) << "exp_sec" << '\t' << metadata.exp_sec << '\n';
+    out << std::setw( MAXWIDTH ) << "VChipXdim" << '\t' << metadata.VChipXdim << '\n';
+    out << std::setw( MAXWIDTH ) << "VChipYdim" << '\t' << metadata.VChipYdim << '\n';
+    out << std::setw( MAXWIDTH ) << "yDimDet" << '\t' << metadata.yDimDet << '\n';
     out << std::setw( MAXWIDTH ) << "xdim" << '\t' << metadata.xdim() << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
