@@ -49,39 +49,39 @@ namespace SPE {
 
     /*! \brief Hardware Version
      */
-    std::int16_t m_ControllerVersion;
+    std::int16_t m_ControllerVersion = 0;
 
     /*! \brief Definition of Output BNC
      */
-    std::int16_t m_LogicOutput;
+    std::int16_t m_LogicOutput = 0;
 
     /*! \brief Amp Switching Mode
      */
-    std::uint16_t m_AmpHiCapLowNoise;
+    std::uint16_t m_AmpHiCapLowNoise = 0;
 
     /*! \brief Detector x dimension of chip
      */
-    std::uint16_t m_xDimDet;
+    std::uint16_t m_xDimDet = 0;
 
     /*! \brief timing mode
      */
-    std::int16_t m_mode;
+    std::int16_t m_mode = 0;
 
     /*! \brief alternative exposure, in sec
      */
-    float m_exp_sec;
+    float m_exp_sec = 0.0;
 
     /*! \brief Virtual Chip X dim
      */
-    std::int16_t m_VChipXdim;
+    std::int16_t m_VChipXdim = 0;
 
     /*! \brief Virtual Chip Y dim
      */
-    std::int16_t m_VChipYdim;
+    std::int16_t m_VChipYdim = 0;
 
     /*! \brief y dimension of CCD of detector
      */
-    std::uint16_t m_yDimDet;
+    std::uint16_t m_yDimDet = 0;
 
     /*! \brief The number of columns in the image
      *
@@ -119,10 +119,10 @@ namespace SPE {
     std::int32_t NumFrames() const;
 
     private:
-    std::uint16_t m_xdim;
-    std::uint16_t m_ydim;
-    std::int16_t m_datatype;
-    std::int32_t m_NumFrames;
+    std::uint16_t m_xdim = 0;
+    std::uint16_t m_ydim = 0;
+    std::int16_t m_datatype = 0;
+    std::int32_t m_NumFrames = 0;
 
     virtual void reset();
 };

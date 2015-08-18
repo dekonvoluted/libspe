@@ -20,20 +20,7 @@
 #include "offsets.h"
 
 namespace SPE {
-Metadata::Metadata() : Data( 0, OFFSET_DATA ),
-    m_ControllerVersion( 0 ),
-    m_LogicOutput( 0 ),
-    m_AmpHiCapLowNoise( 0 ),
-    m_xDimDet( 0 ),
-    m_mode( 0 ),
-    m_exp_sec( 0.0 ),
-    m_VChipXdim( 0 ),
-    m_VChipYdim( 0 ),
-    m_yDimDet( 0 ),
-    m_xdim( 0 ),
-    m_ydim( 0 ),
-    m_datatype( 0 ),
-    m_NumFrames( 0 )
+Metadata::Metadata() : Data( 0, OFFSET_DATA )
 {}
 
 /*!
