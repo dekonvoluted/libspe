@@ -26,6 +26,7 @@ const std::size_t OFFSET_LOGICOUTPUT            = 0x0002;   // Definition of Out
 const std::size_t OFFSET_AMPHICAPLOWNOISE       = 0x0004;   // Amp Switching Mode
 const std::size_t OFFSET_XDIMDET                = 0x0006;   // Detector x dimension of chip
 const std::size_t OFFSET_MODE                   = 0x0008;   // timing mode
+const std::size_t OFFSET_EXP_SEC                = 0x000A;   // alternative exposure, in sec
 const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)

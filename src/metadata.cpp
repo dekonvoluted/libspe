@@ -26,6 +26,7 @@ Metadata::Metadata() : Data( 0, OFFSET_DATA ),
     m_AmpHiCapLowNoise( 0 ),
     m_xDimDet( 0 ),
     m_mode( 0 ),
+    m_exp_sec( 0.0 ),
     m_xdim( 0 ),
     m_ydim( 0 ),
     m_datatype( 0 ),
@@ -45,6 +46,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( m_AmpHiCapLowNoise, OFFSET_AMPHICAPLOWNOISE );
     retrieve( m_xDimDet, OFFSET_XDIMDET );
     retrieve( m_mode, OFFSET_MODE );
+    retrieve( m_exp_sec, OFFSET_EXP_SEC );
     retrieve( m_xdim, OFFSET_XDIM );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
@@ -92,6 +94,7 @@ void Metadata::reset()
     m_AmpHiCapLowNoise = 0;
     m_xDimDet = 0;
     m_mode = 0;
+    m_exp_sec = 0.0;
     m_xdim = 0;
     m_ydim = 0;
     m_datatype = 0;
@@ -114,6 +117,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "AmpHiCapLowNoise" << '\t' << metadata.m_AmpHiCapLowNoise << '\n';
     out << std::setw( MAXWIDTH ) << "xDimDet" << '\t' << metadata.m_xDimDet << '\n';
     out << std::setw( MAXWIDTH ) << "mode" << '\t' << metadata.m_mode << '\n';
+    out << std::setw( MAXWIDTH ) << "exp_sec" << '\t' << metadata.m_exp_sec << '\n';
     out << std::setw( MAXWIDTH ) << "xdim" << '\t' << metadata.xdim() << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';

@@ -67,6 +67,10 @@ namespace SPE {
      */
     std::int16_t m_mode;
 
+    /*! \brief alternative exposure, in sec
+     */
+    float m_exp_sec;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
