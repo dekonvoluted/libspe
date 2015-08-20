@@ -92,6 +92,10 @@ namespace SPE {
      */
     std::int16_t VirtualChipFlag = 0;
 
+    /*! \brief Old number of scans - should always be -1
+     */
+    std::int16_t noscan = 0;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
