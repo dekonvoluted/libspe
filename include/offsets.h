@@ -35,6 +35,7 @@ const std::size_t OFFSET_VIRTUALCHIPFLAG        = 0x001E;   // On/Off
 const std::size_t OFFSET_SPARE_1                = 0x0020;   //
 const std::size_t OFFSET_NOSCAN                 = 0x0022;   // Old number of scans - should always be -1
 const std::size_t OFFSET_DETTEMPERATURE         = 0x0024;   // Detector Temperature Set
+const std::size_t OFFSET_DETTYPE                = 0x0028;   // CCD/DiodeArray type
 const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
