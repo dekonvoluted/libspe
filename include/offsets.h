@@ -32,6 +32,7 @@ const std::size_t OFFSET_VCHIPYDIM              = 0x0010;   // Virtual Chip Y di
 const std::size_t OFFSET_YDIMDET                = 0x0012;   // y dimension of CCD or detector
 const std::size_t OFFSET_DATE                   = 0x0014;   // date
 const std::size_t OFFSET_VIRTUALCHIPFLAG        = 0x001E;   // On/Off
+const std::size_t OFFSET_SPARE_1                = 0x0020;   //
 const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
