@@ -56,8 +56,8 @@ void Metadata::read( std::ifstream& file )
     retrieve( ThresholdMinVal, OFFSET_THRESHOLDMINVAL );
     retrieve( ThresholdMaxLive, OFFSET_THRESHOLDMAXLIVE );
     retrieve( ThresholdMaxVal, OFFSET_THRESHOLDMAXVAL );
-    retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
+    retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -70,19 +70,19 @@ std::uint16_t Metadata::xdim() const
 }
 
 /*!
- * \return The number of columns in the image
- */
-std::uint16_t Metadata::ydim() const
-{
-    return m_ydim;
-}
-
-/*!
  * \return The datatype used to store pixel intensity in the image
  */
 std::int16_t Metadata::datatype() const
 {
     return m_datatype;
+}
+
+/*!
+ * \return The number of columns in the image
+ */
+std::uint16_t Metadata::ydim() const
+{
+    return m_ydim;
 }
 
 /*!
@@ -122,8 +122,8 @@ void Metadata::reset()
     ThresholdMinVal = 0.0;
     ThresholdMaxLive = 0;
     ThresholdMaxVal = 0.0;
-    m_ydim = 0;
     m_datatype = 0;
+    m_ydim = 0;
     m_NumFrames = 0;
 }
 }

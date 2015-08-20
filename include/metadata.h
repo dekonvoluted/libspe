@@ -104,6 +104,13 @@ namespace SPE {
      */
     std::int16_t DetType = 0;
 
+    /*! \brief The number of columns in the image
+     *
+     * This is an important value and any changes made to it can break things.
+     * Hence, it is being exposed through a read-only interface.
+     */
+    std::uint16_t xdim() const;
+
     /*! \brief trigger diode
      */
     std::int16_t stdiode = 0;
@@ -144,20 +151,6 @@ namespace SPE {
      */
     float ThresholdMaxVal = 0.0;
 
-    /*! \brief The number of columns in the image
-     *
-     * This is an important value and any changes made to it can break things.
-     * Hence, it is being exposed through a read-only interface.
-     */
-    std::uint16_t xdim() const;
-
-    /*! \brief The number of rows in the image
-     *
-     * This is an important value and any changes made to it can break things.
-     * Hence, it is being exposed through a read-only interface.
-     */
-    std::uint16_t ydim() const;
-
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.
@@ -172,6 +165,13 @@ namespace SPE {
      */
     std::int16_t datatype() const;
 
+    /*! \brief The number of rows in the image
+     *
+     * This is an important value and any changes made to it can break things.
+     * Hence, it is being exposed through a read-only interface.
+     */
+    std::uint16_t ydim() const;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
@@ -181,8 +181,8 @@ namespace SPE {
 
     private:
     std::uint16_t m_xdim = 0;
-    std::uint16_t m_ydim = 0;
     std::int16_t m_datatype = 0;
+    std::uint16_t m_ydim = 0;
     std::int32_t m_NumFrames = 0;
 
     const std::size_t DATEMAX = 10; // String length of file creation data string as ddmmmyyyy\0
