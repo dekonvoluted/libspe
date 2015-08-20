@@ -104,6 +104,10 @@ namespace SPE {
      */
     std::int16_t DetType = 0;
 
+    /*! \brief trigger diode
+     */
+    std::int16_t stdiode = 0;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
