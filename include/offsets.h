@@ -39,6 +39,7 @@ const std::size_t OFFSET_DETTYPE                = 0x0028;   // CCD/DiodeArray ty
 const std::size_t OFFSET_XDIM                   = 0x002A;   // actual # of pixels on x axis
 const std::size_t OFFSET_STDIODE                = 0x002C;   // trigger diode
 const std::size_t OFFSET_DELAYTIME              = 0x002E;   // Used with Async Mode
+const std::size_t OFFSET_SHUTTERCONTROL         = 0x0032;   // Normal, Disabled Open, Disabled Closed
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)
