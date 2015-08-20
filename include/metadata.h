@@ -20,6 +20,7 @@
 #include <fstream>
 #include <cstdint>
 #include <iostream>
+#include <string>
 
 #include "data.h"
 
@@ -83,6 +84,10 @@ namespace SPE {
      */
     std::uint16_t yDimDet = 0;
 
+    /*! \brief date
+     */
+    std::string date = "ddmmmyyyy\0";
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
@@ -123,6 +128,8 @@ namespace SPE {
     std::uint16_t m_ydim = 0;
     std::int16_t m_datatype = 0;
     std::int32_t m_NumFrames = 0;
+
+    const std::size_t DATEMAX = 10; // String length of file creation data string as ddmmmyyyy\0
 
     virtual void reset();
 };
