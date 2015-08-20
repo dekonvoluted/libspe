@@ -124,6 +124,10 @@ namespace SPE {
      */
     std::uint16_t AbsorbMode = 0;
 
+    /*! \brief T/F Cont/Chip able to do Virtual Chip
+     */
+    std::int16_t CanDoVirtualChipFlag = 0;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.

@@ -51,6 +51,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( ShutterControl, OFFSET_SHUTTERCONTROL );
     retrieve( AbsorbLive, OFFSET_ABSORBLIVE );
     retrieve( AbsorbMode, OFFSET_ABSORBMODE );
+    retrieve( CanDoVirtualChipFlag, OFFSET_CANDOVIRTUALCHIPFLAG );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
@@ -112,6 +113,7 @@ void Metadata::reset()
     ShutterControl = 0;
     AbsorbLive = 0;
     AbsorbMode = 0;
+    CanDoVirtualChipFlag = 0;
     m_ydim = 0;
     m_datatype = 0;
     m_NumFrames = 0;
@@ -148,6 +150,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "ShutterControl" << '\t' << metadata.ShutterControl << '\n';
     out << std::setw( MAXWIDTH ) << "AbsorbLive" << '\t' << metadata.AbsorbLive << '\n';
     out << std::setw( MAXWIDTH ) << "AbsorbMode" << '\t' << metadata.AbsorbMode << '\n';
+    out << std::setw( MAXWIDTH ) << "CanDoVirtualChipFlag" << '\t' << metadata.CanDoVirtualChipFlag << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';

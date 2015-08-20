@@ -42,6 +42,7 @@ const std::size_t OFFSET_DELAYTIME              = 0x002E;   // Used with Async M
 const std::size_t OFFSET_SHUTTERCONTROL         = 0x0032;   // Normal, Disabled Open, Disabled Closed
 const std::size_t OFFSET_ABSORBLIVE             = 0x0034;   // On/Off
 const std::size_t OFFSET_ABSORBMODE             = 0x0036;   // Reference Strip or File
+const std::size_t OFFSET_CANDOVIRTUALCHIPFLAG   = 0x0038;   // T/F Cont/Chip able to do Virtual Chip
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)
