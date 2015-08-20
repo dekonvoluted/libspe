@@ -43,6 +43,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( date[0], OFFSET_DATE, DATEMAX );
     retrieve( VirtualChipFlag, OFFSET_VIRTUALCHIPFLAG );
     retrieve( noscan, OFFSET_NOSCAN );
+    retrieve( DetTemperature, OFFSET_DETTEMPERATURE );
     retrieve( m_xdim, OFFSET_XDIM );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
@@ -97,6 +98,7 @@ void Metadata::reset()
     date = "ddmmmyyyy\0";
     VirtualChipFlag = 0;
     noscan = 0;
+    DetTemperature = 0.0;
     m_xdim = 0;
     m_ydim = 0;
     m_datatype = 0;
@@ -126,6 +128,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "date" << '\t' << metadata.date << '\n';
     out << std::setw( MAXWIDTH ) << "VirtualChipFlag" << '\t' << metadata.VirtualChipFlag << '\n';
     out << std::setw( MAXWIDTH ) << "noscan" << '\t' << metadata.noscan << '\n';
+    out << std::setw( MAXWIDTH ) << "DetTemperature" << '\t' << metadata.DetTemperature << '\n';
     out << std::setw( MAXWIDTH ) << "xdim" << '\t' << metadata.xdim() << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
