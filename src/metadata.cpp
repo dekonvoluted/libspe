@@ -49,6 +49,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( stdiode, OFFSET_STDIODE );
     retrieve( DelayTime, OFFSET_DELAYTIME );
     retrieve( ShutterControl, OFFSET_SHUTTERCONTROL );
+    retrieve( AbsorbLive, OFFSET_ABSORBLIVE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
@@ -108,6 +109,7 @@ void Metadata::reset()
     stdiode = 0;
     DelayTime = 0.0;
     ShutterControl = 0;
+    AbsorbLive = 0;
     m_ydim = 0;
     m_datatype = 0;
     m_NumFrames = 0;
@@ -142,6 +144,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "stdiode" << '\t' << metadata.stdiode << '\n';
     out << std::setw( MAXWIDTH ) << "DelayTime" << '\t' << metadata.DelayTime << '\n';
     out << std::setw( MAXWIDTH ) << "ShutterControl" << '\t' << metadata.ShutterControl << '\n';
+    out << std::setw( MAXWIDTH ) << "AbsorbLive" << '\t' << metadata.AbsorbLive << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';

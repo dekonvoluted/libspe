@@ -116,6 +116,10 @@ namespace SPE {
      */
     std::uint16_t ShutterControl = 0;
 
+    /*! \brief On/Off
+     */
+    std::int16_t AbsorbLive = 0;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
