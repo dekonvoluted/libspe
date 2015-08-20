@@ -108,6 +108,10 @@ namespace SPE {
      */
     std::int16_t stdiode = 0;
 
+    /*! \brief Used with Async Mode
+     */
+    float DelayTime = 0.0;
+
     /*! \brief The number of columns in the image
      *
      * This is an important value and any changes made to it can break things.
