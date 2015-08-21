@@ -173,6 +173,10 @@ namespace SPE {
      */
     float SpecGlueEndWlNm = 0.0;
 
+    /*! \brief Minimum Overlap in Nm
+     */
+    float SpecGlueMinOvrlpNm = 0.0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.
