@@ -159,6 +159,10 @@ namespace SPE {
      */
     float SpecCenterWlNm = 0.0;
 
+    /*! \brief T/F File is Glued
+     */
+    std::int16_t SpecGlueFlag = 0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.
