@@ -167,6 +167,12 @@ namespace SPE {
      */
     float SpecGlueStartWlNm = 0.0;
 
+    /*! \brief Ending Wavelength in Nm
+     *
+     * Note that the specification states that this is the "Starting Wavelength in Nm", which is incorrect.
+     */
+    float SpecGlueEndWlNm = 0.0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.

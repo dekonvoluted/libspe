@@ -51,6 +51,7 @@ const std::size_t OFFSET_SPECAUTOSPECTROMODE    = 0x0046;   // T/F Spectrograph 
 const std::size_t OFFSET_SPECCENTERWLNM         = 0x0048;   // Center Wavelength in Nm
 const std::size_t OFFSET_SPECGLUEFLAG           = 0x004C;   // T/F File is Glued
 const std::size_t OFFSET_SPECGLUESTARTWLNM      = 0x004E;   // Starting Wavelength in Nm
+const std::size_t OFFSET_SPECGLUEENDWLNM        = 0x0052;   // Ending Wavelength in Nm
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)
