@@ -155,6 +155,10 @@ namespace SPE {
      */
     std::int16_t SpecAutoSpectroMode = 0;
 
+    /*! \brief Center Wavelength in Nm
+     */
+    float SpecCenterWlNm = 0.0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.
