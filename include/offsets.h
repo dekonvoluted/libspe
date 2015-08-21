@@ -47,6 +47,7 @@ const std::size_t OFFSET_THRESHOLDMINLIVE       = 0x003A;   // On/Off
 const std::size_t OFFSET_THRESHOLDMINVAL        = 0x003C;   // Threshold Minimum Value
 const std::size_t OFFSET_THRESHOLDMAXLIVE       = 0x0040;   // On/Off
 const std::size_t OFFSET_THRESHOLDMAXVAL        = 0x0042;   // Threshold Maximum Value
+const std::size_t OFFSET_SPECAUTOSPECTROMODE    = 0x0046;   // T/F Spectrograph Used
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)

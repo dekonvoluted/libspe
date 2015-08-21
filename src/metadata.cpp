@@ -56,6 +56,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( ThresholdMinVal, OFFSET_THRESHOLDMINVAL );
     retrieve( ThresholdMaxLive, OFFSET_THRESHOLDMAXLIVE );
     retrieve( ThresholdMaxVal, OFFSET_THRESHOLDMAXVAL );
+    retrieve( SpecAutoSpectroMode, OFFSET_SPECAUTOSPECTROMODE );
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
@@ -122,6 +123,7 @@ void Metadata::reset()
     ThresholdMinVal = 0.0;
     ThresholdMaxLive = 0;
     ThresholdMaxVal = 0.0;
+    SpecAutoSpectroMode = 0;
     m_datatype = 0;
     m_ydim = 0;
     m_NumFrames = 0;
@@ -163,6 +165,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "ThresholdMinVal" << '\t' << metadata.ThresholdMinVal << '\n';
     out << std::setw( MAXWIDTH ) << "ThresholdMaxLive" << '\t' << metadata.ThresholdMaxLive << '\n';
     out << std::setw( MAXWIDTH ) << "ThresholdMaxVal" << '\t' << metadata.ThresholdMaxVal << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecAutoSpectroMode" << '\t' << metadata.SpecAutoSpectroMode << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';

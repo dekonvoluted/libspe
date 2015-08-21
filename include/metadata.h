@@ -151,6 +151,10 @@ namespace SPE {
      */
     float ThresholdMaxVal = 0.0;
 
+    /*! \brief T/F Spectrograph Used
+     */
+    std::int16_t SpecAutoSpectroMode = 0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.
