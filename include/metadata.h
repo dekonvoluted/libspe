@@ -48,60 +48,46 @@ namespace SPE {
      */
     void read( std::ifstream& );
 
-    /*! \brief Hardware Version
-     */
+    //! \brief Hardware Version
     std::int16_t ControllerVersion = 0;
 
-    /*! \brief Definition of Output BNC
-     */
+    //! \brief Definition of Output BNC
     std::int16_t LogicOutput = 0;
 
-    /*! \brief Amp Switching Mode
-     */
+    //! \brief Amp Switching Mode
     std::uint16_t AmpHiCapLowNoise = 0;
 
-    /*! \brief Detector x dimension of chip
-     */
+    //! \brief Detector x dimension of chip
     std::uint16_t xDimDet = 0;
 
-    /*! \brief timing mode
-     */
+    //! \brief timing mode
     std::int16_t mode = 0;
 
-    /*! \brief alternative exposure, in sec
-     */
+    //! \brief alternative exposure, in sec
     float exp_sec = 0.0;
 
-    /*! \brief Virtual Chip X dim
-     */
+    //! \brief Virtual Chip X dim
     std::int16_t VChipXdim = 0;
 
-    /*! \brief Virtual Chip Y dim
-     */
+    //! \brief Virtual Chip Y dim
     std::int16_t VChipYdim = 0;
 
-    /*! \brief y dimension of CCD of detector
-     */
+    //! \brief y dimension of CCD of detector
     std::uint16_t yDimDet = 0;
 
-    /*! \brief date
-     */
+    //! \brief date
     std::string date = "ddmmmyyyy\0";
 
-    /*! \brief On/Off
-     */
+    //! \brief On/Off
     std::int16_t VirtualChipFlag = 0;
 
-    /*! \brief Old number of scans - should always be -1
-     */
+    //! \brief Old number of scans - should always be -1
     std::int16_t noscan = 0;
 
-    /*! \brief Detector Temperature Set
-     */
+    //! \brief Detector Temperature Set
     float DetTemperature = 0.0;
 
-    /*! \brief CCD/DiodeArray type
-     */
+    //! \brief CCD/DiodeArray type
     std::int16_t DetType = 0;
 
     /*! \brief The number of columns in the image
@@ -111,60 +97,46 @@ namespace SPE {
      */
     std::uint16_t xdim() const;
 
-    /*! \brief trigger diode
-     */
+    //! \brief trigger diode
     std::int16_t stdiode = 0;
 
-    /*! \brief Used with Async Mode
-     */
+    //! \brief Used with Async Mode
     float DelayTime = 0.0;
 
-    /*! \brief Normal, Disabled Open, Disabled Closed
-     */
+    //! \brief Normal, Disabled Open, Disabled Closed
     std::uint16_t ShutterControl = 0;
 
-    /*! \brief On/Off
-     */
+    //! \brief On/Off
     std::int16_t AbsorbLive = 0;
 
-    /*! \brief Reference Strip or File
-     */
+    //! \brief Reference Strip or File
     std::uint16_t AbsorbMode = 0;
 
-    /*! \brief T/F Cont/Chip able to do Virtual Chip
-     */
+    //! \brief T/F Cont/Chip able to do Virtual Chip
     std::int16_t CanDoVirtualChipFlag = 0;
 
-    /*! \brief On/Off
-     */
+    //! \brief On/Off
     std::int16_t ThresholdMinLive = 0;
 
-    /*! \brief Threshold Minimum Value
-     */
+    //! \brief Threshold Minimum Value
     float ThresholdMinVal = 0.0;
 
-    /*! \brief On/Off
-     */
+    //! \brief On/Off
     std::int16_t ThresholdMaxLive = 0;
 
-    /*! \brief Threshold Maximum Value
-     */
+    //! \brief Threshold Maximum Value
     float ThresholdMaxVal = 0.0;
 
-    /*! \brief T/F Spectrograph Used
-     */
+    //! \brief T/F Spectrograph Used
     std::int16_t SpecAutoSpectroMode = 0;
 
-    /*! \brief Center Wavelength in Nm
-     */
+    //! \brief Center Wavelength in Nm
     float SpecCenterWlNm = 0.0;
 
-    /*! \brief T/F File is Glued
-     */
+    //! \brief T/F File is Glued
     std::int16_t SpecGlueFlag = 0;
 
-    /*! \brief Starting Wavelength in Nm
-     */
+    //! \brief Starting Wavelength in Nm
     float SpecGlueStartWlNm = 0.0;
 
     /*! \brief Ending Wavelength in Nm
@@ -173,12 +145,10 @@ namespace SPE {
      */
     float SpecGlueEndWlNm = 0.0;
 
-    /*! \brief Minimum Overlap in Nm
-     */
+    //! \brief Minimum Overlap in Nm
     float SpecGlueMinOvrlpNm = 0.0;
 
-    /*! \brief Final Resolution in Nm
-     */
+    //! \brief Final Resolution in Nm
     float SpecGlueFinalResNm = 0.0;
 
     /*! \brief The datatype of intensity of each pixel in the image
