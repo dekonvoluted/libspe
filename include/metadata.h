@@ -163,6 +163,10 @@ namespace SPE {
      */
     std::int16_t SpecGlueFlag = 0;
 
+    /*! \brief Starting Wavelength in Nm
+     */
+    float SpecGlueStartWlNm = 0.0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.

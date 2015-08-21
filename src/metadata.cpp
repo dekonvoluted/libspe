@@ -59,6 +59,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( SpecAutoSpectroMode, OFFSET_SPECAUTOSPECTROMODE );
     retrieve( SpecCenterWlNm, OFFSET_SPECCENTERWLNM );
     retrieve( SpecGlueFlag, OFFSET_SPECGLUEFLAG );
+    retrieve( SpecGlueStartWlNm, OFFSET_SPECGLUESTARTWLNM );
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
@@ -128,6 +129,7 @@ void Metadata::reset()
     SpecAutoSpectroMode = 0;
     SpecCenterWlNm = 0.0;
     SpecGlueFlag = 0;
+    SpecGlueStartWlNm = 0.0;
     m_datatype = 0;
     m_ydim = 0;
     m_NumFrames = 0;
@@ -172,6 +174,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "SpecAutoSpectroMode" << '\t' << metadata.SpecAutoSpectroMode << '\n';
     out << std::setw( MAXWIDTH ) << "SpecCenterWlNm" << '\t' << metadata.SpecCenterWlNm << '\n';
     out << std::setw( MAXWIDTH ) << "SpecGlueFlag" << '\t' << metadata.SpecGlueFlag << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecGlueStartWlNm" << '\t' << metadata.SpecGlueStartWlNm << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
