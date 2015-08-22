@@ -76,6 +76,10 @@ void Metadata::read( std::ifstream& file )
     retrieve( PulserRepeatExp, OFFSET_PULSERREPEATEXP );
     retrieve( PulserRepWidth, OFFSET_PULSERREPWIDTH );
     retrieve( PulserRepDelay, OFFSET_PULSERREPDELAY );
+    retrieve( PulserSeqStartWidth, OFFSET_PULSERSEQSTARTWIDTH );
+    retrieve( PulserSeqEndWidth, OFFSET_PULSERSEQENDWIDTH );
+    retrieve( PulserSeqStartDelay, OFFSET_PULSERSEQSTARTDELAY );
+    retrieve( PulserSeqEndDelay, OFFSET_PULSERSEQENDDELAY );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -161,6 +165,10 @@ void Metadata::reset()
     PulserRepeatExp = 0;
     PulserRepWidth = 0.0;
     PulserRepDelay = 0.0;
+    PulserSeqStartWidth = 0.0;
+    PulserSeqEndWidth = 0.0;
+    PulserSeqStartDelay = 0.0;
+    PulserSeqEndDelay = 0.0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -221,6 +229,10 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "PulserRepeatExp" << '\t' << metadata.PulserRepeatExp << '\n';
     out << std::setw( MAXWIDTH ) << "PulserRepWidth" << '\t' << metadata.PulserRepWidth << '\n';
     out << std::setw( MAXWIDTH ) << "PulserRepDelay" << '\t' << metadata.PulserRepDelay << '\n';
+    out << std::setw( MAXWIDTH ) << "PulserSeqStartWidth" << '\t' << metadata.PulserSeqStartWidth << '\n';
+    out << std::setw( MAXWIDTH ) << "PulserSeqEndWidth" << '\t' << metadata.PulserSeqEndWidth << '\n';
+    out << std::setw( MAXWIDTH ) << "PulserSeqStartDelay" << '\t' << metadata.PulserSeqStartDelay << '\n';
+    out << std::setw( MAXWIDTH ) << "PulserSeqEndDelay" << '\t' << metadata.PulserSeqEndDelay << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 

@@ -204,6 +204,18 @@ namespace SPE {
      */
     float PulserRepDelay = 0.0;
 
+    //! \brief Start Width for Sequential pulse (usec)
+    float PulserSeqStartWidth = 0.0;
+
+    //! \brief End Width for Sequential pulse (usec)
+    float PulserSeqEndWidth = 0.0;
+
+    //! \brief Start Delay for Sequential pulse (usec)
+    float PulserSeqStartDelay = 0.0;
+
+    //! \brief End Delay for Sequential pulse (usec)
+    float PulserSeqEndDelay = 0.0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
