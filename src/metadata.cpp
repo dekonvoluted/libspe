@@ -64,6 +64,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( SpecGlueMinOvrlpNm, OFFSET_SPECGLUEMINOVRLPNM );
     retrieve( SpecGlueFinalResNm, OFFSET_SPECGLUEFINALRESNM );
     retrieve( PulserType, OFFSET_PULSERTYPE );
+    retrieve( CustomChipFlag, OFFSET_CUSTOMCHIPFLAG );
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
@@ -138,6 +139,7 @@ void Metadata::reset()
     SpecGlueMinOvrlpNm = 0.0;
     SpecGlueFinalResNm = 0.0;
     PulserType = 0;
+    CustomChipFlag = 0;
     m_datatype = 0;
     m_ydim = 0;
     m_NumFrames = 0;
@@ -187,6 +189,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "SpecGlueMinOvrlpNm" << '\t' << metadata.SpecGlueMinOvrlpNm << '\n';
     out << std::setw( MAXWIDTH ) << "SpecGlueFinalResNm" << '\t' << metadata.SpecGlueFinalResNm << '\n';
     out << std::setw( MAXWIDTH ) << "PulserType" << '\t' << metadata.PulserType << '\n';
+    out << std::setw( MAXWIDTH ) << "CustomChipFlag" << '\t' << metadata.CustomChipFlag << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
