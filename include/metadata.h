@@ -169,6 +169,9 @@ namespace SPE {
     //! \brief Post Pixels in Y direction
     std::int16_t YPostPixels = 0;
 
+    //! \brief asynchron enable flag 0 = off
+    std::int16_t asynen = 0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.

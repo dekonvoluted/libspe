@@ -69,6 +69,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( XPostPixels, OFFSET_XPOSTPIXELS );
     retrieve( YPrePixels, OFFSET_YPREPIXELS );
     retrieve( YPostPixels, OFFSET_YPOSTPIXELS );
+    retrieve( asynen, OFFSET_ASYNEN );
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
@@ -148,6 +149,7 @@ void Metadata::reset()
     XPostPixels = 0;
     YPrePixels = 0;
     YPostPixels = 0;
+    asynen = 0;
     m_datatype = 0;
     m_ydim = 0;
     m_NumFrames = 0;
@@ -202,6 +204,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "XPostPixels" << '\t' << metadata.XPostPixels << '\n';
     out << std::setw( MAXWIDTH ) << "YPrePixels" << '\t' << metadata.YPrePixels << '\n';
     out << std::setw( MAXWIDTH ) << "YPostPixels" << '\t' << metadata.YPostPixels << '\n';
+    out << std::setw( MAXWIDTH ) << "asynen" << '\t' << metadata.asynen << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';

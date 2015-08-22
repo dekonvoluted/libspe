@@ -60,6 +60,7 @@ const std::size_t OFFSET_XPREPIXELS             = 0x0062;   // Pre Pixels in X d
 const std::size_t OFFSET_XPOSTPIXELS            = 0x0064;   // Post Pixels in X direction
 const std::size_t OFFSET_YPREPIXELS             = 0x0066;   // Pre Pixels in Y direction
 const std::size_t OFFSET_YPOSTPIXELS            = 0x0068;   // Post Pixels in Y direction
+const std::size_t OFFSET_ASYNEN                 = 0x006A;   // asynchron enable flag 0 = off
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)
