@@ -189,6 +189,9 @@ namespace SPE {
     //! \brief Repetitive/Sequential
     std::int16_t PulserMode = 0;
 
+    //! \brief Num PTG On-Chip Accums
+    std::uint16_t PulserOnChipAccums = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
