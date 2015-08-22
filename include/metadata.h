@@ -192,6 +192,9 @@ namespace SPE {
     //! \brief Num PTG On-Chip Accums
     std::uint16_t PulserOnChipAccums = 0;
 
+    //! \brief Num Exp Repeats (Pulser SW Accum)
+    std::int32_t PulserRepeatExp = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.

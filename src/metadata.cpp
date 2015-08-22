@@ -73,6 +73,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( m_datatype, OFFSET_DATATYPE );
     retrieve( PulserMode, OFFSET_PULSERMODE );
     retrieve( PulserOnChipAccums, OFFSET_PULSERONCHIPACCUMS );
+    retrieve( PulserRepeatExp, OFFSET_PULSERREPEATEXP );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -155,6 +156,7 @@ void Metadata::reset()
     m_datatype = 0;
     PulserMode = 0;
     PulserOnChipAccums = 0;
+    PulserRepeatExp = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -212,6 +214,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
     out << std::setw( MAXWIDTH ) << "PulserMode" << '\t' << metadata.PulserMode << '\n';
     out << std::setw( MAXWIDTH ) << "PulserOnChipAccums" << '\t' << metadata.PulserOnChipAccums << '\n';
+    out << std::setw( MAXWIDTH ) << "PulserRepeatExp" << '\t' << metadata.PulserRepeatExp << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
