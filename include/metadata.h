@@ -157,6 +157,18 @@ namespace SPE {
     //! \brief T/F Custom Chip Used
     std::int16_t CustomChipFlag = 0;
 
+    //! \brief Pre Pixels in X direction
+    std::int16_t XPrePixels = 0;
+
+    //! \brief Post Pixels in X direction
+    std::int16_t XPostPixels = 0;
+
+    //! \brief Pre Pixels in Y direction
+    std::int16_t YPrePixels = 0;
+
+    //! \brief Post Pixels in Y direction
+    std::int16_t YPostPixels = 0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.

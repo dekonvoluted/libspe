@@ -56,6 +56,10 @@ const std::size_t OFFSET_SPECGLUEMINOVRLPNM     = 0x0056;   // Minimum OVerlap i
 const std::size_t OFFSET_SPECGLUEFINALRESNM     = 0x005A;   // Final Resolution in Nm
 const std::size_t OFFSET_PULSERTYPE             = 0x005E;   // 0=None, PG200=1, PTG=2, DG535=3
 const std::size_t OFFSET_CUSTOMCHIPFLAG         = 0x0060;   // T/F Custom Chip Used
+const std::size_t OFFSET_XPREPIXELS             = 0x0062;   // Pre Pixels in X direction
+const std::size_t OFFSET_XPOSTPIXELS            = 0x0064;   // Post Pixels in X direction
+const std::size_t OFFSET_YPREPIXELS             = 0x0066;   // Pre Pixels in Y direction
+const std::size_t OFFSET_YPOSTPIXELS            = 0x0068;   // Post Pixels in Y direction
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)
