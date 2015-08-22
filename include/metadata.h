@@ -198,6 +198,12 @@ namespace SPE {
     //! \brief Width Value for Repetitive pulse (usec)
     float PulserRepWidth = 0.0;
 
+    /*! \brief Delay Value for Repetitive pulse (usec)
+     *
+     * Note that the specification states that this is the "Width Value for Repetitive pulse (usec)", which is incorrect.
+     */
+    float PulserRepDelay = 0.0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
