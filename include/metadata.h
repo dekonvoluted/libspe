@@ -151,6 +151,9 @@ namespace SPE {
     //! \brief Final Resolution in Nm
     float SpecGlueFinalResNm = 0.0;
 
+    //! \brief 0=None, PG200=1, PTG=2, DG535=3
+    std::int16_t PulserType = 0;
+
     /*! \brief The datatype of intensity of each pixel in the image
      *
      * This is the internal representation of the intensity of each pixel in the image.

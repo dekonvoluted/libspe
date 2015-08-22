@@ -54,6 +54,7 @@ const std::size_t OFFSET_SPECGLUESTARTWLNM      = 0x004E;   // Starting Waveleng
 const std::size_t OFFSET_SPECGLUEENDWLNM        = 0x0052;   // Ending Wavelength in Nm
 const std::size_t OFFSET_SPECGLUEMINOVRLPNM     = 0x0056;   // Minimum OVerlap in Nm
 const std::size_t OFFSET_SPECGLUEFINALRESNM     = 0x005A;   // Final Resolution in Nm
+const std::size_t OFFSET_PULSERTYPE             = 0x005E;   // 0=None, PG200=1, PTG=2, DG535=3
 const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment datatype
                                                             // 0 = float (4 bytes)
                                                             // 1 = long (4 bytes)
