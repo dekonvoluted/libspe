@@ -186,6 +186,9 @@ namespace SPE {
      */
     std::int16_t datatype() const;
 
+    //! \brief Repetitive/Sequential
+    std::int16_t PulserMode = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.

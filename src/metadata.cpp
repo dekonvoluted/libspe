@@ -71,6 +71,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( YPostPixels, OFFSET_YPOSTPIXELS );
     retrieve( asynen, OFFSET_ASYNEN );
     retrieve( m_datatype, OFFSET_DATATYPE );
+    retrieve( PulserMode, OFFSET_PULSERMODE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -151,6 +152,7 @@ void Metadata::reset()
     YPostPixels = 0;
     asynen = 0;
     m_datatype = 0;
+    PulserMode = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -206,6 +208,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "YPostPixels" << '\t' << metadata.YPostPixels << '\n';
     out << std::setw( MAXWIDTH ) << "asynen" << '\t' << metadata.asynen << '\n';
     out << std::setw( MAXWIDTH ) << "datatype" << '\t' << metadata.datatype() << '\n';
+    out << std::setw( MAXWIDTH ) << "PulserMode" << '\t' << metadata.PulserMode << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
