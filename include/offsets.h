@@ -69,6 +69,7 @@ const std::size_t OFFSET_DATATYPE               = 0x006C;   // experiment dataty
 const std::size_t OFFSET_PULSERMODE             = 0x006E;   // Repetitive/Sequential
 const std::size_t OFFSET_PULSERONCHIPACCUMS     = 0x0070;   // Num PTG On-Chip Accums
 const std::size_t OFFSET_PULSERREPEATEXP        = 0x0072;   // Num Exp Repeats (Pulser SW Accum)
+const std::size_t OFFSET_PULSERREPWIDTH         = 0x0076;   // Width Value for Repetitive pulse (usec)
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data

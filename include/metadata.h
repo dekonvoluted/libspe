@@ -195,6 +195,9 @@ namespace SPE {
     //! \brief Num Exp Repeats (Pulser SW Accum)
     std::int32_t PulserRepeatExp = 0;
 
+    //! \brief Width Value for Repetitive pulse (usec)
+    float PulserRepWidth = 0.0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
