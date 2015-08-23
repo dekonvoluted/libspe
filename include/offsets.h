@@ -84,6 +84,7 @@ const std::size_t OFFSET_PIMAX2NSBRDUSED        = 0x0098;   // T/F PI-Max 2ns Bo
 const std::size_t OFFSET_MINBLK                 = 0x009A;   // min. # of strips per skips
 const std::size_t OFFSET_NUMMINBLK              = 0x009C;   // # of min-blocks before geo skps
 const std::size_t OFFSET_SPECMIRRORLOCATION     = 0x009E;   // Spectro Mirror Location, 0=Not Present
+const std::size_t OFFSET_SPECSLITLOCATION       = 0x00A2;   // Spectro Slit Location, 0=Not Present
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
