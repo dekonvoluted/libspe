@@ -40,7 +40,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( VChipXdim, OFFSET_VCHIPXDIM );
     retrieve( VChipYdim, OFFSET_VCHIPYDIM );
     retrieve( yDimDet, OFFSET_YDIMDET );
-    retrieve( date[0], OFFSET_DATE, DATEMAX );
+    retrieve( date[ 0 ], OFFSET_DATE, DATEMAX );
     retrieve( VirtualChipFlag, OFFSET_VIRTUALCHIPFLAG );
     retrieve( noscan, OFFSET_NOSCAN );
     retrieve( DetTemperature, OFFSET_DETTEMPERATURE );
