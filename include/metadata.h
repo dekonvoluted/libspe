@@ -256,6 +256,9 @@ namespace SPE {
     //! \brief Experiment UTC Time as hhmmss\0
     std::string ExperimentTimeUTC = "hhmmss\0";
 
+    //! \brief User Units for Exposure
+    std::int16_t ExposUnits = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.

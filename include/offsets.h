@@ -88,6 +88,7 @@ const std::size_t OFFSET_SPECSLITLOCATION       = 0x00A2;   // Spectro Slit Loca
 const std::size_t OFFSET_CUSTOMTIMINGFLAG       = 0x00AA;   // T/F Custom Timing Used
 const std::size_t OFFSET_EXPERIMENTTIMELOCAL    = 0x00AC;   // Experiment Local Time as hhmmss\0
 const std::size_t OFFSET_EXPERIMENTTIMEUTC      = 0x00B3;   // Experiment UTC Time as hhmmss\0
+const std::size_t OFFSET_EXPOSUNITS             = 0x00BA;   // User Units for Exposure
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
