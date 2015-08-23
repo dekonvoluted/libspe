@@ -81,6 +81,7 @@ const std::size_t OFFSET_PIMAXMODE              = 0x0092;   // PI-Max mode
 const std::size_t OFFSET_PIMAXGAIN              = 0x0094;   // PI-Max Gain
 const std::size_t OFFSET_BACKGRNDAPPLIED        = 0x0096;   // 1 if background subtraction done
 const std::size_t OFFSET_PIMAX2NSBRDUSED        = 0x0098;   // T/F PI-Max 2ns Board Used
+const std::size_t OFFSET_MINBLK                 = 0x009A;   // min. # of strips per skips
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data

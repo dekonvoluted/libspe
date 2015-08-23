@@ -234,6 +234,9 @@ namespace SPE {
     //! \brief T/F PI-Max 2ns Board Used
     std::int16_t PImax2nsBrdUsed = 0;
 
+    //! \brief min. # of strips per skips
+    std::uint16_t minblk = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
