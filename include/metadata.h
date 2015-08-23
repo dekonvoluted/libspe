@@ -219,6 +219,15 @@ namespace SPE {
     //! \brief Increments: 1=Fixed, 2=Exponential
     std::int16_t PulseSeqIncMode = 0;
 
+    //! \brief PI-Max type controller flag
+    std::int16_t PImaxUsed = 0;
+
+    //! \brief PI-Max mode
+    std::int16_t PImaxMode = 0;
+
+    //! \brief PI-Max Gain
+    std::int16_t PImaxGain = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.

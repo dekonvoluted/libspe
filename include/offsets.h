@@ -76,6 +76,9 @@ const std::size_t OFFSET_PULSESEQENDWIDTH       = 0x0082;   // End Width for Seq
 const std::size_t OFFSET_PULSESEQSTARTDELAY     = 0x0086;   // Start Delay for Sequential pulse (usec)
 const std::size_t OFFSET_PULSESEQENDDELAY       = 0x008A;   // End Delay for Sequential pulse (usec)
 const std::size_t OFFSET_PULSESEQINCMODE        = 0x008E;   // Increments: 1=Fixed, 2=Exponential
+const std::size_t OFFSET_PIMAXUSED              = 0x0090;   // PI-Max type Controller flag
+const std::size_t OFFSET_PIMAXMODE              = 0x0092;   // PI-Max mode
+const std::size_t OFFSET_PIMAXGAIN              = 0x0094;   // PI-Max Gain
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
