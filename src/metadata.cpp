@@ -99,6 +99,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( ADCtype, OFFSET_ADCTYPE );
     retrieve( ADCresolution, OFFSET_ADCRESOLUTION );
     retrieve( ADCbitAdjust, OFFSET_ADCBITADJUST );
+    retrieve( gain, OFFSET_GAIN );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -207,6 +208,7 @@ void Metadata::reset()
     ADCtype = 0;
     ADCresolution = 0;
     ADCbitAdjust = 0;
+    gain = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -290,6 +292,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "ADCtype" << '\t' << metadata.ADCtype << '\n';
     out << std::setw( MAXWIDTH ) << "ADCresolution" << '\t' << metadata.ADCresolution << '\n';
     out << std::setw( MAXWIDTH ) << "ADCbitAdjust" << '\t' << metadata.ADCbitAdjust << '\n';
+    out << std::setw( MAXWIDTH ) << "gain" << '\t' << metadata.gain << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
