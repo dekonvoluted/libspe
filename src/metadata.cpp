@@ -84,6 +84,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( PImaxUsed, OFFSET_PIMAXUSED );
     retrieve( PImaxMode, OFFSET_PIMAXMODE );
     retrieve( PImaxGain, OFFSET_PIMAXGAIN );
+    retrieve( BackGrndApplied, OFFSET_BACKGRNDAPPLIED );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -177,6 +178,7 @@ void Metadata::reset()
     PImaxUsed = 0;
     PImaxMode = 0;
     PImaxGain = 0;
+    BackGrndApplied = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -245,6 +247,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "PImaxUsed" << '\t' << metadata.PImaxUsed << '\n';
     out << std::setw( MAXWIDTH ) << "PImaxMode" << '\t' << metadata.PImaxMode << '\n';
     out << std::setw( MAXWIDTH ) << "PImaxGain" << '\t' << metadata.PImaxGain << '\n';
+    out << std::setw( MAXWIDTH ) << "BackGrndApplied" << '\t' << metadata.BackGrndApplied << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 

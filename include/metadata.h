@@ -228,6 +228,9 @@ namespace SPE {
     //! \brief PI-Max Gain
     std::int16_t PImaxGain = 0;
 
+    //! \brief 1 if background subtraction done
+    std::int16_t BackGrndApplied = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
