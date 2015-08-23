@@ -231,6 +231,9 @@ namespace SPE {
     //! \brief 1 if background subtraction done
     std::int16_t BackGrndApplied = 0;
 
+    //! \brief T/F PI-Max 2ns Board Used
+    std::int16_t PImax2nsBrdUsed = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
