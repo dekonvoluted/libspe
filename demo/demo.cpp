@@ -46,11 +46,27 @@ int main()
 
         // Print out the top left corner of the first frame
         auto frame0 = image.getFrame( 0 );
-        std::cout << "Frame 0: " << frame0( 0, 0 ) << " " << frame0( 0, 1 ) << " " << frame0( 0, 2 ) << "..." << std::endl;
-        std::cout << "         " << frame0( 1, 0 ) << " " << frame0( 1, 1 ) << " " << frame0( 1, 2 ) << "..." << std::endl;
-        std::cout << "         " << frame0( 2, 0 ) << " " << frame0( 2, 1 ) << " " << frame0( 2, 2 ) << "..." << std::endl;
-        std::cout << std::endl;
 
+        std::cout << "Frame 0: ";
+        for ( auto row = 0u; row < image.rows(); ++row ) {
+            for ( auto col = 0u; col < image.columns(); ++col ) {
+                std::cout << frame0( row, col );
+                if ( col < 2 ) {
+                    std::cout << " ";
+                } else {
+                    std::cout << "..." << std::endl;
+                    break;
+                }
+            }
+            if ( row < 2 ) {
+                std::cout << "         ";
+            } else {
+                std::cout << "         ..." << std::endl;
+                break;
+            }
+        }
+
+        // Print out all metadata in the header
         std::cout << "Detailed metadata: " << std::endl;
         std::cout << image.metadata << std::endl;
 
