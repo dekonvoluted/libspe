@@ -196,25 +196,25 @@ namespace SPE {
     std::int32_t PulserRepeatExp = 0;
 
     //! \brief Width Value for Repetitive pulse (usec)
-    float PulserRepWidth = 0.0;
+    float PulseRepWidth = 0.0;
 
     /*! \brief Delay Value for Repetitive pulse (usec)
      *
      * Note that the specification states that this is the "Width Value for Repetitive pulse (usec)", which is incorrect.
      */
-    float PulserRepDelay = 0.0;
+    float PulseRepDelay = 0.0;
 
     //! \brief Start Width for Sequential pulse (usec)
-    float PulserSeqStartWidth = 0.0;
+    float PulseSeqStartWidth = 0.0;
 
     //! \brief End Width for Sequential pulse (usec)
-    float PulserSeqEndWidth = 0.0;
+    float PulseSeqEndWidth = 0.0;
 
     //! \brief Start Delay for Sequential pulse (usec)
-    float PulserSeqStartDelay = 0.0;
+    float PulseSeqStartDelay = 0.0;
 
     //! \brief End Delay for Sequential pulse (usec)
-    float PulserSeqEndDelay = 0.0;
+    float PulseSeqEndDelay = 0.0;
 
     /*! \brief The number of rows in the image
      *
