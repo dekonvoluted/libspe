@@ -247,6 +247,9 @@ namespace SPE {
     //! \brief Spectro Slit Location, 0=Not Present
     std::vector<std::int16_t> SpecSlitLocation = std::vector<std::int16_t>( 4, 0 );
 
+    //! \brief T/F Custom Timing Used
+    std::int16_t CustomTimingFlag = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
