@@ -237,6 +237,9 @@ namespace SPE {
     //! \brief min. # of strips per skips
     std::uint16_t minblk = 0;
 
+    //! \brief \# of min-blocks before geo skps
+    std::uint16_t numminblk = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
