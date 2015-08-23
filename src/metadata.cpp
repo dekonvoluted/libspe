@@ -88,6 +88,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( PImax2nsBrdUsed, OFFSET_PIMAX2NSBRDUSED );
     retrieve( minblk, OFFSET_MINBLK );
     retrieve( numminblk, OFFSET_NUMMINBLK );
+    retrieve( SpecMirrorLocation[ 0 ], OFFSET_SPECMIRRORLOCATION, 4 );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -185,6 +186,7 @@ void Metadata::reset()
     PImax2nsBrdUsed = 0;
     minblk = 0;
     numminblk = 0;
+    SpecMirrorLocation = std::vector<std::int16_t>( 2, 0 );
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -257,6 +259,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "PImax2nsBrdUsed" << '\t' << metadata.PImax2nsBrdUsed << '\n';
     out << std::setw( MAXWIDTH ) << "minblk" << '\t' << metadata.minblk << '\n';
     out << std::setw( MAXWIDTH ) << "numminblk" << '\t' << metadata.numminblk << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecMirrorLocation" << "\t{" << metadata.SpecMirrorLocation.at( 0 ) << ", " << metadata.SpecMirrorLocation.at( 1 ) << "}\n";
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 

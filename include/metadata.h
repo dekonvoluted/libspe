@@ -21,6 +21,7 @@
 #include <cstdint>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "data.h"
 
@@ -239,6 +240,9 @@ namespace SPE {
 
     //! \brief \# of min-blocks before geo skps
     std::uint16_t numminblk = 0;
+
+    //! \brief Spectro Mirror Location, 0=Not Present
+    std::vector<std::int16_t> SpecMirrorLocation = std::vector<std::int16_t>( 2, 0 );
 
     /*! \brief The number of rows in the image
      *
