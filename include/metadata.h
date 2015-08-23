@@ -216,6 +216,9 @@ namespace SPE {
     //! \brief End Delay for Sequential pulse (usec)
     float PulseSeqEndDelay = 0.0;
 
+    //! \brief Increments: 1=Fixed, 2=Exponential
+    std::int16_t PulseSeqIncMode = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.

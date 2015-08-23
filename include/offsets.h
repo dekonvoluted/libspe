@@ -75,6 +75,7 @@ const std::size_t OFFSET_PULSESEQSTARTWIDTH     = 0x007E;   // Start Width for S
 const std::size_t OFFSET_PULSESEQENDWIDTH       = 0x0082;   // End Width for Sequential pulse (usec)
 const std::size_t OFFSET_PULSESEQSTARTDELAY     = 0x0086;   // Start Delay for Sequential pulse (usec)
 const std::size_t OFFSET_PULSESEQENDDELAY       = 0x008A;   // End Delay for Sequential pulse (usec)
+const std::size_t OFFSET_PULSESEQINCMODE        = 0x008E;   // Increments: 1=Fixed, 2=Exponential
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
