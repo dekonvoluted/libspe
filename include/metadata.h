@@ -250,6 +250,12 @@ namespace SPE {
     //! \brief T/F Custom Timing Used
     std::int16_t CustomTimingFlag = 0;
 
+    //! \brief Experiment Local Time as hhmmss\0
+    std::string ExperimentTimeLocal = "hhmmss\0";
+
+    //! \brief Experiment UTC Time as hhmmss\0
+    std::string ExperimentTimeUTC = "hhmmss\0";
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
@@ -271,6 +277,7 @@ namespace SPE {
     std::int32_t m_NumFrames = 0;
 
     const std::size_t DATEMAX = 10; // String length of file creation data string as ddmmmyyyy\0
+    const std::size_t TIMEMAX = 7; // Max time store as hhmmss\0
 
     virtual void reset();
 };

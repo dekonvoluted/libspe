@@ -91,6 +91,8 @@ void Metadata::read( std::ifstream& file )
     retrieve( SpecMirrorLocation[ 0 ], OFFSET_SPECMIRRORLOCATION, 4 );
     retrieve( SpecSlitLocation[ 0 ], OFFSET_SPECSLITLOCATION, 8 );
     retrieve( CustomTimingFlag, OFFSET_CUSTOMTIMINGFLAG );
+    retrieve( ExperimentTimeLocal[ 0 ], OFFSET_EXPERIMENTTIMELOCAL, TIMEMAX );
+    retrieve( ExperimentTimeUTC[ 0 ], OFFSET_EXPERIMENTTIMEUTC, TIMEMAX );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -191,6 +193,8 @@ void Metadata::reset()
     SpecMirrorLocation = std::vector<std::int16_t>( 2, 0 );
     SpecSlitLocation = std::vector<std::int16_t>( 4, 0 );
     CustomTimingFlag = 0;
+    ExperimentTimeLocal = "hhmmss\0";
+    ExperimentTimeUTC = "hhmmss\0";
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -266,6 +270,8 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "SpecMirrorLocation" << "\t{" << metadata.SpecMirrorLocation.at( 0 ) << ", " << metadata.SpecMirrorLocation.at( 1 ) << "}\n";
     out << std::setw( MAXWIDTH ) << "SpecSlitLocation" << "\t{" << metadata.SpecSlitLocation.at( 0 ) << ", " << metadata.SpecSlitLocation.at( 1 ) << ", " << metadata.SpecSlitLocation.at( 2 ) << ", " << metadata.SpecSlitLocation.at( 3 ) << "}\n";
     out << std::setw( MAXWIDTH ) << "CustomTimingFlag" << '\t' << metadata.CustomTimingFlag << '\n';
+    out << std::setw( MAXWIDTH ) << "ExperimentTimeLocal" << '\t' << metadata.ExperimentTimeLocal << '\n';
+    out << std::setw( MAXWIDTH ) << "ExperimentTimeUTC" << '\t' << metadata.ExperimentTimeUTC << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
