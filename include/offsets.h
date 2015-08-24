@@ -106,6 +106,7 @@ const std::size_t OFFSET_AUTOCLEANSACTIVE       = 0x0282;   // T/F
 const std::size_t OFFSET_USECONTCLEANSINST      = 0x0284;   // T/F
 const std::size_t OFFSET_ABSORBSTRIPNUM         = 0x0286;   // Absorbance Strip Number
 const std::size_t OFFSET_SPECSLITPOSUNITS       = 0x0288;   // Spectrograph Slit Position Units
+const std::size_t OFFSET_SPECGROOVES            = 0x028A;   // Spectrograph Grating Grooves
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
