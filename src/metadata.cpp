@@ -119,6 +119,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( srccmp, OFFSET_SRCCMP );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( scramble, OFFSET_SCRAMBLE );
+    retrieve( ContinuousCleansFlag, OFFSET_CONTINUOUSCLEANSFLAG );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -242,6 +243,7 @@ void Metadata::reset()
     srccmp = 0;
     m_ydim = 0;
     scramble = 0;
+    ContinuousCleansFlag = 0;
     m_NumFrames = 0;
 }
 }
@@ -340,6 +342,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "srccmp" << '\t' << metadata.srccmp << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "scramble" << '\t' << metadata.scramble << '\n';
+    out << std::setw( MAXWIDTH ) << "ContinuousCleansFlag" << '\t' << metadata.ContinuousCleansFlag << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
