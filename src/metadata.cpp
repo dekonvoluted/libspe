@@ -116,6 +116,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( AbsorbStripNum, OFFSET_ABSORBSTRIPNUM );
     retrieve( SpecSlitPosUnits, OFFSET_SPECSLITPOSUNITS );
     retrieve( SpecGrooves, OFFSET_SPECGROOVES );
+    retrieve( srccmp, OFFSET_SRCCMP );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -237,6 +238,7 @@ void Metadata::reset()
     AbsorbStripNum = 0;
     SpecSlitPosUnits = 0;
     SpecGrooves = 0.0;
+    srccmp = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -333,6 +335,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "AbsorbStripNum" << '\t' << metadata.AbsorbStripNum << '\n';
     out << std::setw( MAXWIDTH ) << "SpecSlitPosUnits" << '\t' << metadata.SpecSlitPosUnits << '\n';
     out << std::setw( MAXWIDTH ) << "SpecGrooves" << '\t' << metadata.SpecGrooves << '\n';
+    out << std::setw( MAXWIDTH ) << "srccmp" << '\t' << metadata.srccmp << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
