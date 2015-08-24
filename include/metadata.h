@@ -335,6 +335,9 @@ namespace SPE {
     //! \brief Number of scans (Early WinX)
     std::int32_t lnoscan = 0;
 
+    //! \brief Number of Accumulations
+    std::int32_t lavgexp = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.

@@ -113,6 +113,7 @@ const std::size_t OFFSET_SCRAMBLE               = 0x0292;   // 0=scrambled, 1=un
 const std::size_t OFFSET_CONTINUOUSCLEANSFLAG   = 0x0294;   // T/F Continuous Cleans Timing Option
 const std::size_t OFFSET_EXTERNALTRIGGERFLAG    = 0x0296;   // T/F External Trigger Timing Option
 const std::size_t OFFSET_LNOSCAN                = 0x0298;   // Number of scans (Early WinX)
+const std::size_t OFFSET_LAVGEXP                = 0x029C;   // Number of Accumulations
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
