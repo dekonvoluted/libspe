@@ -280,6 +280,9 @@ namespace SPE {
     //! \brief File Comments
     std::vector<std::string> Comments = std::vector<std::string>( 5, std::string( std::string( 79, ' ' ) + '\0' ) );
 
+    //! \brief geometric ops: rotate 0x01, reverse 0x02, flip 0x04
+    std::uint16_t geometric = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
