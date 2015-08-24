@@ -124,6 +124,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( lnoscan, OFFSET_LNOSCAN );
     retrieve( lavgexp, OFFSET_LAVGEXP );
     retrieve( ReadoutTime, OFFSET_READOUTTIME );
+    retrieve( TriggeredModeFlag, OFFSET_TRIGGEREDMODEFLAG );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -252,6 +253,7 @@ void Metadata::reset()
     lnoscan = 0;
     lavgexp = 0;
     ReadoutTime = 0.0;
+    TriggeredModeFlag = 0;
     m_NumFrames = 0;
 }
 }
@@ -355,6 +357,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "lnoscan" << '\t' << metadata.lnoscan << '\n';
     out << std::setw( MAXWIDTH ) << "lavgexp" << '\t' << metadata.lavgexp << '\n';
     out << std::setw( MAXWIDTH ) << "ReadoutTime" << '\t' << metadata.ReadoutTime << '\n';
+    out << std::setw( MAXWIDTH ) << "TriggeredModeFlag" << '\t' << metadata.TriggeredModeFlag << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;

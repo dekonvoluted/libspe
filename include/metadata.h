@@ -341,6 +341,9 @@ namespace SPE {
     //! \brief Experiment readout time
     float ReadoutTime = 0.0;
 
+    //! \brief T/F Triggered Timing Option
+    std::int16_t TriggeredModeFlag = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.

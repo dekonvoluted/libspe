@@ -115,6 +115,7 @@ const std::size_t OFFSET_EXTERNALTRIGGERFLAG    = 0x0296;   // T/F External Trig
 const std::size_t OFFSET_LNOSCAN                = 0x0298;   // Number of scans (Early WinX)
 const std::size_t OFFSET_LAVGEXP                = 0x029C;   // Number of Accumulations
 const std::size_t OFFSET_READOUTTIME            = 0x02A0;   // Experiment readout time
+const std::size_t OFFSET_TRIGGEREDMODEFLAG      = 0x02A4;   // T/F Triggered Timing Option
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
