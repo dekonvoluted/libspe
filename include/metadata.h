@@ -304,6 +304,9 @@ namespace SPE {
     //! \brief T/F
     std::int16_t UseContCleansInst = 0;
 
+    //! \brief Absorbance Strip Number
+    std::int16_t AbsorbStripNum = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
