@@ -108,6 +108,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( geometric, OFFSET_GEOMETRIC );
     retrieve( xlabel[ 0 ], OFFSET_XLABEL, LABELMAX );
     retrieve( cleans, OFFSET_CLEANS );
+    retrieve( NumSkpPerCln, OFFSET_NUMSKPPERCLN );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -221,6 +222,7 @@ void Metadata::reset()
     geometric = 0;
     xlabel = std::string( std::string( LABELMAX - 1, ' ' ) + '\0' );
     cleans = 0;
+    NumSkpPerCln = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -309,6 +311,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "geometric" << '\t' << metadata.geometric << '\n';
     out << std::setw( MAXWIDTH ) << "xlabel" << '\t' << metadata.xlabel << '\n';
     out << std::setw( MAXWIDTH ) << "cleans" << '\t' << metadata.cleans << '\n';
+    out << std::setw( MAXWIDTH ) << "NumSkpPerCln" << '\t' << metadata.NumSkpPerCln << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 

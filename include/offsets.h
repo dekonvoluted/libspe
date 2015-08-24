@@ -99,6 +99,7 @@ const std::size_t OFFSET_COMMENTS               = 0x00C8;   // File Comments
 const std::size_t OFFSET_GEOMETRIC              = 0x0258;   // geometric ops: rotate 0x01, reverse 0x02, flip 0x04
 const std::size_t OFFSET_XLABEL                 = 0x025A;   // intensity display string
 const std::size_t OFFSET_CLEANS                 = 0x026A;   // cleans
+const std::size_t OFFSET_NUMSKPPERCLN           = 0x026C;   // number of skips per clean
 const std::size_t OFFSET_YDIM                   = 0x0290;   // y dimension of raw data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data

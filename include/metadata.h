@@ -289,6 +289,9 @@ namespace SPE {
     //! \brief cleans
     std::uint16_t cleans = 0;
 
+    //! \brief number of skips per clean
+    std::uint16_t NumSkpPerCln = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
