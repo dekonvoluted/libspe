@@ -118,6 +118,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( SpecGrooves, OFFSET_SPECGROOVES );
     retrieve( srccmp, OFFSET_SRCCMP );
     retrieve( m_ydim, OFFSET_YDIM );
+    retrieve( scramble, OFFSET_SCRAMBLE );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -240,6 +241,7 @@ void Metadata::reset()
     SpecGrooves = 0.0;
     srccmp = 0;
     m_ydim = 0;
+    scramble = 0;
     m_NumFrames = 0;
 }
 }
@@ -337,6 +339,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "SpecGrooves" << '\t' << metadata.SpecGrooves << '\n';
     out << std::setw( MAXWIDTH ) << "srccmp" << '\t' << metadata.srccmp << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
+    out << std::setw( MAXWIDTH ) << "scramble" << '\t' << metadata.scramble << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;

@@ -323,6 +323,9 @@ namespace SPE {
      */
     std::uint16_t ydim() const;
 
+    //! \brief 0=scrambled, 1=unscrambled
+    std::int16_t scramble = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
