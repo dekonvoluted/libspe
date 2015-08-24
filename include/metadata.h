@@ -292,6 +292,12 @@ namespace SPE {
     //! \brief number of skips per clean
     std::uint16_t NumSkpPerCln = 0;
 
+    //! \brief Spectrograph Mirror Positions
+    std::vector<std::int16_t> SpecMirrorPos = std::vector<std::int16_t>( 2, 0 );
+
+    //! \brief Spectrograph Slit Positions
+    std::vector<float> SpecSlitPos = std::vector<float>( 4, 0.0 );
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.
