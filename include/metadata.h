@@ -286,6 +286,9 @@ namespace SPE {
     //! \brief intensity display string
     std::string xlabel = std::string( std::string( 15, ' ' ) + '\0' );
 
+    //! \brief cleans
+    std::uint16_t cleans = 0;
+
     /*! \brief The number of rows in the image
      *
      * This is an important value and any changes made to it can break things.

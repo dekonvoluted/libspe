@@ -107,6 +107,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( Comments[ 4 ][ 0 ], OFFSET_COMMENTS + ( 4 * COMMENTMAX ), COMMENTMAX );
     retrieve( geometric, OFFSET_GEOMETRIC );
     retrieve( xlabel[ 0 ], OFFSET_XLABEL, LABELMAX );
+    retrieve( cleans, OFFSET_CLEANS );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -219,6 +220,7 @@ void Metadata::reset()
     Comments = std::vector<std::string>( 5, std::string( std::string( COMMENTMAX - 1, ' ' ) + '\0' ) );
     geometric = 0;
     xlabel = std::string( std::string( LABELMAX - 1, ' ' ) + '\0' );
+    cleans = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -306,6 +308,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "Comments" << "\t{\"" << metadata.Comments.at( 0 ) << "\", \"" << metadata.Comments.at( 1 ) << "\", \"" << metadata.Comments.at( 2 ) << "\", \"" << metadata.Comments.at( 3 ) << "\", \"" << metadata.Comments.at( 4 ) << "\"}\n";
     out << std::setw( MAXWIDTH ) << "geometric" << '\t' << metadata.geometric << '\n';
     out << std::setw( MAXWIDTH ) << "xlabel" << '\t' << metadata.xlabel << '\n';
+    out << std::setw( MAXWIDTH ) << "cleans" << '\t' << metadata.cleans << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
