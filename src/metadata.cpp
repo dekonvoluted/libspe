@@ -100,6 +100,11 @@ void Metadata::read( std::ifstream& file )
     retrieve( ADCresolution, OFFSET_ADCRESOLUTION );
     retrieve( ADCbitAdjust, OFFSET_ADCBITADJUST );
     retrieve( gain, OFFSET_GAIN );
+    retrieve( Comments[ 0 ][ 0 ], OFFSET_COMMENTS, COMMENTMAX );
+    retrieve( Comments[ 1 ][ 0 ], OFFSET_COMMENTS + COMMENTMAX, COMMENTMAX );
+    retrieve( Comments[ 2 ][ 0 ], OFFSET_COMMENTS + ( 2 * COMMENTMAX ), COMMENTMAX );
+    retrieve( Comments[ 3 ][ 0 ], OFFSET_COMMENTS + ( 3 * COMMENTMAX ), COMMENTMAX );
+    retrieve( Comments[ 4 ][ 0 ], OFFSET_COMMENTS + ( 4 * COMMENTMAX ), COMMENTMAX );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -209,6 +214,7 @@ void Metadata::reset()
     ADCresolution = 0;
     ADCbitAdjust = 0;
     gain = 0;
+    Comments = std::vector<std::string>( 5, std::string( std::string( COMMENTMAX - 1, ' ' ) + '\0' ) );
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -293,6 +299,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "ADCresolution" << '\t' << metadata.ADCresolution << '\n';
     out << std::setw( MAXWIDTH ) << "ADCbitAdjust" << '\t' << metadata.ADCbitAdjust << '\n';
     out << std::setw( MAXWIDTH ) << "gain" << '\t' << metadata.gain << '\n';
+    out << std::setw( MAXWIDTH ) << "Comments" << "\t{\"" << metadata.Comments.at( 0 ) << "\", \"" << metadata.Comments.at( 1 ) << "\", \"" << metadata.Comments.at( 2 ) << "\", \"" << metadata.Comments.at( 3 ) << "\", \"" << metadata.Comments.at( 4 ) << "\"}\n";
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
