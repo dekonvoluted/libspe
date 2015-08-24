@@ -111,6 +111,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( NumSkpPerCln, OFFSET_NUMSKPPERCLN );
     retrieve( SpecMirrorPos[ 0 ], OFFSET_SPECMIRRORPOS, 4 );
     retrieve( SpecSlitPos[ 0 ], OFFSET_SPECSLITPOS, 16 );
+    retrieve( AutoCleansActive, OFFSET_AUTOCLEANSACTIVE );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -227,6 +228,7 @@ void Metadata::reset()
     NumSkpPerCln = 0;
     SpecMirrorPos = std::vector<std::int16_t>( 2, 0 );
     SpecSlitPos = std::vector<float>( 4, 0.0 );
+    AutoCleansActive = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -318,6 +320,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "NumSkpPerCln" << '\t' << metadata.NumSkpPerCln << '\n';
     out << std::setw( MAXWIDTH ) << "SpecMirrorPos" << "\t{" << metadata.SpecMirrorPos.at( 0 ) << ", " << metadata.SpecMirrorPos.at( 1 ) << "}\n";
     out << std::setw( MAXWIDTH ) << "SpecSlitPos" << "\t{" << metadata.SpecSlitPos.at( 0 ) << ", " << metadata.SpecSlitPos.at( 1 ) << ", " << metadata.SpecSlitPos.at( 2 ) << ", " << metadata.SpecSlitPos.at( 3 ) << "}\n";
+    out << std::setw( MAXWIDTH ) << "AutoCleansActive" << '\t' << metadata.AutoCleansActive << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
