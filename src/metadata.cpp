@@ -114,6 +114,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( AutoCleansActive, OFFSET_AUTOCLEANSACTIVE );
     retrieve( UseContCleansInst, OFFSET_USECONTCLEANSINST );
     retrieve( AbsorbStripNum, OFFSET_ABSORBSTRIPNUM );
+    retrieve( SpecSlitPosUnits, OFFSET_SPECSLITPOSUNITS );
     retrieve( m_ydim, OFFSET_YDIM );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
@@ -233,6 +234,7 @@ void Metadata::reset()
     AutoCleansActive = 0;
     UseContCleansInst = 0;
     AbsorbStripNum = 0;
+    SpecSlitPosUnits = 0;
     m_ydim = 0;
     m_NumFrames = 0;
 }
@@ -327,6 +329,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "AutoCleansActive" << '\t' << metadata.AutoCleansActive << '\n';
     out << std::setw( MAXWIDTH ) << "UseContCleansInst" << '\t' << metadata.UseContCleansInst << '\n';
     out << std::setw( MAXWIDTH ) << "AbsorbStripNum" << '\t' << metadata.AbsorbStripNum << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecSlitPosUnits" << '\t' << metadata.SpecSlitPosUnits << '\n';
     out << std::setw( MAXWIDTH ) << "ydim" << '\t' << metadata.ydim() << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
