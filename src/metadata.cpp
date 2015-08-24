@@ -121,6 +121,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( scramble, OFFSET_SCRAMBLE );
     retrieve( ContinuousCleansFlag, OFFSET_CONTINUOUSCLEANSFLAG );
     retrieve( ExternalTriggerFlag, OFFSET_EXTERNALTRIGGERFLAG );
+    retrieve( lnoscan, OFFSET_LNOSCAN );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -246,6 +247,7 @@ void Metadata::reset()
     scramble = 0;
     ContinuousCleansFlag = 0;
     ExternalTriggerFlag = 0;
+    lnoscan = 0;
     m_NumFrames = 0;
 }
 }
@@ -346,6 +348,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "scramble" << '\t' << metadata.scramble << '\n';
     out << std::setw( MAXWIDTH ) << "ContinuousCleansFlag" << '\t' << metadata.ContinuousCleansFlag << '\n';
     out << std::setw( MAXWIDTH ) << "ExternalTriggerFlag" << '\t' << metadata.ExternalTriggerFlag << '\n';
+    out << std::setw( MAXWIDTH ) << "lnoscan" << '\t' << metadata.lnoscan << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
