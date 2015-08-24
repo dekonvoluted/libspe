@@ -329,6 +329,9 @@ namespace SPE {
     //! \brief T/F Continuous Cleans Timing Option
     std::int16_t ContinuousCleansFlag = 0;
 
+    //! \brief T/F External Trigger Timing Option
+    std::int16_t ExternalTriggerFlag = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
