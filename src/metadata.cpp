@@ -125,6 +125,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( lavgexp, OFFSET_LAVGEXP );
     retrieve( ReadoutTime, OFFSET_READOUTTIME );
     retrieve( TriggeredModeFlag, OFFSET_TRIGGEREDMODEFLAG );
+    retrieve( sw_version[ 0 ], OFFSET_SW_VERSION, FILEVERMAX );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -254,6 +255,7 @@ void Metadata::reset()
     lavgexp = 0;
     ReadoutTime = 0.0;
     TriggeredModeFlag = 0;
+    sw_version = std::string( std::string( FILEVERMAX - 1, ' ' ) + '\0' );
     m_NumFrames = 0;
 }
 }
@@ -358,6 +360,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "lavgexp" << '\t' << metadata.lavgexp << '\n';
     out << std::setw( MAXWIDTH ) << "ReadoutTime" << '\t' << metadata.ReadoutTime << '\n';
     out << std::setw( MAXWIDTH ) << "TriggeredModeFlag" << '\t' << metadata.TriggeredModeFlag << '\n';
+    out << std::setw( MAXWIDTH ) << "sw_version" << '\t' << metadata.sw_version << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;

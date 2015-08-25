@@ -344,6 +344,9 @@ namespace SPE {
     //! \brief T/F Triggered Timing Option
     std::int16_t TriggeredModeFlag = 0;
 
+    //! \brief Version of SW creating this file
+    std::string sw_version = std::string( std::string( 15, ' ' ) + '\0' );
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
@@ -361,7 +364,7 @@ namespace SPE {
     const std::size_t TIMEMAX = 7; // Max time store as hhmmss\0
     const std::size_t COMMENTMAX = 80; // User comment string max length (5 comments)
     const std::size_t LABELMAX = 16; // Label string max length
-
+    const std::size_t FILEVERMAX = 16; // File version string max length
     virtual void reset();
 };
 }
