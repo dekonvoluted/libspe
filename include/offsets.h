@@ -118,6 +118,18 @@ const std::size_t OFFSET_READOUTTIME            = 0x02A0;   // Experiment readou
 const std::size_t OFFSET_TRIGGEREDMODEFLAG      = 0x02A4;   // T/F Triggered Timing Option
 const std::size_t OFFSET_SPARE_2                = 0x02A6;   //
 const std::size_t OFFSET_SW_VERSION             = 0x02B0;   // Version of SW creating this file
+const std::size_t OFFSET_TYPE                   = 0x02C0;   // 1 = new120 (Type II)
+                                                            // 2 = old120 (Type I)
+                                                            // 3 = ST130
+                                                            // 4 = ST121
+                                                            // 5 = ST138
+                                                            // 6 = DC131 (Pentamax)
+                                                            // 7 = ST133 (MicroMax/SpectroMax)
+                                                            // 8 = ST135 (GPIB)
+                                                            // 9 = VICCD
+                                                            // 10 = ST116 (GPIB)
+                                                            // 11 = OMA3 (GPIB)
+                                                            // 12 = OMA4
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 

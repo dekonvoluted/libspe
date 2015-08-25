@@ -347,6 +347,23 @@ namespace SPE {
     //! \brief Version of SW creating this file
     std::string sw_version = std::string( std::string( 15, ' ' ) + '\0' );
 
+    /*! \brief The type of controller
+     *
+     * 1 = new120 (Type II)
+     * 2 = old120 (Type I)
+     * 3 = ST130
+     * 4 = ST121
+     * 5 = ST138
+     * 6 = DC131 (PentaMax)
+     * 7 = ST133 (MicroMax/SpectroMax)
+     * 8 = ST135 (GPIB)
+     * 9 = VICCD
+     * 10 = ST116 (GPIB)
+     * 11 = OMA3 (GPIB)
+     * 12 = OMA4
+     */
+    std::int16_t type = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
