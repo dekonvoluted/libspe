@@ -134,6 +134,7 @@ const std::size_t OFFSET_FLATFIELDAPPLIED       = 0x02C2;   // 1 if flat field w
 const std::size_t OFFSET_SPARE_3                = 0x02C4;   //
 const std::size_t OFFSET_KIN_TRIG_MODE          = 0x02D4;   // Kinetics Trigger Mode
 const std::size_t OFFSET_DLABEL                 = 0x02D6;   // Data label
+const std::size_t OFFSET_SPARE_4                = 0x02D6;   //
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
