@@ -138,6 +138,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( clkspd_us, OFFSET_CLKSPD_US );
     retrieve( HWaccumFlag, OFFSET_HWACCUMFLAG );
     retrieve( StoreSync, OFFSET_STORESYNC );
+    retrieve( BlemishApplied, OFFSET_BLEMISHAPPLIED );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -280,6 +281,7 @@ void Metadata::reset()
     clkspd_us = 0.0;
     HWaccumFlag = 0;
     StoreSync = 0;
+    BlemishApplied = 0;
     m_NumFrames = 0;
 }
 }
@@ -397,6 +399,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "clkspd_us" << '\t' << metadata.clkspd_us << '\n';
     out << std::setw( MAXWIDTH ) << "HWaccumFlag" << '\t' << metadata.HWaccumFlag << '\n';
     out << std::setw( MAXWIDTH ) << "StoreSync" << '\t' << metadata.StoreSync << '\n';
+    out << std::setw( MAXWIDTH ) << "BlemishApplied" << '\t' << metadata.BlemishApplied << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
