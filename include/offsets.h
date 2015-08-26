@@ -142,6 +142,7 @@ const std::size_t OFFSET_NUMEXPACCUMS           = 0x058E;   // Number of Times e
 const std::size_t OFFSET_YT_FLAG                = 0x0592;   // Set to 1 if this file contains YT data
 const std::size_t OFFSET_CLKSPD_US              = 0x0594;   // Vert Clock Speed in micro-sec
 const std::size_t OFFSET_HWACCUMFLAG            = 0x0598;   // set to 1 if accum done by Hardware
+const std::size_t OFFSET_STORESYNC              = 0x059A;   // set to 1 if store sync used
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 

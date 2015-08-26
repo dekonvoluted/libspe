@@ -137,6 +137,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( YT_Flag, OFFSET_YT_FLAG );
     retrieve( clkspd_us, OFFSET_CLKSPD_US );
     retrieve( HWaccumFlag, OFFSET_HWACCUMFLAG );
+    retrieve( StoreSync, OFFSET_STORESYNC );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -278,6 +279,7 @@ void Metadata::reset()
     YT_Flag = 0;
     clkspd_us = 0.0;
     HWaccumFlag = 0;
+    StoreSync = 0;
     m_NumFrames = 0;
 }
 }
@@ -394,6 +396,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "YT_Flag" << '\t' << metadata.YT_Flag << '\n';
     out << std::setw( MAXWIDTH ) << "clkspd_us" << '\t' << metadata.clkspd_us << '\n';
     out << std::setw( MAXWIDTH ) << "HWaccumFlag" << '\t' << metadata.HWaccumFlag << '\n';
+    out << std::setw( MAXWIDTH ) << "StoreSync" << '\t' << metadata.StoreSync << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
