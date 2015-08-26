@@ -136,6 +136,7 @@ const std::size_t OFFSET_KIN_TRIG_MODE          = 0x02D4;   // Kinetics Trigger 
 const std::size_t OFFSET_DLABEL                 = 0x02D6;   // Data label
 const std::size_t OFFSET_SPARE_4                = 0x02D6;   //
 const std::size_t OFFSET_PULSEFILENAME          = 0x049A;   // Name of Pulser File with Pulse Widths/Delays (for Z-Slice)
+const std::size_t OFFSET_ABSORBFILENAME         = 0x0512;   // Name of Absorbance File (if File Mode)
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 

@@ -376,6 +376,9 @@ namespace SPE {
     //! \brief Name of Pulser File with Pulse Widths/Delays (for Z-Slice)
     std::string PulseFileName = std::string( std::string( 119, ' ' ) + '\0' );
 
+    //! \brief Name of Absorbance File (if File Mode)
+    std::string AbsorbFileName = std::string( std::string( 119, ' ' )  + '\0' );
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
