@@ -391,6 +391,9 @@ namespace SPE {
     //! \brief Vert Clock Speed in micro-sec
     float clkspd_us = 0.0;
 
+    //! \brief set to 1 if accum done by Hardware
+    std::int16_t HWaccumFlag = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
