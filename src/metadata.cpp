@@ -132,6 +132,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( dlabel[ 0 ], OFFSET_DLABEL, LABELMAX );
     retrieve( PulseFileName[ 0 ], OFFSET_PULSEFILENAME, HDRNAMEMAX );
     retrieve( AbsorbFileName[ 0 ], OFFSET_ABSORBFILENAME, HDRNAMEMAX );
+    retrieve( NumExpRepeats, OFFSET_NUMEXPREPEATS );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -268,6 +269,7 @@ void Metadata::reset()
     dlabel = std::string( std::string( LABELMAX - 1, ' ' ) + '\0' );
     PulseFileName = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
     AbsorbFileName = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
+    NumExpRepeats = 0;
     m_NumFrames = 0;
 }
 }
@@ -379,6 +381,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "dlabel" << "\t\"" << metadata.dlabel << "\"\n";
     out << std::setw( MAXWIDTH ) << "PulseFileName" << "\t\"" << metadata.PulseFileName << "\"\n";
     out << std::setw( MAXWIDTH ) << "AbsorbFileName" << "\t\"" << metadata.AbsorbFileName << "\"\n";
+    out << std::setw( MAXWIDTH ) << "NumExpRepeats" << '\t' << metadata.NumExpRepeats << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
