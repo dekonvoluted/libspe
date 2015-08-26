@@ -139,6 +139,7 @@ const std::size_t OFFSET_PULSEFILENAME          = 0x049A;   // Name of Pulser Fi
 const std::size_t OFFSET_ABSORBFILENAME         = 0x0512;   // Name of Absorbance File (if File Mode)
 const std::size_t OFFSET_NUMEXPREPEATS          = 0x058A;   // Number of Times experiment repeated
 const std::size_t OFFSET_NUMEXPACCUMS           = 0x058E;   // Number of Times experiment accumulated
+const std::size_t OFFSET_YT_FLAG                = 0x0592;   // Set to 1 if this file contains YT data
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 

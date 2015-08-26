@@ -385,6 +385,9 @@ namespace SPE {
     //! \brief Number of Times experiment accumulated
     std::int32_t NumExpAccums = 0;
 
+    //! \brief Set to 1 if this file contains YT data
+    std::int16_t YT_Flag = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.

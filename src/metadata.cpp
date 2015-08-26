@@ -134,6 +134,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( AbsorbFileName[ 0 ], OFFSET_ABSORBFILENAME, HDRNAMEMAX );
     retrieve( NumExpRepeats, OFFSET_NUMEXPREPEATS );
     retrieve( NumExpAccums, OFFSET_NUMEXPACCUMS );
+    retrieve( YT_Flag, OFFSET_YT_FLAG );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -272,6 +273,7 @@ void Metadata::reset()
     AbsorbFileName = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
     NumExpRepeats = 0;
     NumExpAccums = 0;
+    YT_Flag = 0;
     m_NumFrames = 0;
 }
 }
@@ -385,6 +387,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "AbsorbFileName" << "\t\"" << metadata.AbsorbFileName << "\"\n";
     out << std::setw( MAXWIDTH ) << "NumExpRepeats" << '\t' << metadata.NumExpRepeats << '\n';
     out << std::setw( MAXWIDTH ) << "NumExpAccums" << '\t' << metadata.NumExpAccums << '\n';
+    out << std::setw( MAXWIDTH ) << "YT_Flag" << '\t' << metadata.YT_Flag << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
