@@ -131,6 +131,7 @@ const std::size_t OFFSET_TYPE                   = 0x02C0;   // 1 = new120 (Type 
                                                             // 11 = OMA3 (GPIB)
                                                             // 12 = OMA4
 const std::size_t OFFSET_FLATFIELDAPPLIED       = 0x02C2;   // 1 if flat field was applied
+const std::size_t OFFSET_SPARE_3                = 0x02C4;   //
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
