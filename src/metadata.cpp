@@ -289,7 +289,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "VChipXdim" << '\t' << metadata.VChipXdim << '\n';
     out << std::setw( MAXWIDTH ) << "VChipYdim" << '\t' << metadata.VChipYdim << '\n';
     out << std::setw( MAXWIDTH ) << "yDimDet" << '\t' << metadata.yDimDet << '\n';
-    out << std::setw( MAXWIDTH ) << "date" << '\t' << metadata.date << '\n';
+    out << std::setw( MAXWIDTH ) << "date" << "\t\"" << metadata.date << "\"\n";
     out << std::setw( MAXWIDTH ) << "VirtualChipFlag" << '\t' << metadata.VirtualChipFlag << '\n';
     out << std::setw( MAXWIDTH ) << "noscan" << '\t' << metadata.noscan << '\n';
     out << std::setw( MAXWIDTH ) << "DetTemperature" << '\t' << metadata.DetTemperature << '\n';
@@ -340,8 +340,8 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "SpecMirrorLocation" << "\t{" << metadata.SpecMirrorLocation.at( 0 ) << ", " << metadata.SpecMirrorLocation.at( 1 ) << "}\n";
     out << std::setw( MAXWIDTH ) << "SpecSlitLocation" << "\t{" << metadata.SpecSlitLocation.at( 0 ) << ", " << metadata.SpecSlitLocation.at( 1 ) << ", " << metadata.SpecSlitLocation.at( 2 ) << ", " << metadata.SpecSlitLocation.at( 3 ) << "}\n";
     out << std::setw( MAXWIDTH ) << "CustomTimingFlag" << '\t' << metadata.CustomTimingFlag << '\n';
-    out << std::setw( MAXWIDTH ) << "ExperimentTimeLocal" << '\t' << metadata.ExperimentTimeLocal << '\n';
-    out << std::setw( MAXWIDTH ) << "ExperimentTimeUTC" << '\t' << metadata.ExperimentTimeUTC << '\n';
+    out << std::setw( MAXWIDTH ) << "ExperimentTimeLocal" << "\t\"" << metadata.ExperimentTimeLocal << "\"\n";
+    out << std::setw( MAXWIDTH ) << "ExperimentTimeUTC" << "\t\"" << metadata.ExperimentTimeUTC << "\"\n";
     out << std::setw( MAXWIDTH ) << "ExposUnits" << '\t' << metadata.ExposUnits << '\n';
     out << std::setw( MAXWIDTH ) << "ADCoffset" << '\t' << metadata.ADCoffset << '\n';
     out << std::setw( MAXWIDTH ) << "ADCrate" << '\t' << metadata.ADCrate << '\n';
@@ -351,7 +351,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "gain" << '\t' << metadata.gain << '\n';
     out << std::setw( MAXWIDTH ) << "Comments" << "\t{\"" << metadata.Comments.at( 0 ) << "\", \"" << metadata.Comments.at( 1 ) << "\", \"" << metadata.Comments.at( 2 ) << "\", \"" << metadata.Comments.at( 3 ) << "\", \"" << metadata.Comments.at( 4 ) << "\"}\n";
     out << std::setw( MAXWIDTH ) << "geometric" << '\t' << metadata.geometric << '\n';
-    out << std::setw( MAXWIDTH ) << "xlabel" << '\t' << metadata.xlabel << '\n';
+    out << std::setw( MAXWIDTH ) << "xlabel" << "\t\"" << metadata.xlabel << "\"\n";
     out << std::setw( MAXWIDTH ) << "cleans" << '\t' << metadata.cleans << '\n';
     out << std::setw( MAXWIDTH ) << "NumSkpPerCln" << '\t' << metadata.NumSkpPerCln << '\n';
     out << std::setw( MAXWIDTH ) << "SpecMirrorPos" << "\t{" << metadata.SpecMirrorPos.at( 0 ) << ", " << metadata.SpecMirrorPos.at( 1 ) << "}\n";
@@ -370,12 +370,12 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "lavgexp" << '\t' << metadata.lavgexp << '\n';
     out << std::setw( MAXWIDTH ) << "ReadoutTime" << '\t' << metadata.ReadoutTime << '\n';
     out << std::setw( MAXWIDTH ) << "TriggeredModeFlag" << '\t' << metadata.TriggeredModeFlag << '\n';
-    out << std::setw( MAXWIDTH ) << "sw_version" << '\t' << metadata.sw_version << '\n';
+    out << std::setw( MAXWIDTH ) << "sw_version" << "\t\"" << metadata.sw_version << "\"\n";
     out << std::setw( MAXWIDTH ) << "type" << '\t' << metadata.type << '\n';
     out << std::setw( MAXWIDTH ) << "flatFieldApplied" << '\t' << metadata.flatFieldApplied << '\n';
     out << std::setw( MAXWIDTH ) << "kin_trig_mode" << '\t' << metadata.kin_trig_mode << '\n';
-    out << std::setw( MAXWIDTH ) << "dlabel" << '\t' << metadata.dlabel << '\n';
-    out << std::setw( MAXWIDTH ) << "PulseFileName" << '\t' << metadata.PulseFileName << '\n';
+    out << std::setw( MAXWIDTH ) << "dlabel" << "\t\"" << metadata.dlabel << "\"\n";
+    out << std::setw( MAXWIDTH ) << "PulseFileName" << "\t\"" << metadata.PulseFileName << "\"\n";
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
