@@ -128,6 +128,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( sw_version[ 0 ], OFFSET_SW_VERSION, FILEVERMAX );
     retrieve( type, OFFSET_TYPE );
     retrieve( flatFieldApplied, OFFSET_FLATFIELDAPPLIED );
+    retrieve( kin_trig_mode, OFFSET_KIN_TRIG_MODE );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -260,6 +261,7 @@ void Metadata::reset()
     sw_version = std::string( std::string( FILEVERMAX - 1, ' ' ) + '\0' );
     type = 0;
     flatFieldApplied = 0;
+    kin_trig_mode = 0;
     m_NumFrames = 0;
 }
 }
@@ -367,6 +369,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "sw_version" << '\t' << metadata.sw_version << '\n';
     out << std::setw( MAXWIDTH ) << "type" << '\t' << metadata.type << '\n';
     out << std::setw( MAXWIDTH ) << "flatFieldApplied" << '\t' << metadata.flatFieldApplied << '\n';
+    out << std::setw( MAXWIDTH ) << "kin_trig_mode" << '\t' << metadata.kin_trig_mode << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;

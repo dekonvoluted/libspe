@@ -367,6 +367,9 @@ namespace SPE {
     //! \brief 1 if flat field was applied
     std::int16_t flatFieldApplied = 0;
 
+    //! \brief Kinetics Trigger Mode
+    std::int16_t kin_trig_mode = 0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
