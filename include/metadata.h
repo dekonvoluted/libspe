@@ -388,6 +388,9 @@ namespace SPE {
     //! \brief Set to 1 if this file contains YT data
     std::int16_t YT_Flag = 0;
 
+    //! \brief Vert Clock Speed in micro-sec
+    float clkspd_us = 0.0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.

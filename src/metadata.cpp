@@ -135,6 +135,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( NumExpRepeats, OFFSET_NUMEXPREPEATS );
     retrieve( NumExpAccums, OFFSET_NUMEXPACCUMS );
     retrieve( YT_Flag, OFFSET_YT_FLAG );
+    retrieve( clkspd_us, OFFSET_CLKSPD_US );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -274,6 +275,7 @@ void Metadata::reset()
     NumExpRepeats = 0;
     NumExpAccums = 0;
     YT_Flag = 0;
+    clkspd_us = 0.0;
     m_NumFrames = 0;
 }
 }
@@ -388,6 +390,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "NumExpRepeats" << '\t' << metadata.NumExpRepeats << '\n';
     out << std::setw( MAXWIDTH ) << "NumExpAccums" << '\t' << metadata.NumExpAccums << '\n';
     out << std::setw( MAXWIDTH ) << "YT_Flag" << '\t' << metadata.YT_Flag << '\n';
+    out << std::setw( MAXWIDTH ) << "clkspd_us" << '\t' << metadata.clkspd_us << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
