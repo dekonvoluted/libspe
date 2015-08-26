@@ -373,6 +373,9 @@ namespace SPE {
     //! \brief Data label
     std::string dlabel = std::string( std::string( 15, ' ' ) + '\0' );
 
+    //! \brief Name of Pulser File with Pulse Widths/Delays (for Z-Slice)
+    std::string PulseFileName = std::string( std::string( 119, ' ' ) + '\0' );
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.
@@ -391,6 +394,8 @@ namespace SPE {
     const std::size_t COMMENTMAX = 80; // User comment string max length (5 comments)
     const std::size_t LABELMAX = 16; // Label string max length
     const std::size_t FILEVERMAX = 16; // File version string max length
+    const std::size_t HDRNAMEMAX = 120; // Max char str length for file name
+
     virtual void reset();
 };
 }
