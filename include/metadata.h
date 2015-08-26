@@ -400,6 +400,15 @@ namespace SPE {
     //! \brief set to 1 if blemish removal applied
     std::int16_t BlemishApplied = 0;
 
+    //! \brief set to 1 if cosmic ray removal applied
+    std::int16_t CosmicApplied = 0;
+
+    //! \brief if cosmic ray applied, this is type
+    std::int16_t CosmicType = 0;
+
+    //! \brief Threshold of cosmic ray removal
+    float CosmicThreshold = 0.0;
+
     /*! \brief The number of frames present in the SPE file
      *
      * This is an important value and any changes made to it can break things.

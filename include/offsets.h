@@ -144,6 +144,9 @@ const std::size_t OFFSET_CLKSPD_US              = 0x0594;   // Vert Clock Speed 
 const std::size_t OFFSET_HWACCUMFLAG            = 0x0598;   // set to 1 if accum done by Hardware
 const std::size_t OFFSET_STORESYNC              = 0x059A;   // set to 1 if store sync used
 const std::size_t OFFSET_BLEMISHAPPLIED         = 0x059C;   // set to 1 if blemish removal applied
+const std::size_t OFFSET_COSMICAPPLIED          = 0x059E;   // set to 1 if cosmic ray removal applied
+const std::size_t OFFSET_COSMICTYPE             = 0x05A0;   // if cosmic ray applied, this is type
+const std::size_t OFFSET_COSMICTHRESHOLD        = 0x05A2;   // Threshold of cosmic ray removal
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 

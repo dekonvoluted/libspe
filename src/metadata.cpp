@@ -139,6 +139,9 @@ void Metadata::read( std::ifstream& file )
     retrieve( HWaccumFlag, OFFSET_HWACCUMFLAG );
     retrieve( StoreSync, OFFSET_STORESYNC );
     retrieve( BlemishApplied, OFFSET_BLEMISHAPPLIED );
+    retrieve( CosmicApplied, OFFSET_COSMICAPPLIED );
+    retrieve( CosmicType, OFFSET_COSMICTYPE );
+    retrieve( CosmicThreshold, OFFSET_COSMICTHRESHOLD );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
 }
 
@@ -282,6 +285,9 @@ void Metadata::reset()
     HWaccumFlag = 0;
     StoreSync = 0;
     BlemishApplied = 0;
+    CosmicApplied = 0;
+    CosmicType = 0;
+    CosmicThreshold = 0.0;
     m_NumFrames = 0;
 }
 }
@@ -400,6 +406,9 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "HWaccumFlag" << '\t' << metadata.HWaccumFlag << '\n';
     out << std::setw( MAXWIDTH ) << "StoreSync" << '\t' << metadata.StoreSync << '\n';
     out << std::setw( MAXWIDTH ) << "BlemishApplied" << '\t' << metadata.BlemishApplied << '\n';
+    out << std::setw( MAXWIDTH ) << "CosmicApplied" << '\t' << metadata.CosmicApplied << '\n';
+    out << std::setw( MAXWIDTH ) << "CosmicType" << '\t' << metadata.CosmicType << '\n';
+    out << std::setw( MAXWIDTH ) << "CosmicThreshold" << '\t' << metadata.CosmicThreshold << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
 
     return out;
