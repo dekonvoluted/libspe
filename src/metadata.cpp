@@ -143,6 +143,8 @@ void Metadata::read( std::ifstream& file )
     retrieve( CosmicType, OFFSET_COSMICTYPE );
     retrieve( CosmicThreshold, OFFSET_COSMICTHRESHOLD );
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
+    retrieve( MaxIntensity, OFFSET_MAXINTENSITY );
+    retrieve( MinIntensity, OFFSET_MININTENSITY );
 }
 
 /*!
@@ -289,6 +291,8 @@ void Metadata::reset()
     CosmicType = 0;
     CosmicThreshold = 0.0;
     m_NumFrames = 0;
+    MaxIntensity = 0.0;
+    MinIntensity = 0.0;
 }
 }
 
@@ -410,6 +414,8 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "CosmicType" << '\t' << metadata.CosmicType << '\n';
     out << std::setw( MAXWIDTH ) << "CosmicThreshold" << '\t' << metadata.CosmicThreshold << '\n';
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
+    out << std::setw( MAXWIDTH ) << "MaxIntensity" << '\t' << metadata.MaxIntensity << '\n';
+    out << std::setw( MAXWIDTH ) << "MinIntensity" << '\t' << metadata.MinIntensity << '\n';
 
     return out;
 }

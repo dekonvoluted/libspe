@@ -416,6 +416,12 @@ namespace SPE {
      */
     std::int32_t NumFrames() const;
 
+    //! \brief max intensity of data (future)
+    float MaxIntensity = 0.0;
+
+    //! \brief min intensity of data (future)
+    float MinIntensity = 0.0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

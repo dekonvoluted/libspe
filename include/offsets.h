@@ -148,6 +148,8 @@ const std::size_t OFFSET_COSMICAPPLIED          = 0x059E;   // set to 1 if cosmi
 const std::size_t OFFSET_COSMICTYPE             = 0x05A0;   // if cosmic ray applied, this is type
 const std::size_t OFFSET_COSMICTHRESHOLD        = 0x05A2;   // Threshold of cosmic ray removal
 const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames in file
+const std::size_t OFFSET_MAXINTENSITY           = 0x05AA;   // max intensity of data (future)
+const std::size_t OFFSET_MININTENSITY           = 0x05AE;   // min intensity of data (future)
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
