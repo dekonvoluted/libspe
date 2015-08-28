@@ -151,6 +151,8 @@ const std::size_t OFFSET_NUMFRAMES              = 0x05A6;   // number of frames 
 const std::size_t OFFSET_MAXINTENSITY           = 0x05AA;   // max intensity of data (future)
 const std::size_t OFFSET_MININTENSITY           = 0x05AE;   // min intensity of data (future)
 const std::size_t OFFSET_YLABEL                 = 0x05B2;   // y axis label
+const std::size_t OFFSET_SHUTTERTYPE            = 0x05C2;   // shutter type
+const std::size_t OFFSET_SHUTTERCOMP            = 0x05C4;   // shutter compensation time
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif

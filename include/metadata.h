@@ -425,6 +425,12 @@ namespace SPE {
     //! \brief y axis label
     std::string ylabel = std::string( std::string( 15, ' ' ) + '\0' );
 
+    //| \brief shutter type
+    std::uint16_t ShutterType = 0;
+
+    //! \brief shutter compensation time
+    float shutterComp = 0.0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
