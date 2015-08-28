@@ -422,6 +422,9 @@ namespace SPE {
     //! \brief min intensity of data (future)
     float MinIntensity = 0.0;
 
+    //! \brief y axis label
+    std::string ylabel = std::string( std::string( 15, ' ' ) + '\0' );
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

@@ -145,6 +145,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( m_NumFrames, OFFSET_NUMFRAMES );
     retrieve( MaxIntensity, OFFSET_MAXINTENSITY );
     retrieve( MinIntensity, OFFSET_MININTENSITY );
+    retrieve( ylabel[ 0 ], OFFSET_YLABEL, LABELMAX );
 }
 
 /*!
@@ -293,6 +294,7 @@ void Metadata::reset()
     m_NumFrames = 0;
     MaxIntensity = 0.0;
     MinIntensity = 0.0;
+    ylabel = std::string( std::string( LABELMAX - 1, ' ' ) + '\0' );
 }
 }
 
@@ -416,6 +418,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "NumFrames" << '\t' << metadata.NumFrames() << '\n';
     out << std::setw( MAXWIDTH ) << "MaxIntensity" << '\t' << metadata.MaxIntensity << '\n';
     out << std::setw( MAXWIDTH ) << "MinIntensity" << '\t' << metadata.MinIntensity << '\n';
+    out << std::setw( MAXWIDTH ) << "ylabel" << "\t\"" << metadata.ylabel << "\"\n";
 
     return out;
 }
