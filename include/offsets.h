@@ -153,6 +153,7 @@ const std::size_t OFFSET_MININTENSITY           = 0x05AE;   // min intensity of 
 const std::size_t OFFSET_YLABEL                 = 0x05B2;   // y axis label
 const std::size_t OFFSET_SHUTTERTYPE            = 0x05C2;   // shutter type
 const std::size_t OFFSET_SHUTTERCOMP            = 0x05C4;   // shutter compensation time
+const std::size_t OFFSET_READOUTMODE            = 0x05C8;   // readout mode, full, kinetics, etc.
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif

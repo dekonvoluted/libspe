@@ -431,6 +431,9 @@ namespace SPE {
     //! \brief shutter compensation time
     float shutterComp = 0.0;
 
+    //! \brief readout mode, full, kinetics, etc.
+    std::uint16_t readoutMode = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

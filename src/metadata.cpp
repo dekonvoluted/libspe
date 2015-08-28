@@ -148,6 +148,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( ylabel[ 0 ], OFFSET_YLABEL, LABELMAX );
     retrieve( ShutterType, OFFSET_SHUTTERTYPE );
     retrieve( shutterComp, OFFSET_SHUTTERCOMP );
+    retrieve( readoutMode, OFFSET_READOUTMODE );
 }
 
 /*!
@@ -299,6 +300,7 @@ void Metadata::reset()
     ylabel = std::string( std::string( LABELMAX - 1, ' ' ) + '\0' );
     ShutterType = 0;
     shutterComp = 0.0;
+    readoutMode = 0;
 }
 }
 
@@ -425,6 +427,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "ylabel" << "\t\"" << metadata.ylabel << "\"\n";
     out << std::setw( MAXWIDTH ) << "ShutterType" << '\t' << metadata.ShutterType  << '\n';
     out << std::setw( MAXWIDTH ) << "shutterComp" << '\t' << metadata.shutterComp << '\n';
+    out << std::setw( MAXWIDTH ) << "readoutMode" << '\t' << metadata.readoutMode << '\n';
 
     return out;
 }
