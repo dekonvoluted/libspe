@@ -443,6 +443,9 @@ namespace SPE {
     //! \brief computer interface (isa-taxi, pci, eisa, etc.)
     std::uint16_t interface_type = 0;
 
+    //! \brief May be more than the 10 allowed in this header (if 0, assume 1)
+    std::int16_t NumROIsInExperiment = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

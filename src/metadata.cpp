@@ -152,6 +152,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( WindowSize, OFFSET_WINDOWSIZE );
     retrieve( clkspd, OFFSET_CLKSPD );
     retrieve( interface_type, OFFSET_INTERFACE_TYPE );
+    retrieve( NumROIsInExperiment, OFFSET_NUMROISINEXPERIMENT );
 }
 
 /*!
@@ -307,6 +308,7 @@ void Metadata::reset()
     WindowSize = 0;
     clkspd = 0;
     interface_type = 0;
+    NumROIsInExperiment = 0;
 }
 }
 
@@ -437,6 +439,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "WindowSize" << '\t' << metadata.WindowSize << '\n';
     out << std::setw( MAXWIDTH ) << "clkspd" << '\t' << metadata.clkspd << '\n';
     out << std::setw( MAXWIDTH ) << "interface_type" << '\t' << metadata.interface_type << '\n';
+    out << std::setw( MAXWIDTH ) << "NumROIsInExperiment" << '\t' << metadata.NumROIsInExperiment << '\n';
 
     return out;
 }
