@@ -158,6 +158,7 @@ const std::size_t OFFSET_WINDOWSIZE             = 0x05CA;   // window size for k
 const std::size_t OFFSET_CLKSPD                 = 0x05CC;   // clock speed for kinetics & frame transfer
 const std::size_t OFFSET_INTERFACE_TYPE         = 0x05CE;   // computer interface (isa-taxi, pci, eisa, etc.)
 const std::size_t OFFSET_NUMROISINEXPERIMENT    = 0x05D0;   // May be more than the 10 allowed in this header (if 0, assume 1)
+const std::size_t OFFSET_SPARE_5                = 0x05D2;   //
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
