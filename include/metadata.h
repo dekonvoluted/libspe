@@ -446,6 +446,9 @@ namespace SPE {
     //! \brief May be more than the 10 allowed in this header (if 0, assume 1)
     std::int16_t NumROIsInExperiment = 0;
 
+    //! \brief if multiple controller system will have controller number data came from. This is a future item.
+    std::uint16_t controllerNum = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
