@@ -449,6 +449,9 @@ namespace SPE {
     //! \brief if multiple controller system will have controller number data came from. This is a future item.
     std::uint16_t controllerNum = 0;
 
+    //! \brief Which software package created this file
+    std::uint16_t SWmade = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

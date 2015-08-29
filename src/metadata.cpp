@@ -154,6 +154,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( interface_type, OFFSET_INTERFACE_TYPE );
     retrieve( NumROIsInExperiment, OFFSET_NUMROISINEXPERIMENT );
     retrieve( controllerNum, OFFSET_CONTROLLERNUM );
+    retrieve( SWmade, OFFSET_SWMADE );
 }
 
 /*!
@@ -311,6 +312,7 @@ void Metadata::reset()
     interface_type = 0;
     NumROIsInExperiment = 0;
     controllerNum = 0;
+    SWmade = 0;
 }
 }
 
@@ -443,6 +445,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "interface_type" << '\t' << metadata.interface_type << '\n';
     out << std::setw( MAXWIDTH ) << "NumROIsInExperiment" << '\t' << metadata.NumROIsInExperiment << '\n';
     out << std::setw( MAXWIDTH ) << "controllerNum" << '\t' << metadata.controllerNum << '\n';
+    out << std::setw( MAXWIDTH ) << "SWmade" << '\t' << metadata.SWmade << '\n';
 
     return out;
 }
