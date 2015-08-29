@@ -161,6 +161,7 @@ const std::size_t OFFSET_NUMROISINEXPERIMENT    = 0x05D0;   // May be more than 
 const std::size_t OFFSET_SPARE_5                = 0x05D2;   //
 const std::size_t OFFSET_CONTROLLERNUM          = 0x05E2;   // if multiple controller system will have controller number data came from. This is a future item.
 const std::size_t OFFSET_SWMADE                 = 0x05E4;   // Which software package created this file
+const std::size_t OFFSET_NUMROI                 = 0x05E6;   // number of ROIs used. if 0 assume 1.
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif

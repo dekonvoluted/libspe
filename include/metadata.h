@@ -452,6 +452,9 @@ namespace SPE {
     //! \brief Which software package created this file
     std::uint16_t SWmade = 0;
 
+    //! \brief number of ROIs used. if 0 assume 1.
+    std::int16_t NumROI = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

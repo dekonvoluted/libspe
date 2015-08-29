@@ -155,6 +155,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( NumROIsInExperiment, OFFSET_NUMROISINEXPERIMENT );
     retrieve( controllerNum, OFFSET_CONTROLLERNUM );
     retrieve( SWmade, OFFSET_SWMADE );
+    retrieve( NumROI, OFFSET_NUMROI );
 }
 
 /*!
@@ -313,6 +314,7 @@ void Metadata::reset()
     NumROIsInExperiment = 0;
     controllerNum = 0;
     SWmade = 0;
+    NumROI = 0;
 }
 }
 
@@ -446,6 +448,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "NumROIsInExperiment" << '\t' << metadata.NumROIsInExperiment << '\n';
     out << std::setw( MAXWIDTH ) << "controllerNum" << '\t' << metadata.controllerNum << '\n';
     out << std::setw( MAXWIDTH ) << "SWmade" << '\t' << metadata.SWmade << '\n';
+    out << std::setw( MAXWIDTH ) << "NumROI" << '\t' << metadata.NumROI << '\n';
 
     return out;
 }
