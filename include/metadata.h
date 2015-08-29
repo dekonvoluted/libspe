@@ -434,6 +434,9 @@ namespace SPE {
     //! \brief readout mode, full, kinetics, etc.
     std::uint16_t readoutMode = 0;
 
+    //! \brief window size for kinetics only
+    std::uint16_t WindowSize = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
