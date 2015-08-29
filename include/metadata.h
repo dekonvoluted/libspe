@@ -31,7 +31,7 @@ namespace SPE {
  * This struct contains all the metadata present in the header of the SPE file.
  * The implementation is compatible with SPE version 2.5 headers.
  */
-    struct Metadata : public Data
+struct Metadata : public Data
 {
     public:
     /*! \brief Create an empty metadata instance
@@ -476,7 +476,7 @@ namespace SPE {
  *
  * This method prints out all available metadata fields to an output stream.
  */
-std::ostream& operator<< ( std::ostream&, const SPE::Metadata& );
+std::ostream& operator<<( std::ostream&, const SPE::Metadata& );
 
 #endif
 

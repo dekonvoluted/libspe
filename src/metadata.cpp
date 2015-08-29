@@ -322,7 +322,7 @@ void Metadata::reset()
  * \param out An output stream
  * \param metadata An instance of SPE metadata
  */
-std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
+std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
 {
     const int MAXWIDTH = 20;
     out << std::setw( MAXWIDTH ) << "# Field" << '\t' << "value" << '\n';
