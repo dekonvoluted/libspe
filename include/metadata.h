@@ -437,6 +437,9 @@ namespace SPE {
     //! \brief window size for kinetics only
     std::uint16_t WindowSize = 0;
 
+    //! \brief clock speed for kinetics & frame transfer
+    std::uint16_t clkspd = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

@@ -150,6 +150,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( shutterComp, OFFSET_SHUTTERCOMP );
     retrieve( readoutMode, OFFSET_READOUTMODE );
     retrieve( WindowSize, OFFSET_WINDOWSIZE );
+    retrieve( clkspd, OFFSET_CLKSPD );
 }
 
 /*!
@@ -303,6 +304,7 @@ void Metadata::reset()
     shutterComp = 0.0;
     readoutMode = 0;
     WindowSize = 0;
+    clkspd = 0;
 }
 }
 
@@ -431,6 +433,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "shutterComp" << '\t' << metadata.shutterComp << '\n';
     out << std::setw( MAXWIDTH ) << "readoutMode" << '\t' << metadata.readoutMode << '\n';
     out << std::setw( MAXWIDTH ) << "WindowSize" << '\t' << metadata.WindowSize << '\n';
+    out << std::setw( MAXWIDTH ) << "clkspd" << '\t' << metadata.clkspd << '\n';
 
     return out;
 }
