@@ -151,6 +151,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( readoutMode, OFFSET_READOUTMODE );
     retrieve( WindowSize, OFFSET_WINDOWSIZE );
     retrieve( clkspd, OFFSET_CLKSPD );
+    retrieve( interface_type, OFFSET_INTERFACE_TYPE );
 }
 
 /*!
@@ -305,6 +306,7 @@ void Metadata::reset()
     readoutMode = 0;
     WindowSize = 0;
     clkspd = 0;
+    interface_type = 0;
 }
 }
 
@@ -434,6 +436,7 @@ std::ostream& operator<< ( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "readoutMode" << '\t' << metadata.readoutMode << '\n';
     out << std::setw( MAXWIDTH ) << "WindowSize" << '\t' << metadata.WindowSize << '\n';
     out << std::setw( MAXWIDTH ) << "clkspd" << '\t' << metadata.clkspd << '\n';
+    out << std::setw( MAXWIDTH ) << "interface_type" << '\t' << metadata.interface_type << '\n';
 
     return out;
 }

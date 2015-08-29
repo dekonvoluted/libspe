@@ -440,6 +440,9 @@ namespace SPE {
     //! \brief clock speed for kinetics & frame transfer
     std::uint16_t clkspd = 0;
 
+    //! \brief computer interface (isa-taxi, pci, eisa, etc.)
+    std::uint16_t interface_type = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
