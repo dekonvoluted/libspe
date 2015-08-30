@@ -502,6 +502,12 @@ struct Metadata : public Data
     //! \brief pulser burst period (in usec)
     double PulseBurstPeriod = 0.0;
 
+    //! \brief pulser bracket pulsing on/off
+    std::uint8_t PulseBracketUsed = 0;
+
+    //! \brief pulser bracket pulsing type
+    std::uint8_t PulseBracketType = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
