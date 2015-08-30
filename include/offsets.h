@@ -181,6 +181,7 @@ const std::size_t OFFSET_WINVIEW_ID             = 0x0BB4;   // == 0x01234567L if
 const std::size_t OFFSET_XCALIBRATION           = 0x0BB8;   // x axis calibration
 const std::size_t OFFSET_YCALIBRATION           = 0x0DA1;   // y axis calibration
 const std::size_t OFFSET_ISTRING                = 0x0F8A;   // special intensity scaling string
+const std::size_t OFFSET_SPARE_6                = 0x0FB2;   //
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
