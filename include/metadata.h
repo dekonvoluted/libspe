@@ -508,7 +508,11 @@ struct Metadata : public Data
     //! \brief pulser bracket pulsing type
     std::uint8_t PulseBracketType = 0;
 
-    //! \brief pulser fast exponential time constant (in usec)
+    /*!
+     * \brief pulser fast exponential time constant (in usec)
+     *
+     * Note that the specification states that this is the "pulser slow exponential time constant (in usec)", which is incorrect.
+     */
     double PulseTimeConstFast = 0.0;
 
     //! \brief pulser fast exponential amplitude constant
