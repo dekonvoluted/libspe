@@ -520,6 +520,9 @@ struct Metadata : public Data
     //! \brief pulser slow exponential amplitude constant
     double PulseAmplitudeSlow = 0.0;
 
+    //! \brief analog gain
+    std::int16_t AnalogGain = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

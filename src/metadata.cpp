@@ -197,6 +197,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( PulseAmplitudeFast, OFFSET_PULSEAMPLITUDEFAST );
     retrieve( PulseTimeConstSlow, OFFSET_PULSETIMECONSTSLOW );
     retrieve( PulseAmplitudeSlow, OFFSET_PULSEAMPLITUDESLOW );
+    retrieve( AnalogGain, OFFSET_ANALOGGAIN );
 }
 
 /*!
@@ -387,6 +388,7 @@ void Metadata::reset()
     PulseAmplitudeFast = 0.0;
     PulseTimeConstSlow = 0.0;
     PulseAmplitudeSlow = 0.0;
+    AnalogGain = 0;
 }
 }
 
@@ -551,6 +553,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "PulseAmplitudeFast" << '\t' << metadata.PulseAmplitudeFast << '\n';
     out << std::setw( MAXWIDTH ) << "PulseTimeConstSlow" << '\t' << metadata.PulseTimeConstSlow << '\n';
     out << std::setw( MAXWIDTH ) << "PulseAmplitudeSlow" << '\t' << metadata.PulseAmplitudeSlow << '\n';
+    out << std::setw( MAXWIDTH ) << "AnalogGain" << '\t' << metadata.AnalogGain << '\n';
 
     return out;
 }
