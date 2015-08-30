@@ -487,6 +487,12 @@ struct Metadata : public Data
     //! \brief special intensity scaling string
     std::string Istring = std::string( std::string( 39, ' ' ) + '\0' );
 
+    //! \brief spectrometer type (acton, spex, etc.)
+    std::uint8_t SpecType = 0;
+
+    //! \brief spectrometer model (type dependent)
+    std::uint8_t SpecModel = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

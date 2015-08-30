@@ -182,6 +182,8 @@ const std::size_t OFFSET_XCALIBRATION           = 0x0BB8;   // x axis calibratio
 const std::size_t OFFSET_YCALIBRATION           = 0x0DA1;   // y axis calibration
 const std::size_t OFFSET_ISTRING                = 0x0F8A;   // special intensity scaling string
 const std::size_t OFFSET_SPARE_6                = 0x0FB2;   //
+const std::size_t OFFSET_SPECTYPE               = 0x0FCB;   // spectrometer type (acton, spex, etc.)
+const std::size_t OFFSET_SPECMODEL              = 0x0FCC;   // spectrometer model (type dependent)
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif

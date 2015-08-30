@@ -186,6 +186,8 @@ void Metadata::read( std::ifstream& file )
     xcalibration.read( file );
     ycalibration.read( file );
     retrieve( Istring[ 0 ], OFFSET_ISTRING, 40 );
+    retrieve( SpecType, OFFSET_SPECTYPE );
+    retrieve( SpecModel, OFFSET_SPECMODEL );
 }
 
 /*!
@@ -365,6 +367,8 @@ void Metadata::reset()
     xcalibration.reset();
     ycalibration.reset();
     Istring = std::string( std::string( 39, ' ' ) + '\0' );
+    SpecType = 0;
+    SpecModel = 0;
 }
 }
 
@@ -518,6 +522,8 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "xcalibration" << '\n' << metadata.xcalibration << '\n';
     out << std::setw( MAXWIDTH ) << "ycalibration" << '\n' << metadata.ycalibration << '\n';
     out << std::setw( MAXWIDTH ) << "Istring" << "\t\"" << metadata.Istring << "\"\n";
+    out << std::setw( MAXWIDTH ) << "SpecType" << '\t' << static_cast<std::int16_t>( metadata.SpecType ) << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecModel" << '\t' << static_cast<std::int16_t>( metadata.SpecModel ) << '\n';
 
     return out;
 }
