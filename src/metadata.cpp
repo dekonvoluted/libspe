@@ -21,7 +21,18 @@
 
 namespace SPE {
 Metadata::Metadata() : Data( 0, OFFSET_DATA )
-{}
+{
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_0 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_1 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_2 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_3 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_4 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_5 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_6 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_7 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_8 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_9 ) );
+}
 
 /*!
  * \param file The file stream to read data from
@@ -156,6 +167,16 @@ void Metadata::read( std::ifstream& file )
     retrieve( controllerNum, OFFSET_CONTROLLERNUM );
     retrieve( SWmade, OFFSET_SWMADE );
     retrieve( NumROI, OFFSET_NUMROI );
+    ROIinfoblk.at( 0 ).read( file );
+    ROIinfoblk.at( 1 ).read( file );
+    ROIinfoblk.at( 2 ).read( file );
+    ROIinfoblk.at( 3 ).read( file );
+    ROIinfoblk.at( 4 ).read( file );
+    ROIinfoblk.at( 5 ).read( file );
+    ROIinfoblk.at( 6 ).read( file );
+    ROIinfoblk.at( 7 ).read( file );
+    ROIinfoblk.at( 8 ).read( file );
+    ROIinfoblk.at( 9 ).read( file );
 }
 
 /*!
@@ -315,6 +336,17 @@ void Metadata::reset()
     controllerNum = 0;
     SWmade = 0;
     NumROI = 0;
+    ROIinfoblk.clear();
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_0 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_1 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_2 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_3 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_4 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_5 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_6 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_7 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_8 ) );
+    ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_9 ) );
 }
 }
 
@@ -449,6 +481,16 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "controllerNum" << '\t' << metadata.controllerNum << '\n';
     out << std::setw( MAXWIDTH ) << "SWmade" << '\t' << metadata.SWmade << '\n';
     out << std::setw( MAXWIDTH ) << "NumROI" << '\t' << metadata.NumROI << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 0 )" << '\n' << metadata.ROIinfoblk.at( 0 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 1 )" << '\n' << metadata.ROIinfoblk.at( 1 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 2 )" << '\n' << metadata.ROIinfoblk.at( 2 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 3 )" << '\n' << metadata.ROIinfoblk.at( 3 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 4 )" << '\n' << metadata.ROIinfoblk.at( 4 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 5 )" << '\n' << metadata.ROIinfoblk.at( 5 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 6 )" << '\n' << metadata.ROIinfoblk.at( 6 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 7 )" << '\n' << metadata.ROIinfoblk.at( 7 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 8 )" << '\n' << metadata.ROIinfoblk.at( 8 ) << '\n';
+    out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 9 )" << '\n' << metadata.ROIinfoblk.at( 9 ) << '\n';
 
     return out;
 }

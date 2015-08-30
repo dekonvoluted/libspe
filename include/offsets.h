@@ -162,6 +162,16 @@ const std::size_t OFFSET_SPARE_5                = 0x05D2;   //
 const std::size_t OFFSET_CONTROLLERNUM          = 0x05E2;   // if multiple controller system will have controller number data came from. This is a future item.
 const std::size_t OFFSET_SWMADE                 = 0x05E4;   // Which software package created this file
 const std::size_t OFFSET_NUMROI                 = 0x05E6;   // number of ROIs used. if 0 assume 1.
+const std::size_t OFFSET_ROIINFOBLK_0           = 0x05E8;   // ROI Starting Offsets: ROI 1 = 1512
+const std::size_t OFFSET_ROIINFOBLK_1           = 0x05F4;   // ROI Starting Offsets: ROI 2 = 1524
+const std::size_t OFFSET_ROIINFOBLK_2           = 0x0600;   // ROI Starting Offsets: ROI 3 = 1536
+const std::size_t OFFSET_ROIINFOBLK_3           = 0x060C;   // ROI Starting Offsets: ROI 4 = 1548
+const std::size_t OFFSET_ROIINFOBLK_4           = 0x0618;   // ROI Starting Offsets: ROI 5 = 1560
+const std::size_t OFFSET_ROIINFOBLK_5           = 0x0624;   // ROI Starting Offsets: ROI 6 = 1572
+const std::size_t OFFSET_ROIINFOBLK_6           = 0x0630;   // ROI Starting Offsets: ROI 7 = 1584
+const std::size_t OFFSET_ROIINFOBLK_7           = 0x063C;   // ROI Starting Offsets: ROI 8 = 1596
+const std::size_t OFFSET_ROIINFOBLK_8           = 0x0648;   // ROI Starting Offsets: ROI 9 = 1608
+const std::size_t OFFSET_ROIINFOBLK_9           = 0x0654;   // ROI Starting Offsets: ROI 10 = 1620
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif

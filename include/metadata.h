@@ -24,6 +24,7 @@
 #include <vector>
 
 #include "data.h"
+#include "roiData.h"
 
 namespace SPE {
 /*! \brief Binary data present in an SPE file header
@@ -455,6 +456,9 @@ struct Metadata : public Data
     //! \brief number of ROIs used. if 0 assume 1.
     std::int16_t NumROI = 0;
 
+    //! \brief ROI info blocks
+    std::vector<ROIData> ROIinfoblk;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
@@ -467,6 +471,7 @@ struct Metadata : public Data
     const std::size_t LABELMAX = 16; // Label string max length
     const std::size_t FILEVERMAX = 16; // File version string max length
     const std::size_t HDRNAMEMAX = 120; // Max char str length for file name
+    const std::size_t ROIMAX = 10; // Max size of roi array of structures
 
     virtual void reset();
 };
