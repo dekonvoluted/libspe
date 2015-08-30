@@ -178,6 +178,7 @@ void Metadata::read( std::ifstream& file )
     ROIinfoblk.at( 8 ).read( file );
     ROIinfoblk.at( 9 ).read( file );
     retrieve( FlatField[ 0 ], OFFSET_FLATFIELD, HDRNAMEMAX );
+    retrieve( background[ 0 ], OFFSET_BACKGROUND, HDRNAMEMAX );
 }
 
 /*!
@@ -349,6 +350,7 @@ void Metadata::reset()
     ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_8 ) );
     ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_9 ) );
     FlatField = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
+    background = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
 }
 }
 
@@ -494,6 +496,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 8 )" << '\n' << metadata.ROIinfoblk.at( 8 ) << '\n';
     out << std::setw( MAXWIDTH ) << "ROIinfoblk.at( 9 )" << '\n' << metadata.ROIinfoblk.at( 9 ) << '\n';
     out << std::setw( MAXWIDTH ) << "FlatField" << "\t\"" << metadata.FlatField << "\"\n";
+    out << std::setw( MAXWIDTH ) << "background" << "\t\"" << metadata.background << "\"\n";
 
     return out;
 }

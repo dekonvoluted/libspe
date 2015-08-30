@@ -462,6 +462,9 @@ struct Metadata : public Data
     //! \brief Flat field file name
     std::string FlatField = std::string( std::string( 119, ' ' ) + '\0' );
 
+    //! \brief background sub. file name
+    std::string background = std::string( std::string( 119, ' ' ) + '\0' );
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

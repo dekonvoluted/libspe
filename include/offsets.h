@@ -173,6 +173,7 @@ const std::size_t OFFSET_ROIINFOBLK_7           = 0x063C;   // ROI Starting Offs
 const std::size_t OFFSET_ROIINFOBLK_8           = 0x0648;   // ROI Starting Offsets: ROI 9 = 1608
 const std::size_t OFFSET_ROIINFOBLK_9           = 0x0654;   // ROI Starting Offsets: ROI 10 = 1620
 const std::size_t OFFSET_FLATFIELD              = 0x0660;   // Flat field file name
+const std::size_t OFFSET_BACKGROUND             = 0x06D8;   // background sub. file name
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
