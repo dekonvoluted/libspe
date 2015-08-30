@@ -474,6 +474,9 @@ struct Metadata : public Data
     //! \brief Reserved for YT information
     std::string YT_Info = std::string( std::string( 999, ' ' ) + '\0' );
 
+    //! \brief == 0x01234567L if file created by WinX
+    std::int32_t WinView_id = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
