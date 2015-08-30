@@ -186,6 +186,7 @@ const std::size_t OFFSET_SPECTYPE               = 0x0FCB;   // spectrometer type
 const std::size_t OFFSET_SPECMODEL              = 0x0FCC;   // spectrometer model (type dependent)
 const std::size_t OFFSET_PULSEBURSTUSED         = 0x0FCD;   // pulser burst mode on/off
 const std::size_t OFFSET_PULSEBURSTCOUNT        = 0x0FCE;   // pulser triggers per burst
+const std::size_t OFFSET_PULSEBURSTPERIOD       = 0x0FD2;   // pulser burst period (in usec)
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
