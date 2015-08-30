@@ -468,6 +468,9 @@ struct Metadata : public Data
     //! \brief blemish file name
     std::string blemish = std::string( std::string( 119, ' ' ) + '\0' );
 
+    //! \brief version of this file header
+    float file_header_ver = 0.0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

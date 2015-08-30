@@ -180,6 +180,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( FlatField[ 0 ], OFFSET_FLATFIELD, HDRNAMEMAX );
     retrieve( background[ 0 ], OFFSET_BACKGROUND, HDRNAMEMAX );
     retrieve( blemish[ 0 ], OFFSET_BLEMISH, HDRNAMEMAX );
+    retrieve( file_header_ver, OFFSET_FILE_HEADER_VER );
 }
 
 /*!
@@ -353,6 +354,7 @@ void Metadata::reset()
     FlatField = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
     background = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
     blemish = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
+    file_header_ver = 0.0;
 }
 }
 
@@ -500,6 +502,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "FlatField" << "\t\"" << metadata.FlatField << "\"\n";
     out << std::setw( MAXWIDTH ) << "background" << "\t\"" << metadata.background << "\"\n";
     out << std::setw( MAXWIDTH ) << "blemish" << "\t\"" << metadata.blemish << "\"\n";
+    out << std::setw( MAXWIDTH ) << "file_header_ver" << '\t' << metadata.file_header_ver << '\n';
 
     return out;
 }
