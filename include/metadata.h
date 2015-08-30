@@ -523,6 +523,12 @@ struct Metadata : public Data
     //! \brief analog gain
     std::int16_t AnalogGain = 0;
 
+    //! \brief avalanche gain was used
+    std::int16_t AvGainUsed = 0;
+
+    //! \brief avalanche gain value
+    std::int16_t AvGain = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

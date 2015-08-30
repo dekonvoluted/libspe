@@ -194,6 +194,8 @@ const std::size_t OFFSET_PULSEAMPLITUDEFAST     = 0x0FE4;   // pulser fast expon
 const std::size_t OFFSET_PULSETIMECONSTSLOW     = 0x0FEC;   // pulser slow exponential time constant (in usec)
 const std::size_t OFFSET_PULSEAMPLITUDESLOW     = 0x0FF4;   // pulser slow exponential amplitude constant
 const std::size_t OFFSET_ANALOGGAIN             = 0x0FFC;   // analog gain
+const std::size_t OFFSET_AVGAINUSED             = 0x0FFE;   // avalanche gain was used
+const std::size_t OFFSET_AVGAIN                 = 0x1000;   // avalanche gain value
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
