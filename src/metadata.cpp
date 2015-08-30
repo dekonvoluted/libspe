@@ -193,6 +193,10 @@ void Metadata::read( std::ifstream& file )
     retrieve( PulseBurstPeriod, OFFSET_PULSEBURSTPERIOD );
     retrieve( PulseBracketUsed, OFFSET_PULSEBRACKETUSED );
     retrieve( PulseBracketType, OFFSET_PULSEBRACKETTYPE );
+    retrieve( PulseTimeConstFast, OFFSET_PULSETIMECONSTFAST );
+    retrieve( PulseAmplitudeFast, OFFSET_PULSEAMPLITUDEFAST );
+    retrieve( PulseTimeConstSlow, OFFSET_PULSETIMECONSTSLOW );
+    retrieve( PulseAmplitudeSlow, OFFSET_PULSEAMPLITUDESLOW );
 }
 
 /*!
@@ -379,6 +383,10 @@ void Metadata::reset()
     PulseBurstPeriod = 0.0;
     PulseBracketUsed = 0;
     PulseBracketType = 0;
+    PulseTimeConstFast = 0.0;
+    PulseAmplitudeFast = 0.0;
+    PulseTimeConstSlow = 0.0;
+    PulseAmplitudeSlow = 0.0;
 }
 }
 
@@ -539,6 +547,10 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "PulseBurstPeriod" << '\t' << metadata.PulseBurstPeriod << '\n';
     out << std::setw( MAXWIDTH ) << "PulseBracketUsed" << '\t' << static_cast<std::uint16_t>( metadata.PulseBracketUsed ) << '\n';
     out << std::setw( MAXWIDTH ) << "PulseBracketType" << '\t' << static_cast<std::uint16_t>( metadata.PulseBracketType ) << '\n';
+    out << std::setw( MAXWIDTH ) << "PulseTimeConstFast" << '\t' << metadata.PulseTimeConstFast << '\n';
+    out << std::setw( MAXWIDTH ) << "PulseAmplitudeFast" << '\t' << metadata.PulseAmplitudeFast << '\n';
+    out << std::setw( MAXWIDTH ) << "PulseTimeConstSlow" << '\t' << metadata.PulseTimeConstSlow << '\n';
+    out << std::setw( MAXWIDTH ) << "PulseAmplitudeSlow" << '\t' << metadata.PulseAmplitudeSlow << '\n';
 
     return out;
 }

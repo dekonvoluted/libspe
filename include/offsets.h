@@ -189,6 +189,10 @@ const std::size_t OFFSET_PULSEBURSTCOUNT        = 0x0FCE;   // pulser triggers p
 const std::size_t OFFSET_PULSEBURSTPERIOD       = 0x0FD2;   // pulser burst period (in usec)
 const std::size_t OFFSET_PULSEBRACKETUSED       = 0x0FDA;   // pulser bracket pulsing on/off
 const std::size_t OFFSET_PULSEBRACKETTYPE       = 0x0FDB;   // pulser bracket pulsing type
+const std::size_t OFFSET_PULSETIMECONSTFAST     = 0x0FDC;   // pulser fast exponential time constant (in usec)
+const std::size_t OFFSET_PULSEAMPLITUDEFAST     = 0x0FE4;   // pulser fast exponential amplitude constant
+const std::size_t OFFSET_PULSETIMECONSTSLOW     = 0x0FEC;   // pulser slow exponential time constant (in usec)
+const std::size_t OFFSET_PULSEAMPLITUDESLOW     = 0x0FF4;   // pulser slow exponential amplitude constant
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
