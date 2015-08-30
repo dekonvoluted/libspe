@@ -471,6 +471,9 @@ struct Metadata : public Data
     //! \brief version of this file header
     float file_header_ver = 0.0;
 
+    //! \brief Reserved for YT information
+    std::string YT_Info = std::string( std::string( 999, ' ' ) + '\0' );
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

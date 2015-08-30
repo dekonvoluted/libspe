@@ -181,6 +181,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( background[ 0 ], OFFSET_BACKGROUND, HDRNAMEMAX );
     retrieve( blemish[ 0 ], OFFSET_BLEMISH, HDRNAMEMAX );
     retrieve( file_header_ver, OFFSET_FILE_HEADER_VER );
+    retrieve( YT_Info[ 0 ], OFFSET_YT_INFO, 1000 );
 }
 
 /*!
@@ -355,6 +356,7 @@ void Metadata::reset()
     background = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
     blemish = std::string( std::string( HDRNAMEMAX - 1, ' ' ) + '\0' );
     file_header_ver = 0.0;
+    YT_Info = std::string( std::string( 999, ' ' ) + '\0' );
 }
 }
 
@@ -503,6 +505,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "background" << "\t\"" << metadata.background << "\"\n";
     out << std::setw( MAXWIDTH ) << "blemish" << "\t\"" << metadata.blemish << "\"\n";
     out << std::setw( MAXWIDTH ) << "file_header_ver" << '\t' << metadata.file_header_ver << '\n';
+    out << std::setw( MAXWIDTH ) << "YT_Info" << "\t\"" << metadata.YT_Info << "\"\n";
 
     return out;
 }
