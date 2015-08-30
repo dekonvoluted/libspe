@@ -532,9 +532,9 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "xcalibration" << '\n' << metadata.xcalibration << '\n';
     out << std::setw( MAXWIDTH ) << "ycalibration" << '\n' << metadata.ycalibration << '\n';
     out << std::setw( MAXWIDTH ) << "Istring" << "\t\"" << metadata.Istring << "\"\n";
-    out << std::setw( MAXWIDTH ) << "SpecType" << '\t' << static_cast<std::int16_t>( metadata.SpecType ) << '\n';
-    out << std::setw( MAXWIDTH ) << "SpecModel" << '\t' << static_cast<std::int16_t>( metadata.SpecModel ) << '\n';
-    out << std::setw( MAXWIDTH ) << "PulseBurstUsed" << '\t' << static_cast<std::int16_t>( metadata.PulseBurstUsed ) << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecType" << '\t' << static_cast<std::uint16_t>( metadata.SpecType ) << '\n';
+    out << std::setw( MAXWIDTH ) << "SpecModel" << '\t' << static_cast<std::uint16_t>( metadata.SpecModel ) << '\n';
+    out << std::setw( MAXWIDTH ) << "PulseBurstUsed" << '\t' << static_cast<std::uint16_t>( metadata.PulseBurstUsed ) << '\n';
     out << std::setw( MAXWIDTH ) << "PulseBurstCount" << '\t' << metadata.PulseBurstCount << '\n';
     out << std::setw( MAXWIDTH ) << "PulseBurstPeriod" << '\t' << metadata.PulseBurstPeriod << '\n';
     out << std::setw( MAXWIDTH ) << "PulseBracketUsed" << '\t' << static_cast<std::uint16_t>( metadata.PulseBracketUsed ) << '\n';
