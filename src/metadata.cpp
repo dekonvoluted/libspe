@@ -185,6 +185,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( WinView_id, OFFSET_WINVIEW_ID );
     xcalibration.read( file );
     ycalibration.read( file );
+    retrieve( Istring[ 0 ], OFFSET_ISTRING, 40 );
 }
 
 /*!
@@ -363,6 +364,7 @@ void Metadata::reset()
     WinView_id = 0;
     xcalibration.reset();
     ycalibration.reset();
+    Istring = std::string( std::string( 39, ' ' ) + '\0' );
 }
 }
 
@@ -515,6 +517,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "WinView_id" << '\t' << std::hex << std::showbase << metadata.WinView_id << std::noshowbase << std::dec << '\n';
     out << std::setw( MAXWIDTH ) << "xcalibration" << '\n' << metadata.xcalibration << '\n';
     out << std::setw( MAXWIDTH ) << "ycalibration" << '\n' << metadata.ycalibration << '\n';
+    out << std::setw( MAXWIDTH ) << "Istring" << "\t\"" << metadata.Istring << "\"\n";
 
     return out;
 }

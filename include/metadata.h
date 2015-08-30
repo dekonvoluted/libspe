@@ -484,6 +484,9 @@ struct Metadata : public Data
     //! \brief y axis calibration
     CalibrationData ycalibration;
 
+    //! \brief special intensity scaling string
+    std::string Istring = std::string( std::string( 39, ' ' ) + '\0' );
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
