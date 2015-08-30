@@ -493,6 +493,9 @@ struct Metadata : public Data
     //! \brief spectrometer model (type dependent)
     std::uint8_t SpecModel = 0;
 
+    //! \brief pulser burst mode on/off
+    std::uint8_t PulseBurstUsed = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

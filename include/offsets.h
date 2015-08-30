@@ -184,6 +184,7 @@ const std::size_t OFFSET_ISTRING                = 0x0F8A;   // special intensity
 const std::size_t OFFSET_SPARE_6                = 0x0FB2;   //
 const std::size_t OFFSET_SPECTYPE               = 0x0FCB;   // spectrometer type (acton, spex, etc.)
 const std::size_t OFFSET_SPECMODEL              = 0x0FCC;   // spectrometer model (type dependent)
+const std::size_t OFFSET_PULSEBURSTUSED         = 0x0FCD;   // pulser burst mode on/off
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif
