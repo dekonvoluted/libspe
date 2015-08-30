@@ -14,7 +14,7 @@ SOURCE_BROWSER = YES
 GENERATE_TREEVIEW = YES
 
 # Set input directories
-INPUT = include/ src/ README.md
+INPUT = include/ src/ demo/demo.cpp README.md
 
 # Use README file as main page
 USE_MDFILE_AS_MAINPAGE = README.md
