@@ -15,15 +15,20 @@
 > You should have received a copy of the GNU General Public License
 > along with libSPE. If not, see <http://www.gnu.org/licenses/>.
 
-This is a simple demonstration of libspe to get you started.
-We will read data and metadata from a sample SPE file and output it.
+This is a simple demonstration of libSPE to get you started.
+We will read data and metadata from some sample SPE files and output them.
 
 # Files
+
+The demo directory should come with two SPE files.
+The first is a long exposure image of a flame.
+The second is a series of 500 spectra binned over the entire chip.
 
     demo/
     |- demo.cpp
     |- CMakeLists.txt
     |- image.spe
+    |- spectrum.spe
 
 # Usage
 
@@ -45,4 +50,7 @@ Here are the steps to compile and run the demo:
 
         cd ..
         ./demo
+
+If all went well, you should see the output from the demo code on the screen.
+Additionally, the average data will be written out to a `.dat` file in the same directory.
 
