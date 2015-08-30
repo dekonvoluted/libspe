@@ -196,6 +196,7 @@ const std::size_t OFFSET_PULSEAMPLITUDESLOW     = 0x0FF4;   // pulser slow expon
 const std::size_t OFFSET_ANALOGGAIN             = 0x0FFC;   // analog gain
 const std::size_t OFFSET_AVGAINUSED             = 0x0FFE;   // avalanche gain was used
 const std::size_t OFFSET_AVGAIN                 = 0x1000;   // avalanche gain value
+const std::size_t OFFSET_LASTVALUE              = 0x1002;   // Always the last value in the header
 const std::size_t OFFSET_DATA                   = 0x1004;   // Start of data
 
 #endif

@@ -200,6 +200,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( AnalogGain, OFFSET_ANALOGGAIN );
     retrieve( AvGainUsed, OFFSET_AVGAINUSED );
     retrieve( AvGain, OFFSET_AVGAIN );
+    retrieve( lastvalue, OFFSET_LASTVALUE );
 }
 
 /*!
@@ -393,6 +394,7 @@ void Metadata::reset()
     AnalogGain = 0;
     AvGainUsed = 0;
     AvGain = 0;
+    lastvalue = 0;
 }
 }
 
@@ -560,6 +562,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "AnalogGain" << '\t' << metadata.AnalogGain << '\n';
     out << std::setw( MAXWIDTH ) << "AvGainUsed" << '\t' << metadata.AvGainUsed << '\n';
     out << std::setw( MAXWIDTH ) << "AvGain" << '\t' << metadata.AvGain << '\n';
+    out << std::setw( MAXWIDTH ) << "lastvalue" << '\t' << std::hex << std::showbase << metadata.lastvalue << std::noshowbase << std::dec << '\n';
 
     return out;
 }

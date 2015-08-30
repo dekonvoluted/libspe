@@ -529,6 +529,9 @@ struct Metadata : public Data
     //! \brief avalanche gain value
     std::int16_t AvGain = 0;
 
+    //! \brief Always the last value in the header
+    std::int16_t lastvalue = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;
