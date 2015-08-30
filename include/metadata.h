@@ -496,6 +496,9 @@ struct Metadata : public Data
     //! \brief pulser burst mode on/off
     std::uint8_t PulseBurstUsed = 0;
 
+    //! \brief pulser triggers per burst
+    std::int32_t PulseBurstCount = 0;
+
     private:
     std::uint16_t m_xdim = 0;
     std::int16_t m_datatype = 0;

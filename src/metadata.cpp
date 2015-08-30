@@ -189,6 +189,7 @@ void Metadata::read( std::ifstream& file )
     retrieve( SpecType, OFFSET_SPECTYPE );
     retrieve( SpecModel, OFFSET_SPECMODEL );
     retrieve( PulseBurstUsed, OFFSET_PULSEBURSTUSED );
+    retrieve( PulseBurstCount, OFFSET_PULSEBURSTCOUNT );
 }
 
 /*!
@@ -371,6 +372,7 @@ void Metadata::reset()
     SpecType = 0;
     SpecModel = 0;
     PulseBurstUsed = 0;
+    PulseBurstCount = 0;
 }
 }
 
@@ -527,6 +529,7 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "SpecType" << '\t' << static_cast<std::int16_t>( metadata.SpecType ) << '\n';
     out << std::setw( MAXWIDTH ) << "SpecModel" << '\t' << static_cast<std::int16_t>( metadata.SpecModel ) << '\n';
     out << std::setw( MAXWIDTH ) << "PulseBurstUsed" << '\t' << static_cast<std::int16_t>( metadata.PulseBurstUsed ) << '\n';
+    out << std::setw( MAXWIDTH ) << "PulseBurstCount" << '\t' << metadata.PulseBurstCount << '\n';
 
     return out;
 }
