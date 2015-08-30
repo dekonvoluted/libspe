@@ -20,7 +20,7 @@
 #include "offsets.h"
 
 namespace SPE {
-Metadata::Metadata() : Data( 0, OFFSET_DATA )
+Metadata::Metadata() : Data( 0, OFFSET_DATA ), xcalibration( OFFSET_XCALIBRATION ), ycalibration( OFFSET_YCALIBRATION )
 {
     ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_0 ) );
     ROIinfoblk.push_back( ROIData( OFFSET_ROIINFOBLK_1 ) );
@@ -183,6 +183,8 @@ void Metadata::read( std::ifstream& file )
     retrieve( file_header_ver, OFFSET_FILE_HEADER_VER );
     retrieve( YT_Info[ 0 ], OFFSET_YT_INFO, 1000 );
     retrieve( WinView_id, OFFSET_WINVIEW_ID );
+    xcalibration.read( file );
+    ycalibration.read( file );
 }
 
 /*!
@@ -359,6 +361,8 @@ void Metadata::reset()
     file_header_ver = 0.0;
     YT_Info = std::string( std::string( 999, ' ' ) + '\0' );
     WinView_id = 0;
+    xcalibration.reset();
+    ycalibration.reset();
 }
 }
 
@@ -509,6 +513,8 @@ std::ostream& operator<<( std::ostream& out, const SPE::Metadata& metadata )
     out << std::setw( MAXWIDTH ) << "file_header_ver" << '\t' << metadata.file_header_ver << '\n';
     out << std::setw( MAXWIDTH ) << "YT_Info" << "\t\"" << metadata.YT_Info << "\"\n";
     out << std::setw( MAXWIDTH ) << "WinView_id" << '\t' << std::hex << std::showbase << metadata.WinView_id << std::noshowbase << std::dec << '\n';
+    out << std::setw( MAXWIDTH ) << "xcalibration" << '\n' << metadata.xcalibration << '\n';
+    out << std::setw( MAXWIDTH ) << "ycalibration" << '\n' << metadata.ycalibration << '\n';
 
     return out;
 }

@@ -16,7 +16,7 @@
 
 cmake_minimum_required( VERSION 3.3 )
 
-set( SPE_SOURCES spe.cpp data.cpp metadata.cpp roiData.cpp )
+set( SPE_SOURCES spe.cpp data.cpp metadata.cpp roiData.cpp calibrationData.cpp )
 
 add_library( spe SHARED ${SPE_SOURCES} )
 

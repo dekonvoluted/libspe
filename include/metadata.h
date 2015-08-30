@@ -25,6 +25,7 @@
 
 #include "data.h"
 #include "roiData.h"
+#include "calibrationData.h"
 
 namespace SPE {
 /*! \brief Binary data present in an SPE file header
@@ -476,6 +477,12 @@ struct Metadata : public Data
 
     //! \brief == 0x01234567L if file created by WinX
     std::int32_t WinView_id = 0;
+
+    //! \brief x axis calibration
+    CalibrationData xcalibration;
+
+    //! \brief y axis calibration
+    CalibrationData ycalibration;
 
     private:
     std::uint16_t m_xdim = 0;
