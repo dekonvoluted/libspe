@@ -5,13 +5,16 @@
 PROJECT_NAME = "libSPE"
 
 # Version number
-PROJECT_NUMBER = "2.0"
+PROJECT_NUMBER = "2.0-development"
 
 # Link to source code
 SOURCE_BROWSER = YES
 
+# Enable sidebar
+GENERATE_TREEVIEW = YES
+
 # Set input directories
-INPUT = include/ src/ README.md
+INPUT = include/ src/ demo/demo.cpp README.md
 
 # Use README file as main page
 USE_MDFILE_AS_MAINPAGE = README.md

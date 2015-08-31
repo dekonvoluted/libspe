@@ -1,18 +1,19 @@
-// This file is part of libspe, a C++ library to interface with spe files.
+// This file is part of libSPE, a C++ library to interface with SPE files.
+//
 // Copyright (c) 2012,2013,2014,2015 Karthik Periagaram <dekonvoluted@gmail.com>
 //
-// libspe is free software: you can redistribute it and/or modify
+// libSPE is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// libspe is distributed in the hope that it will be useful,
+// libSPE is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with libspe.  If not, see <http://www.gnu.org/licenses/>.
+// along with libSPE. If not, see <http://www.gnu.org/licenses/>.
 
 #include <vector>
 #include <string>
@@ -46,10 +47,29 @@ int main()
 
         // Print out the top left corner of the first frame
         auto frame0 = image.getFrame( 0 );
-        std::cout << "Frame 0: " << frame0( 0, 0 ) << " " << frame0( 0, 1 ) << " " << frame0( 0, 2 ) << "..." << std::endl;
-        std::cout << "         " << frame0( 1, 0 ) << " " << frame0( 1, 1 ) << " " << frame0( 1, 2 ) << "..." << std::endl;
-        std::cout << "         " << frame0( 2, 0 ) << " " << frame0( 2, 1 ) << " " << frame0( 2, 2 ) << "..." << std::endl;
-        std::cout << std::endl;
+
+        std::cout << "Frame 0: ";
+        for ( auto row = 0u; row < image.rows(); ++row ) {
+            for ( auto col = 0u; col < image.columns(); ++col ) {
+                std::cout << frame0( row, col );
+                if ( col < 2 ) {
+                    std::cout << " ";
+                } else {
+                    std::cout << "..." << std::endl;
+                    break;
+                }
+            }
+            if ( row < 2 ) {
+                std::cout << "         ";
+            } else {
+                std::cout << "         ..." << std::endl;
+                break;
+            }
+        }
+
+        // Print out all metadata in the header
+        std::cout << "Detailed metadata: " << std::endl;
+        std::cout << image.metadata << std::endl;
 
         // Output the average of all frames to a data file
         ofstream outFile;

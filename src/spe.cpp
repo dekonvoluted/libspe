@@ -1,21 +1,24 @@
-// This file is part of libspe, a C++ library to interface with spe files.
+// This file is part of libSPE, a C++ library to interface with SPE files.
+//
 // Copyright (c) 2012,2013,2014,2015 Karthik Periagaram <dekonvoluted@gmail.com>
 //
-// libspe is free software: you can redistribute it and/or modify
+// libSPE is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// libspe is distributed in the hope that it will be useful,
+// libSPE is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with libspe.  If not, see <http://www.gnu.org/licenses/>.
+// along with libSPE. If not, see <http://www.gnu.org/licenses/>.
 
 #include <vector>
 #include <cstddef>
+#include <sys/stat.h>
+#include <stdexcept>
 
 #include "spe.h"
 #include "data.h"
@@ -27,6 +30,10 @@ namespace SPE {
  */
 File::File( const std::string& filePath )
 {
+    // Verify that the given file path exists
+    struct stat buffer;
+    if ( stat( filePath.c_str(), &buffer ) ) throw std::runtime_error( "File " + filePath + " does not exist." );
+
     read( filePath );
 }
 
@@ -54,7 +61,7 @@ void File::read( const std::string& filePath )
  */
 float File::getPixel( const unsigned short row, const unsigned short col, const long frame )
 {
-    switch ( metadata.datatype ) {
+    switch ( metadata.datatype() ) {
         case 0:
             return getPixelValue<float>( row, col, frame );
         case 1:
@@ -74,7 +81,7 @@ float File::getPixel( const unsigned short row, const unsigned short col, const 
  */
 Eigen::ArrayXXf File::getFrame( const long frame )
 {
-    switch ( metadata.datatype ) {
+    switch ( metadata.datatype() ) {
         case 0:
             return getFrameArray<float>( frame );
         case 1:
@@ -84,7 +91,7 @@ Eigen::ArrayXXf File::getFrame( const long frame )
         case 3:
             return getFrameArray<std::uint16_t>( frame );
         default:
-            return Eigen::ArrayXXf( metadata.ydim, metadata.xdim );
+            return Eigen::ArrayXXf( metadata.ydim(), metadata.xdim() );
     }
 }
 
@@ -93,13 +100,13 @@ Eigen::ArrayXXf File::getFrame( const long frame )
  */
 Eigen::ArrayXXf File::getAverageFrame()
 {
-    Eigen::ArrayXXf averageFrame( metadata.ydim, metadata.xdim );
+    Eigen::ArrayXXf averageFrame( metadata.ydim(), metadata.xdim() );
 
-    for ( auto frame = 0; frame < metadata.NumFrames; ++frame ) {
+    for ( auto frame = 0; frame < metadata.NumFrames(); ++frame ) {
         averageFrame += getFrame( frame );
     }
 
-    averageFrame /= metadata.NumFrames;
+    averageFrame /= metadata.NumFrames();
 
     return averageFrame;
 }
@@ -109,7 +116,7 @@ Eigen::ArrayXXf File::getAverageFrame()
  */
 std::size_t File::rows() const
 {
-    return metadata.ydim;
+    return metadata.ydim();
 }
 
 /*!
@@ -117,7 +124,7 @@ std::size_t File::rows() const
  */
 std::size_t File::columns() const
 {
-    return metadata.xdim;
+    return metadata.xdim();
 }
 
 /*!
@@ -125,7 +132,7 @@ std::size_t File::columns() const
  */
 std::size_t File::frames() const
 {
-    return metadata.NumFrames;
+    return metadata.NumFrames();
 }
 }
 

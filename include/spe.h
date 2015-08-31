@@ -1,18 +1,19 @@
-// This file is part of libspe, a C++ library to interface with spe files.
+// This file is part of libSPE, a C++ library to interface with SPE files.
+//
 // Copyright (c) 2012,2013,2014,2015 Karthik Periagaram <dekonvoluted@gmail.com>
 //
-// libspe is free software: you can redistribute it and/or modify
+// libSPE is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// libspe is distributed in the hope that it will be useful,
+// libSPE is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with libspe.  If not, see <http://www.gnu.org/licenses/>.
+// along with libSPE. If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef SPE_FILE_H
 #define SPE_FILE_H
@@ -98,11 +99,11 @@ class File
      */
     std::size_t frames() const;
 
-    /*! \brief Directly access metadata obtained from the header
+    /*! \brief Access metadata obtained from the header
      *
-     * This instance contains all the available metadata in the header of the SPE file.
-     * Note that this access to each of the metadata fields comes with write privileges.
-     * Modifying the values will have no effect on the file itself.
+     * This metadata instance provides direct access to available metadata in the header of the SPE file.
+     * Some important values are protected and only available for reading.
+     * Modifications to metadata only affect this internal representation and will not alter the SPE file itself in any way.
      */
     Metadata metadata;
 
@@ -112,7 +113,7 @@ class File
     template<class T> float getPixelValue( const unsigned short row, const unsigned short col, const long frame )
     {
         T pixel;
-        const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim * metadata.ydim * frame ) + ( metadata.xdim * row ) + col ) );
+        const std::size_t offset = OFFSET_DATA + ( sizeof( pixel ) * ( ( metadata.xdim() * metadata.ydim() * frame ) + ( metadata.xdim() * row ) + col ) );
         Data pixelData( offset, sizeof( pixel ) );
         pixelData.read( file );
         pixelData.retrieve( pixel );
@@ -121,8 +122,8 @@ class File
 
     template<class T> Eigen::ArrayXXf getFrameArray( const long frame )
     {
-        Eigen::ArrayXXf frameArray( metadata.ydim, metadata.xdim );
-        const std::size_t frameDim = metadata.xdim * metadata.ydim;
+        Eigen::ArrayXXf frameArray( metadata.ydim(), metadata.xdim() );
+        const std::size_t frameDim = metadata.xdim() * metadata.ydim();
         const std::size_t frameSize = frameDim * sizeof( T );
         const std::size_t offset = OFFSET_DATA + ( frameSize * frame );
 
@@ -132,8 +133,8 @@ class File
         frameData.retrieve( *pixels.data(), 0, frameSize );
 
         auto count = 0;
-        for ( auto row = 0; row < metadata.ydim; ++row ) {
-            for ( auto col = 0; col < metadata.xdim; ++col ) {
+        for ( auto row = 0; row < metadata.ydim(); ++row ) {
+            for ( auto col = 0; col < metadata.xdim(); ++col ) {
                 frameArray( row, col ) = pixels.at( count++ );
             }
         }
