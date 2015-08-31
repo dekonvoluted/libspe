@@ -5,7 +5,7 @@
 PROJECT_NAME = "libSPE"
 
 # Version number
-PROJECT_NUMBER = "2.0-development"
+PROJECT_NUMBER = "3.0"
 
 # Link to source code
 SOURCE_BROWSER = YES
